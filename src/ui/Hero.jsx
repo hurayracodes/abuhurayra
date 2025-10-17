@@ -44,7 +44,7 @@ function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center relative">
             <button
                 type="button"
-                className='text-white shadow-lg shadow-cyan-500/50 text-lg bg-gray-900 border border-gray-500 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg px-8 py-3 text-center me-2 mb-2 dark:border-purple-400 dark:hover:bg-purple-500 dark:focus:ring-purple-900'
+                className='text-white shadow-lg shadow-cyan-500/50 text-lg bg-gray-900 border border-gray-500 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg px-8 py-3 text-center me-2 mb-2 dark:border-cyan-400  dark:focus:ring-purple-900'
               >
                 <span className="flex items-center justify-center">
                   Hire Me
@@ -53,7 +53,7 @@ function Hero() {
 
               <button
                 type="button"
-                className='text-white shadow-lg shadow-cyan-500/50 text-lg bg-gray-900 border border-gray-500 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg px-8 py-3 text-center me-2 mb-2 dark:border-purple-400 dark:hover:bg-purple-500 dark:focus:ring-purple-900'
+                className='text-white shadow-lg shadow-gray-500/50 text-lg bg-gradient-to-br from-[#21204ba9] to-[#261935a4] border border-gray-500  focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg px-8 py-3 text-center me-2 mb-2 dark:border-gray-400  dark:focus:ring-purple-900'
               >
                 <span className="flex items-center justify-center">
                   Download CV

@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
   // ];
 function Navigation() {
   return (
-    <header className='fixed bg-slate-900 top-0 left-0 right-0 z-50 transition-all duration-500'>
+    <header className='fixed bg-gradient-to-br from-[#21204ba9] to-[#261935a4] top-0 left-0 right-0 z-50 transition-all duration-500'>
       <div className='container mx-auto p-3 flex items-center justify-between'>
         <div className='text-3xl font-bold bg-gradient-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent'>Abu Hurayra</div>
         <nav className='md:flex items-center space-x-8'>

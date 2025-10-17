@@ -6,11 +6,12 @@ const skills = [
   { name: "JavaScript", icon: "⚡" },
   { name: "React", icon: "⚛️" },
   { name: "Bootstrap", icon: "🎯" },
+  { name: "TailwindCss", icon: "✨" },
 ];
 
 function Info() {
   return (
-    <section className="py-24 px-4 sm:px-6 relative overflow-hidden bg-black">
+    <section className="py-24 px-4 sm:px-6 relative overflow-hidden">
       {/* 🌟 Static Stars Background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {[...Array(100)].map((_, i) => (
@@ -44,7 +45,7 @@ function Info() {
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 blur-2xl opacity-30 -z-10"></div>
 
                 {/* Image */}
-                <div className="relative w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900 shadow-xl z-10">
+                <div className="relative transform transition duration-500 hover:scale-105 w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900 shadow-xl z-10">
                   <img
                     className="object-cover w-full h-full"
                     src="assets/3.png"
@@ -87,8 +88,8 @@ function Info() {
               {skills.map((skill, index) => (
                 <div
                   key={index}
-                  className="w-32 h-28 transform transition duration-500 hover:scale-105 bg-slate-900 
-                  hover:bg-gradient-to-br hover:from-blue-700 hover:to-purple-800 hover:shadow-[0_0_20px_rgba(59,130,246,0.6)]
+                  className="w-32 h-28 transform transition duration-500 hover:scale-105 bg-gradient-to-br from-[#21204ba9] to-[#261935a4] 
+                  hover:bg-gradient-to-br hover:from-cyan-700 hover:to-purple-800 hover:shadow-[0_0_20px_rgba(59,130,246,0.6)]
                   focus:ring-4 focus:outline-none focus:ring-blue-300 text-white rounded-2xl inline-flex items-center justify-center px-4 py-2.5"
                 >
                   <div className="text-center">

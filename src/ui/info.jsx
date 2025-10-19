@@ -48,7 +48,7 @@ function Info() {
                 <div className="relative transform transition duration-500 hover:scale-105 w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900 shadow-xl z-10">
                   <img
                     className="object-cover w-full h-full"
-                    src="assets/3.png"
+                    src="assets/2.png"
                     alt="Abu Huraira"
                   />
                 </div>
@@ -61,16 +61,16 @@ function Info() {
             </div>
 
             <div className="space-y-6 sm:space-y-8">
-              <h2 className="text-5xl font-bold bg-gradient-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
+              <h2 className="text-5xl w-full font-bold bg-gradient-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
                 About Me
               </h2>
-              <p className="text-lg text-white sm:text-lg">
+              <p className="text-lg text-white">
                 I'm a passionate creative developer who bridges the gap between
                 imagination and reality. With expertise in modern web
                 technologies and 3D design, I create immersive digital
                 experiences that captivate and engage users.
               </p>
-              <p className="text-lg text-white sm:text-lg">
+              <p className="text-lg text-white">
                 My journey combines technical precision with artistic vision,
                 resulting in projects that are not just functional, but truly
                 memorable. I believe in pushing the boundaries of what's

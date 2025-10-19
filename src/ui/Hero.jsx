@@ -1,24 +1,24 @@
-import { FaArrowRight } from "react-icons/fa";
+import React from "react";
+import "./Hero.css"; // 👈 we'll add animation here
 
 function Hero() {
   return (
     <div className="relative">
-      {/* 🌟 Twinkling Stars Background */}
+      {/* 🌟 Floating & Falling Stars Background */}
       <div className="absolute inset-0 overflow-hidden -z-10">
         <div className="absolute w-full h-full bg-black"></div>
 
-        {/* Stars Layer */}
-        {[...Array(50)].map((_, i) => (
+        {[...Array(100)].map((_, i) => (
           <div
             key={i}
-            className="absolute bg-white rounded-full opacity-70 animate-twinkle"
+            className="absolute bg-white rounded-full opacity-80 animate-floating-star"
             style={{
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
-              width: `${Math.random() * 3 + 1}px`,
-              height: `${Math.random() * 3 + 1}px`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 2}s`,
+              width: `${Math.random() * 2 + 1}px`,
+              height: `${Math.random() * 2 + 1}px`,
+              animationDelay: `${Math.random() * 5}s`,
+              animationDuration: `${4 + Math.random() * 5}s`,
             }}
           ></div>
         ))}
@@ -43,22 +43,22 @@ function Hero() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center relative">
             <button
-                type="button"
-                className='text-white shadow-lg shadow-cyan-500/50 text-lg bg-gray-900 border border-gray-500 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg px-8 py-3 text-center me-2 mb-2 dark:border-cyan-400  dark:focus:ring-purple-900'
-              >
-                <span className="flex items-center justify-center">
-                  Hire Me
-                </span>
-              </button>
+              type="button"
+              className="text-white shadow-lg shadow-cyan-500/50 text-lg bg-gray-900 border border-gray-500 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg px-8 py-3 text-center me-2 mb-2 dark:border-cyan-400 dark:focus:ring-purple-900"
+            >
+              <span className="flex items-center justify-center">
+                Explore Projects
+              </span>
+            </button>
 
-              <button
-                type="button"
-                className='text-white shadow-lg shadow-gray-500/50 text-lg bg-gradient-to-br from-[#21204ba9] to-[#261935a4] border border-gray-500  focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg px-8 py-3 text-center me-2 mb-2 dark:border-gray-400  dark:focus:ring-purple-900'
-              >
-                <span className="flex items-center justify-center">
-                  Download CV
-                </span>
-              </button>
+            <button
+              type="button"
+              className="text-white shadow-lg shadow-gray-500/50 text-lg bg-gradient-to-br from-[#21204ba9] to-[#261935a4] border border-gray-500 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg px-8 py-3 text-center me-2 mb-2 dark:border-gray-400 dark:focus:ring-purple-900"
+            >
+              <span className="flex items-center justify-center">
+                Download CV
+              </span>
+            </button>
           </div>
 
           {/* Scroll Indicator */}

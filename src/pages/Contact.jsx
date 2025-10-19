@@ -20,7 +20,7 @@ const Contact = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden text-white px-4 py-12">
       {/* 🌌 Gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0b0c10] via-[#0b0c20] to-[#0b0c30] z-0" />
+      <div className="absolute inset-0 z-0" />
 
       {/* ✨ Stars layers */}
       <div className="absolute inset-0 z-0">
@@ -51,7 +51,7 @@ const Contact = () => {
               </h3>
               
               <div className="space-y-4">
-                <div className="flex items-center space-x-3 p-3 rounded-lg bg-gradient-to-br from-[#1312375e] to-[#261935a4] shadow-lg shadow-cyan-500/50 transition-colors">
+                <div className="flex items-center space-x-3 p-3 rounded-lg bg-gradient-to-br  transition-colors">
                   <div className="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center">
                     💬
                   </div>
@@ -61,7 +61,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-3 p-3 rounded-lg bg-gradient-to-br from-[#21204ba9] to-[#1c0f2b4a] shadow-lg shadow-gray-500/50 transition-colors">
+                <div className="flex items-center space-x-3 p-3 rounded-lg  transition-colors">
                   <div className="w-10 h-10 bg-purple-500/20 rounded-full flex items-center justify-center">
                     🚀
                   </div>
@@ -71,7 +71,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-3 p-3 rounded-lg bg-gradient-to-br from-[#21204ba9] to-[#261935a4] shadow-md shadow-cyan-800 transition-colors">
+                <div className="flex items-center space-x-3 p-3 rounded-lg transition-colors">
                   <div className="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center">
                    🔮
                   </div>
@@ -85,7 +85,7 @@ const Contact = () => {
           </div>
 
           {/* Right Side - Form */}
-          <div className="border border-white/20 bg-gradient-to-br from-[#21204ba9] to-[#261935a4] overflow-hidden transition-transform duration-300 hover:scale-[1.03] hover:shadow-lg rounded-2xl p-8">
+          <div className="border border-white/20 bg-gradient-to-br from-[#21204ba9] to-[#261935a4] overflow-hidden  rounded-2xl p-8">
           <h3 className="text-white text-2xl mb-6 font-bold">Send a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -139,7 +139,7 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className='text-white shadow-lg shadow-gray-500/50 text-lg bg-gradient-to-br from-[#21204ba9] to-[#261935a4] border border-gray-500  focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg px-8 py-3 text-center me-2 mb-2 dark:border-gray-400  dark:focus:ring-purple-900'
+                className='text-white shadow-lg shadow-gray-500/50 text-lg bg-gradient-to-br from-[#21204ba9] to-[#261935a4] border border-gray-500  focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg px-8 py-3 text-center me-2 mb-2 dark:border-gray-400 dark:focus:ring-purple-900 transition-transform hover:scale-[1.03] hover:purple-900 duration-300'
               >
                 <span className="flex items-center justify-center">
                   Send Message

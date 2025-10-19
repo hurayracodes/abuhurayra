@@ -2,7 +2,7 @@ import React from "react";
 
 const CtaSection = () => {
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#1615438c] to-[#311f4667] overflow-hidden">
+    <div className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#1615438c] to-[#311f4667] overflow-hidden ">
       {/* Star background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {Array.from({ length: 100 }).map((_, i) => (
@@ -23,11 +23,11 @@ const CtaSection = () => {
       </div>
       {/* Glass effect panel */}
       <div
-        className="z-10 px-8 py-16 rounded-xl shadow-lg border bg-gradient-to-br from-[#18183bbe] to-[#241238] border-white/20
+        className="z-10 px-8 py-16 rounded-xl shadow-lg border bg-gradient-to-br from-[#18183bbe] to-[#241238] border-white/20 hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] transform transition duration-500 hover:scale-105
         flex flex-col items-center max-w-xl w-full"
       >
-        <h1 className="text-white text-3xl md:text-5xl font-semibold mb-8 drop-shadow">
-          Let's create something amazing together.
+        <h1 className="bg-gradient-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent text-3xl md:text-5xl font-semibold mb-8 drop-shadow">
+          Let's create something <span className="text-white">amazing together.</span>
         </h1>
         <div className="flex flex-col md:flex-row gap-4 justify-center">
           <button className='text-white shadow-lg shadow-cyan-500/50 text-lg bg-gray-900 border border-gray-500 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg px-8 py-3 text-center me-2 mb-2 dark:border-cyan-400  dark:focus:ring-purple-900'>

@@ -13,8 +13,8 @@ function Home() {
     <Info/>
     <Projects/>
     <Testimonils/>
-    <CtaSection/>
     <Contact/>
+    <CtaSection/>
     </>
   );
 }

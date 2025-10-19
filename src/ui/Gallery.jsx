@@ -43,11 +43,10 @@ const Gallery = () => {
       {/* ✨ Gallery Content */}
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {galleryItems.map(({ id, title, category, image, description, link }) => (
-          <a
+          <div
   key={id}
   href={link}
-  className="group relative block rounded-xl border border-white/20 
-  bg-gradient-to-br from-[#21204ba9] to-[#261935a4] overflow-hidden transition-transform duration-300 hover:scale-[1.03] hover:shadow-lg"
+  className="group relative block rounded-xl border border-white/20 overflow-hidden hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] hover:bg-gradient-to-br hover:from-[#21204ba9] hover:to-[#261935a4] transform transition duration-500 hover:rotate-3"
 >
   {/* Image Section (fixed height) */}
   <div className="h-44 flex justify-center items-center bg-white/5 p-4">
@@ -69,8 +68,24 @@ const Gallery = () => {
       <p className="text-purple-300 text-sm mb-2">{category}</p>
       <p className="text-white/90 text-sm mb-4">{description}</p>
     </div>
+    <div className="text-right">
+      <a
+            href={link}
+            className="inline-flex  hover:translate-x-2 items-center text-white hover:text-purple-400 transition-all duration-300 font-medium group"
+          >
+            Check Live site
+            <svg
+              className="w-5 h-5 ml-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+    </div>
   </div>
-</a>
+</div>
 
         ))}
       </div>

@@ -27,21 +27,25 @@ const CtaSection = () => {
         flex flex-col items-center max-w-xl w-full"
       >
         <h1 className="bg-gradient-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent text-3xl md:text-5xl font-semibold mb-8 drop-shadow">
-          Let's create something <span className="text-white">amazing together.</span>
+          Let's create something{" "}
+          <span className="text-white">amazing together.</span>
         </h1>
         <div className="flex flex-col md:flex-row gap-4 justify-center">
-          <button className='text-white shadow-lg shadow-cyan-500/50 text-lg bg-gray-900 border border-gray-500 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg px-8 py-3 text-center me-2 mb-2 dark:border-cyan-400  dark:focus:ring-purple-900'>
+          <a href="mailto:hello@abuhuraira3912l@gmail.com">
+
+          <button className="text-white shadow-lg shadow-cyan-500/50 text-lg bg-gray-900 border border-gray-500 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg px-8 py-3 text-center me-2 mb-2 dark:border-cyan-400  dark:focus:ring-purple-900">
             abuhuraira3912l@gmail.com
             <span className="ml-2">→</span>
           </button>
-          <button
-                type="button"
-                className='text-white shadow-lg shadow-gray-500/50 text-lg bg-gradient-to-br from-[#21204ba9] to-[#261935a4] border border-gray-500  focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg px-8 py-3 text-center me-2 mb-2 dark:border-gray-400  dark:focus:ring-purple-900'
-              >
-                <span className="flex items-center justify-center">
-                  Hire Me
-                </span>
-              </button>
+          </a>
+          <a href="https://www.fiverr.com/s/YR1qWWK" target="_blank">
+            <button
+              type="button"
+              className="text-white shadow-lg shadow-gray-500/50 text-lg bg-gradient-to-br from-[#21204ba9] to-[#261935a4] border border-gray-500  focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg px-8 py-3 text-center me-2 mb-2 dark:border-gray-400  dark:focus:ring-purple-900"
+            >
+              <span className="flex items-center justify-center">Hire Me</span>
+            </button>
+          </a>
         </div>
       </div>
     </div>

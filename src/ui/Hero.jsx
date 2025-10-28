@@ -47,7 +47,7 @@ function Hero() {
             </p>
 
             {/* Chat Bubble */}
-            <div className="bg-gradient-to-br from-[#18183bbe] to-[#241238] border border-blue-500/40 hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] transform transition duration-500 p-6 rounded-3xl animate-float-bounce relative">
+            <div className="bg-gradient-to-br from-[#191932be] to-[#370b6a80] border border-blue-500/40 hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] transform transition duration-500 p-6 rounded-3xl animate-float-bounce relative">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center">
                   <Bot className="w-6 h-6 text-blue-400" />
@@ -58,8 +58,9 @@ function Hero() {
                   </p>
 
                   <button className="transform hover:scale-105 flex transition text-white border border-gray-500 rounded-lg px-8 py-3">
-                    Scroll to explore more
-                    <Sparkles className="ml-2 w-4 h-4" />
+                    Scroll to explore more 
+                    {/* <Sparkles className="ml-2 w-4 h-4" /> */}
+                    <span>✨</span>
                   </button>
                 </div>
               </div>

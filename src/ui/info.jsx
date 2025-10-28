@@ -1,17 +1,20 @@
 import React from "react";
 
 const skills = [
-  { name: "HTML5", icon: "🌐" },
-  { name: "CSS3", icon: "🎨" },
-  { name: "JavaScript", icon: "⚡" },
-  { name: "React", icon: "⚛️" },
-  { name: "Bootstrap", icon: "🎯" },
-  { name: "TailwindCss", icon: "✨" },
+  { name: 'HTML5', level: 95, color: 'text-cyan-500', category: 'Frontend' },
+  { name: 'CSS3', level: 95, color: 'text-teal-400', category: 'Frontend' },
+  { name: 'JavaScript', level: 90, color: 'text-cyan-400', category: 'Frontend' },
+  { name: 'React', level: 92, color: 'text-cyan-400', category: 'Frontend' },
+  { name: 'Node.js', level: 85, color: 'text-teal-400', category: 'Backend' },
+  { name: 'Express.js', level: 85, color: 'text-cyan-500', category: 'Backend' },
+  { name: 'MongoDB', level: 80, color: 'text-accent-500', category: 'Database' },
+  { name: 'WebGL/Three.js', level: 75, color: 'text-cyan-400', category: '3D/VR' },
 ];
 
 function Info() {
+  
   return (
-    <section className="py-24 px-4 sm:px-6 relative overflow-hidden">
+    <section id="about" className="py-24 px-4 sm:px-6 relative overflow-hidden">
       {/* 🌟 Static Stars Background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {[...Array(100)].map((_, i) => (
@@ -85,23 +88,46 @@ function Info() {
             <h3 className="text-2xl sm:text-3xl font-bold bg-gradient-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
               Skills & Technologies
             </h3>
-            <div className="flex flex-wrap justify-center gap-3 sm:gap-6">
-              {skills.map((skill, index) => (
-                <div
-                  key={index}
-                  className="w-28 h-24 sm:w-32 sm:h-28 transform transition duration-500 hover:scale-105 bg-gradient-to-br from-[#21204ba9] to-[#261935a4] 
-                  hover:bg-gradient-to-br hover:from-cyan-700 hover:to-purple-800 hover:shadow-[0_0_20px_rgba(59,130,246,0.6)]
-                  focus:ring-4 focus:outline-none focus:ring-blue-300 text-white rounded-2xl inline-flex items-center justify-center px-4 py-2.5"
-                >
-                  <div className="text-center">
-                    <div className="mb-1 text-xl sm:text-2xl">{skill.icon}</div>
-                    <div className="-mt-1 font-sans text-sm sm:text-base font-semibold">
-                      {skill.name}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    {skills.map((skill, index) => (
+      <div
+        key={skill.name}
+        className="relative group p-6 rounded-2xl border border-white/10 backdrop-blur-xl bg-white/5 hover:bg-white/10 transition-all duration-300 hover:scale-105 cursor-pointer overflow-hidden"
+        style={{ animationDelay: `${index * 0.05}s` }}
+      >
+        {/* Glow effect */}
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300">
+          <div className="absolute inset-0 blur-xl opacity-25"
+            style={{ backgroundColor: `rgba(255,255,255,0.25)` }}
+          ></div>
+        </div>
+
+        {/* Skill Header */}
+        <div className="flex items-center justify-between mb-4 relative z-10">
+          <h3 className={`text-lg font-bold ${skill.color}`}>
+            {skill.name}
+          </h3>
+          <span className="text-[10px] px-2 py-1 rounded-full bg-white/10 text-white/60">
+            {skill.category}
+          </span>
+        </div>
+
+        {/* Level Indicator */}
+        <div className="space-y-2 relative z-10">
+          <div className="flex justify-between text-sm text-white/70">
+            <span>Mastery</span>
+            <span className={`${skill.color} font-semibold`}>{skill.level}%</span>
+          </div>
+          <div className="h-2 rounded-full bg-white/20 overflow-hidden">
+            <div
+              className={`h-full rounded-full transition-all duration-700 ${skill.color.replace("text", "bg")}`}
+              style={{ width: `${skill.level}%` }}
+            ></div>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
           </div>
 
           {/* Stats */}

@@ -11,7 +11,7 @@ const galleryItems = [
 
 const Gallery = () => {
   return (
-    <div className="relative min-h-screen py-16  px-8 overflow-hidden">
+    <section id="projects" className="relative min-h-screen py-16  px-8 overflow-hidden">
           {/* Header Section */}
         <div className="text-center flex flex-col pb-6 gap-3">
           <h2 className="text-5xl font-bold bg-gradient-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
@@ -89,7 +89,7 @@ const Gallery = () => {
 
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

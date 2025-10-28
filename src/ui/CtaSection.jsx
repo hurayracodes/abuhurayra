@@ -2,7 +2,7 @@ import React from "react";
 
 const CtaSection = () => {
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#1615438c] to-[#311f4667] overflow-hidden ">
+    <section id="cta" className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#1615438c] to-[#311f4667] overflow-hidden ">
       {/* Star background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {Array.from({ length: 100 }).map((_, i) => (
@@ -48,7 +48,7 @@ const CtaSection = () => {
           </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

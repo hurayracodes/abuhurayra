@@ -18,7 +18,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden text-white px-4 py-12">
+    <section id="contact" className="relative min-h-screen flex items-center justify-center overflow-hidden text-white px-4 py-12">
       {/* 🌌 Gradient background */}
       <div className="absolute inset-0 z-0" />
 

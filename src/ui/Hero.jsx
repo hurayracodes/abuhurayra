@@ -1,74 +1,141 @@
 import React from "react";
-import "./Hero.css"; // 👈 we'll add animation here
-
+import { Bot, Sparkles } from "lucide-react";
+import projects from "./Gallery";
 function Hero() {
-  return (
-    <div className="relative">
-      {/* 🌟 Floating & Falling Stars Background */}
-      <div className="absolute inset-0 overflow-hidden -z-10">
-        <div className="absolute w-full h-full bg-black"></div>
+  // const img = "https://cdn.pixabay.com/photo/2014/12/28/13/20/wordpress-581849_1280.jpg";
+  const img = "assets/4.png";
 
-        {[...Array(100)].map((_, i) => (
+  return (
+    <div className="relative overflow-hidden">
+      {/* ⭐ Stars Background */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        {[...Array(120)].map((_, i) => (
           <div
             key={i}
-            className="absolute bg-white rounded-full opacity-80 animate-floating-star"
+            className="absolute rounded-full bg-white opacity-80 animate-starMove"
             style={{
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
-              width: `${Math.random() * 2 + 1}px`,
-              height: `${Math.random() * 2 + 1}px`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${4 + Math.random() * 5}s`,
+              width: `${Math.random() * 3 + 1}px`,
+              height: `${Math.random() * 3 + 1}px`,
+              animationDelay: `${Math.random() * 4}s`,
+              animationDuration: `${8 + Math.random() * 8}s`,
             }}
           ></div>
         ))}
       </div>
 
-      {/* Hero Content */}
-      <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
-        <div className="text-center flex flex-col items-center relative justify-center px-6">
-          <h1 className="text-3xl md:text-7xl lg:text-8xl text-white font-bold mb-6">
-            <span className="font-bold bg-gradient-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
-              Hi, I'm Hurara
-            </span>
-            <span className="block text-foreground text-glow">
-              Web Developer
-            </span>
-          </h1>
-
-          <p className="text-base sm:text-xl md:text-2xl text-white mb-8 font-light tracking-wide">
-            I do Code &{" "}
-            <span className="font-bold text-blue-400 ml-2">Chill</span>
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center relative">
-            <button
-              type="button"
-              className="text-white shadow-lg shadow-cyan-500/50 text-lg bg-gray-900 border border-gray-500 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg px-8 py-3 text-center me-2 mb-2 dark:border-cyan-400 dark:focus:ring-purple-900"
-            >
-              <span className="flex items-center justify-center">
-                Explore Projects
+      <section
+        id="home"
+        className="relative min-h-screen flex items-center justify-center px-6 py-20"
+      >
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
+          {/* Text Section */}
+          <div className="space-y-8 text-white">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+              <span className="block glow">Abu Hurayra</span>
+              <span className="block text-4xl lg:text-5xl mt-4 text-gray-300">
+                Hi, I'm Website <br /> 
+                <span className="bg-gradient-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent text-3xl md:text-5xl font-semibold mb-8 drop-shadow animate-pulse">
+                  Developer
+                </span>
               </span>
-            </button>
+            </h1>
 
-            <button
-              type="button"
-              className="text-white shadow-lg shadow-gray-500/50 text-lg bg-gradient-to-br from-[#21204ba9] to-[#261935a4] border border-gray-500 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg px-8 py-3 text-center me-2 mb-2 dark:border-gray-400 dark:focus:ring-purple-900"
-            >
-              <span className="flex items-center justify-center">
-                Download CV
-              </span>
-            </button>
+            <p className="text-lg md:text-xl text-blue-400 glow">
+              <span className="">I Can Create Modern Websites</span>
+            </p>
+
+            {/* Chat Bubble */}
+            <div className="bg-gradient-to-br from-[#18183bbe] to-[#241238] border border-blue-500/40 hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] transform transition duration-500 p-6 rounded-3xl animate-float-bounce relative">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center">
+                  <Bot className="w-6 h-6 text-blue-400" />
+                </div>
+                <div className="flex-1 ">
+                  <p className="text-gray-300 text-sm mb-3">
+                    Welcome aboard! Ready to explore futuristic web experiences?
+                  </p>
+
+                  <button className="transform hover:scale-105 flex transition text-white border border-gray-500 rounded-lg px-8 py-3">
+                    Scroll to explore more
+                    <Sparkles className="ml-2 w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Scroll Indicator */}
-          <div className="mt-8 flex justify-center transform transition duration-500 hover:scale-110">
-            <div className="w-7 h-10 border-2 border-white/30 rounded-full flex justify-center p-1">
-              <div className="w-2 h-2 animate-bounce bg-white/80 rounded-full mt-1" />
+          {/* Image Floating Side */}
+          <div className="relative animate-float-bounce">
+            <div className="rounded-3xl overflow-hidden border border-blue-500/40 bg-gray-900/40 backdrop-blur-md">
+              <img src={img} alt="workspace" className="w-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+            </div>
+
+            {/* Badges */}
+            <div className="absolute -top-6 -right-6 bg-gray-900/70 backdrop-blur-sm border border-blue-500/40 px-3 py-1 rounded-full">
+              <span className="text-blue-400 font-medium">React</span>
+            </div>
+
+            <div className="absolute -bottom-6 -left-6 bg-gray-900/70 backdrop-blur-sm border border-green-500/40 px-3 py-1 rounded-full">
+              <span className="text-green-400 font-medium">Node.js</span>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Animation CSS */}
+      <style jsx>{`
+        .glow {
+          text-shadow: 0 0 12px rgba(96, 165, 250, 0.9),
+            0 0 24px rgba(96, 165, 250, 0.6), 0 0 36px rgba(96, 165, 250, 0.4);
+        }
+
+        @keyframes floatBounce {
+          0%,
+          100% {
+            transform: translateY(-12px);
+          }
+          50% {
+            transform: translateY(12px);
+          }
+        }
+        .animate-float-bounce {
+          animation: floatBounce 4.5s ease-in-out infinite;
+        }
+
+        @keyframes smoothFadeUp {
+          from {
+            opacity: 0;
+            transform: translateY(18px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-smooth-fade-up {
+          animation: smoothFadeUp 1.2s ease-out forwards;
+        }
+
+        @keyframes starMove {
+          0% {
+            transform: translateY(0px);
+            opacity: 0.4;
+          }
+          50% {
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(200px);
+            opacity: 0.4;
+          }
+        }
+        .animate-starMove {
+          animation: starMove linear infinite;
+        }
+      `}</style>
     </div>
   );
 }

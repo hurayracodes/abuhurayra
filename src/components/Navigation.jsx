@@ -1,27 +1,86 @@
-import { Link } from 'react-router-dom';
-  // const navItems = [
-  //   { to: '/', label: 'Home', icon: '👨‍🚀' },
-  //   { to: '/about', label: 'About', icon: '🧠' },
-  //   { to: '/projects', label: 'Projects', icon: '🔍' },
-  //   { to: '#gallery', label: 'Gallery', icon: '' },
-  //   { to: '#testimonials', label: 'Testimonials', icon: '👨‍🚀' },
-  //   { to: '#contact', label: 'Contact', icon: '🤖' }
-  // ];
+import { Sparkles } from "lucide-react";
+import { useState } from "react";
+
+const MenuIcon = ({ open }) => (
+  <div className="flex flex-col gap-1 transition-all duration-300">
+    <span className={`h-[2px] w-7 relative right-3 bg-white transition-all duration-300 ${open ? 'rotate-45 translate-y-1' : ''}`}></span>
+    <span className={`h-[2px] w-7 bg-white transition-all duration-300 ${open ? '-rotate-45 -translate-y-1' : ''}`}></span>
+  </div>
+);
+
 function Navigation() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const menuItems = [
+    // { label: "Home", href: "#home" },
+    { label: "About", href: "#about" },
+    { label: "Projects", href: "#projects" },
+    { label: "Testimonils", href: "#testimonils" },
+    { label: "Contact", href: "#contact" },
+  ];
+
+  const newBtn = [{
+   label: "Let’s talk", href: "#cta"
+
+  }]
+  const scrollToSection = (href) => {
+    setIsOpen(false);
+    const element = document.querySelector(href);
+    if (element) element.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <header className='fixed bg-gradient-to-br from-[#21204ba9] to-[#261935a4] top-0 left-0 right-0 z-50 transition-all duration-500'>
-      <div className='container mx-auto p-3 flex items-center justify-between'>
-        <div className='text-3xl font-bold bg-gradient-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent'>Abu Hurayra</div>
-        <nav className='md:flex items-center space-x-8'>
-          <Link to="/" className='relative text-white font-semibold hover:text-accent transition-colors duration-300'>Home</Link>
-          <Link to="/about" className='relative text-white font-semibold hover:text-accent transition-colors duration-300'>About</Link>
-          <Link to="/projects" className='relative text-white font-semibold hover:text-accent transition-colors duration-300'>Projects</Link>
-          <Link to="/testimonils" className='relative text-white font-semibold hover:text-accent transition-colors duration-300'>Testimonials</Link>
-          <Link to="/contact" className='relative text-white font-semibold hover:text-accent transition-colors duration-300'>Contact</Link>
-        </nav>
+    <>
+      {/* Top Navigation Bar */}
+      <header className="fixed top-0 w-full px-6 py-4 z-50">
+        <div className="max-w-7xl mx-auto flex justify-end items-center">
+          {/* Mobile Menu Toggle */}
+          <button className="" onClick={() => setIsOpen(!isOpen)}>
+            <MenuIcon open={isOpen} />
+          </button>
+
+        </div>
+      </header>
+
+      {/* FULL SCREEN OVERLAY MENU (Mobile) */}
+      <div
+        className={`fixed inset-0 z-[999] bg-gradient-to-br from-[#18183bbe] to-[#241238] border-white/20 backdrop-blur-xl flex flex-col justify-center items-center gap-10 text-white text-4xl transition-all duration-500 ${
+          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        {/* Close Button */}
+        <button
+          className="absolute top-6  right-6 text-white text-3xl"
+          onClick={() => setIsOpen(false)}
+        >
+          ✕
+        </button>
+
+        {/* Menu Items */}
+        {menuItems.map((item) => (
+          <button
+            key={item.label}
+            onClick={() => scrollToSection(item.href)}
+            className="hover:text-orange-300 transition tracking-wide"
+          >
+            {item.label}
+          </button>
+          
+        ))}
+         {newBtn.map((item) => (
+          <button
+            key={item.label}
+            onClick={() => scrollToSection(item.href)}
+            className="text-xl border border-white/30 px-6 py-3 rounded-full hover:border-white transition"
+          >
+            {item.label}
+          </button>
+          
+        ))}
+        
       </div>
-    </header>
-  )
+    </>
+  );
 }
 
-export default Navigation
+export default Navigation;

@@ -3,12 +3,12 @@
 @tailwind utilities;
 body{
   background: #05060f;
+  font-family: 'Orbitron', 'Exo 2', sans-serif
 }
 @keyframes twinkle {
   0%, 100% { opacity: 0.2; }
   50% { opacity: 1; }
 }
-
 .animate-twinkle {
   animation: twinkle 2s infinite ease-in-out;
 }

@@ -51,7 +51,7 @@ function Testimonials() {
   }, []);
 
   return (
-    <section className="py-20 px-4 sm:px-6 relative overflow-hidden bg-black">
+    <section id="testimonils" className="py-20 px-4 sm:px-6 relative overflow-hidden bg-black">
       {/* 🌟 Stars Background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {[...Array(100)].map((_, i) => (

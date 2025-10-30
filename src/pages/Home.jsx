@@ -4,7 +4,7 @@ import Info from "../ui/info";
 import Projects from "./Projects";
 import Testimonils from "./Testimonials";
 import Contact from "./Contact";
-import CtaSection from "../ui/CtaSection";
+import LostLoveSection from "../ui/LostLoveSection";
 
 function Home() {
   return (
@@ -14,7 +14,7 @@ function Home() {
     <Projects/>
     <Testimonils/>
     <Contact/>
-    <CtaSection/>
+    <LostLoveSection/>
     </>
   );
 }

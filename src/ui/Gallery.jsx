@@ -1,27 +1,70 @@
-import React from "react";
+import { motion } from "framer-motion";
 
 const galleryItems = [
-  { id: 3, title: "Holographic Interface", category: "AR/VR Design", image: "🔮", description: "Immersive holographic user interface concept", link: "#" },
-  { id: 4, title: "Quantum Computing UI", category: "Interface Design", image: "⚛️", description: "Next-generation quantum computing interface", link: "#" },
-  { id: 5, title: "Cyberpunk Portfolio", category: "Web Design", image: "🌃", description: "Dark cyberpunk-themed portfolio website", link: "#" },
-  { id: 6, title: "AI Assistant Interface", category: "AI/ML Design", image: "🤖", description: "Conversational AI assistant with emotion recognition", link: "#" },
-  { id: 7, title: "Space Mission Control", category: "Dashboard Design", image: "🚀", description: "Mission control dashboard for space exploration", link: "#" },
-  { id: 8, title: "Metaverse Gateway", category: "3D Design", image: "https://images.pexels.com/photos/32055930/pexels-photo-32055930.jpeg", description: "Portal interface for metaverse experiences", link: "#" },
+  {
+    id: 1,
+    title: "Holographic Interface",
+    category: "AR/VR Design",
+    image: "🔮",
+    description: "Immersive holographic user interface concept",
+    link: "#",
+    color: "#1788ae",
+  },
+  {
+    id: 2,
+    title: "Quantum Computing UI",
+    category: "Interface Design",
+    image: "⚛️",
+    description: "Next-generation quantum computing interface",
+    link: "#",
+    color: "#47afa1",
+  },
+  {
+    id: 3,
+    title: "Cyberpunk Portfolio",
+    category: "Web Design",
+    image: "🌃",
+    description: "Dark cyberpunk-themed portfolio website",
+    link: "#",
+    color: "#ffe578",
+  },
+  {
+    id: 4,
+    title: "AI Assistant Interface",
+    category: "AI/ML Design",
+    image: "🤖",
+    description: "Conversational AI assistant with emotion recognition",
+    link: "#",
+    color: "#fc815c",
+  },
+  {
+    id: 5,
+    title: "Space Mission Control",
+    category: "Dashboard Design",
+    image: "🚀",
+    description: "Mission control dashboard for space exploration",
+    link: "#",
+    color: "#459bd5",
+  },
+  {
+    id: 6,
+    title: "Metaverse Gateway",
+    category: "3D Design",
+    image:
+      "https://images.pexels.com/photos/32055930/pexels-photo-32055930.jpeg",
+    description: "Portal interface for metaverse experiences",
+    link: "#",
+    color: "#7a4fff",
+  },
 ];
 
 const Gallery = () => {
   return (
-    <section id="projects" className="relative min-h-screen py-16  px-8 overflow-hidden">
-          {/* Header Section */}
-        <div className="text-center flex flex-col pb-6 gap-3">
-          <h2 className="text-5xl font-bold bg-gradient-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
-            Featured Projects
-          </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Showcasing innovative solutions that blend creativity with cutting-edge technology
-          </p>
-        </div>
-      {/* ⭐ Star background */}
+    <section
+      id="projects"
+      className="relative max-w-screen-xl mx-auto px-4 sm:px-8 py-16 sm:pb-24 overflow-hidden"
+    >
+      {/* ⭐ Background Stars */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {Array.from({ length: 100 }).map((_, i) => (
           <span
@@ -40,55 +83,117 @@ const Gallery = () => {
         ))}
       </div>
 
-      {/* ✨ Gallery Content */}
-      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {galleryItems.map(({ id, title, category, image, description, link }) => (
-          <div
-  key={id}
-  href={link}
-  className="group relative block rounded-xl border border-white/20 overflow-hidden hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] hover:bg-gradient-to-br hover:from-[#21204ba9] hover:to-[#261935a4] transform transition duration-500 hover:rotate-3"
->
-  {/* Image Section (fixed height) */}
-  <div className="h-44 flex justify-center items-center bg-white/5 p-4">
-    {typeof image === "string" && image.startsWith("http") ? (
-      <img
-        src={image}
-        alt={title}
-        className="w-full h-full object-cover rounded-lg"
-      />
-    ) : (
-      <div className="text-7xl">{image}</div>
-    )}
-  </div>
+      {/* Header */}
+      <h2 className="text-3xl sm:text-[40px] z-10 font-bold px-4 py-2 w-max mx-auto text-center">
+        Featured Projects
+      </h2>
 
-  {/* Content Section */}
-  <div className="p-6 flex flex-col justify-between min-h-[180px]">
-    <div>
-      <h3 className="text-white text-xl font-semibold mb-1">{title}</h3>
-      <p className="text-purple-300 text-sm mb-2">{category}</p>
-      <p className="text-white/90 text-sm mb-4">{description}</p>
-    </div>
-    <div className="text-right">
-      <a
-            href={link}
-            className="inline-flex  hover:translate-x-2 items-center text-white hover:text-purple-400 transition-all duration-300 font-medium group"
-          >
-            Check Live site
-            <svg
-              className="w-5 h-5 ml-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+<div className="relative">
+      {/* Timeline Line */}
+      <div className="w-[2px] hidden sm:block bg-[#1788ae] absolute top-0 bottom-0 left-1/2 -translate-x-1/2"></div>
+      {/* Projects */}
+      <div className="relative z-10 flex flex-col gap-16 sm:gap-28 mt-12 sm:mt-20">
+        {galleryItems.map((item, index) => {
+          const isEven = index % 2 === 0;
+          return (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.2 }}
+              className={`flex flex-col sm:flex-row items-center gap-6 sm:gap-[80px] relative ${
+                !isEven ? "sm:flex-row-reverse" : ""
+              }`}
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </a>
-    </div>
-  </div>
-</div>
+              {/* Dot & Line */}
+              <div
+                className={`absolute top-1/2 hidden sm:block ${
+                  isEven ? "left-[25%] right-1/2" : "left-1/2 right-[25%]"
+                }`}
+                style={{ height: "1px", backgroundColor: item.color }}
+              ></div>
 
-        ))}
+              <div
+                className="w-4 h-4 rounded-full border-[3px] absolute left-1/2 -translate-x-1/2 bg-[#111] z-10 hidden sm:block"
+                style={{ borderColor: item.color }}
+              ></div>
+              <div
+                className={`w-4 h-4 rounded-full border-[3px] border-[${item.color}] absolute left-1/2 -translate-x-1/2 bg-[#f00] z-10 hidden sm:block`}
+              ></div>
+
+              {/* Image */}
+              <a
+                href={item.link}
+                className={`flex w-full relative justify-center ${
+                  isEven ? "sm:justify-start" : "sm:justify-end"
+                }`}
+              >
+                <div
+                  className={`flex flex-col items-center relative group sm:hover:scale-105 ease-in-out duration-200 ${
+                    isEven ? "sm:mr-auto" : "sm:ml-auto"
+                  }`}
+                >
+                  <div className="max-w-[400px] w-full flex justify-center items-center bg-white/5 rounded-lg drop-shadow-[0_0_60px_rgba(59,130,246,0.6)] h-[220px]">
+                    {item.image.startsWith("http") ? (
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    ) : (
+                      <span className="text-7xl">{item.image}</span>
+                    )}
+                  </div>
+                  <span
+                    className="flex group-hover:-top-14 ease-jump duration-200 sm:absolute left-1/2 sm:-translate-x-1/2 top-5 px-3 py-1 text-sm sm:text-base mt-3 rounded w-max items-center gap-1 text-black"
+                    style={{
+                      background: item.color,
+                    }}
+                  >
+                    {item.title}
+                  </span>
+                </div>
+              </a>
+
+              {/* Text */}
+              <div className="w-full text-white">
+                <h3
+                  className="font-bold text-2xl md:text-4xl"
+                  style={{ color: item.color }}
+                >
+                  {item.title}
+                </h3>
+                <span
+                  className="text-base md:text-lg"
+                  style={{ color: item.color }}
+                >
+                  ({item.category})
+                </span>
+                <p className="text-sm md:text-base mt-2 text-justify text-white/90">
+                  {item.description}
+                </p>
+                <ul className="flex flex-wrap gap-2 mt-2">
+                  <li className="border rounded-full border-[#999] px-[10px] py-[5px] text-sm">
+                    #react.js
+                  </li>
+                  <li className="border rounded-full border-[#999] px-[10px] py-[5px] text-sm">
+                    #tailwindcss
+                  </li>
+                  <li className="border rounded-full border-[#999] px-[10px] py-[5px] text-sm">
+                    #javascript
+                  </li>
+                  <li className="border rounded-full border-[#999] px-[10px] py-[5px] text-sm">
+                    #figma
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
+
+</div>
     </section>
   );
 };

@@ -44,7 +44,7 @@ function Navigation() {
 
       {/* FULL SCREEN OVERLAY MENU (Mobile) */}
       <div
-        className={`fixed inset-0 z-[999] bg-gradient-to-br from-[#18183bbe] to-[#241238] border-white/20 backdrop-blur-xl flex flex-col justify-center items-center gap-10 text-white text-4xl transition-all duration-500 ${
+        className={`fixed inset-0 z-999 bg-linear-to-b from-[#18183bbe] to-[#241238] border-white/20 backdrop-blur-xl flex flex-col justify-center items-center gap-10 text-white text-4xl transition-all duration-500 ${
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >

@@ -19,15 +19,6 @@ const Contact = () => {
 
   return (
     <section id="contact" className="relative min-h-screen flex items-center justify-center overflow-hidden text-white px-4 py-12">
-      {/* 🌌 linear background */}
-      <div className="absolute inset-0 z-0" />
-
-      {/* ✨ Stars layers */}
-      <div className="absolute inset-0 z-0">
-        <div className="stars"></div>
-        <div className="stars2"></div>
-        <div className="stars3"></div>
-      </div>
 
       {/* 📩 Contact Container */}
       <div className="relative z-10 w-full h-full max-w-4xl">
@@ -150,51 +141,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-
-      {/* 🌟 Stars animation */}
-      <style>{`
-        .stars, .stars2, .stars3 {
-          position: absolute;
-          width: 2px;
-          height: 2px;
-          background: transparent;
-          box-shadow: 
-            1000px 2000px #fff,
-            500px 300px #fff,
-            1500px 1200px #fff,
-            700px 800px #fff,
-            1300px 900px #fff,
-            200px 1500px #fff,
-            900px 1800px #fff;
-          animation: animStar 50s linear infinite;
-        }
-        .stars2 {
-          width: 3px;
-          height: 3px;
-          box-shadow:
-            800px 1000px #fff,
-            300px 600px #fff,
-            1600px 700px #fff,
-            900px 1200px #fff,
-            1400px 500px #fff;
-          animation: animStar 100s linear infinite;
-        }
-        .stars3 {
-          width: 1px;
-          height: 1px;
-          box-shadow:
-            600px 1100px #fff,
-            1200px 300px #fff,
-            1000px 800px #fff,
-            400px 700px #fff,
-            1500px 400px #fff;
-          animation: animStar 150s linear infinite;
-        }
-        @keyframes animStar {
-          from { transform: translateY(0px); }
-          to { transform: translateY(-2000px); }
-        }
-      `}</style>
     </section>
   );
 };

@@ -64,24 +64,6 @@ const Gallery = () => {
       id="projects"
       className="relative max-w-screen-xl mx-auto px-4 sm:px-8 py-16 sm:pb-24 overflow-hidden"
     >
-      {/* ⭐ Background Stars */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        {Array.from({ length: 100 }).map((_, i) => (
-          <span
-            key={i}
-            className="absolute rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              width: `${Math.random() * 3 + 1}px`,
-              height: `${Math.random() * 3 + 1}px`,
-              background: "white",
-              opacity: Math.random() * 0.7 + 0.3,
-              filter: "blur(0.5px)",
-            }}
-          />
-        ))}
-      </div>
 
       {/* Header */}
       <div className="text-center flex flex-col gap-5 p-3 mb-10">

@@ -47,21 +47,6 @@ const skills = [
 function Info() {
   return (
     <section id="about" className="py-24 px-4 sm:px-6 relative overflow-hidden">
-      {/* 🌟 Static Stars Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        {[...Array(100)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute bg-white rounded-full opacity-80"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              width: `${Math.random() * 2 + 1}px`,
-              height: `${Math.random() * 2 + 1}px`,
-            }}
-          />
-        ))}
-      </div>
 
       {/* Content Container */}
       <div className="relative z-10">

@@ -52,22 +52,6 @@ function Testimonials() {
 
   return (
     <section id="testimonils" className="py-20 px-4 sm:px-6 relative overflow-hidden">
-      {/* 🌟 Stars Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        {[...Array(100)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute bg-white rounded-full opacity-80"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              width: `${Math.random() * 2 + 1}px`,
-              height: `${Math.random() * 2 + 1}px`,
-            }}
-          />
-        ))}
-      </div>
-
       <div className="container mx-auto max-w-6xl relative z-10">
         {/* Header */}
         <div className="text-center flex flex-col gap-5 p-3 mb-10">

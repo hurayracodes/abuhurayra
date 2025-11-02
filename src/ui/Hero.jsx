@@ -5,7 +5,7 @@ function Hero() {
   const img = "/assets/hero-bg.svg";
 
   return (
-    <div className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-900">
+    <div className="relative overflow-hidden">
       <section className="min-h-screen flex items-center justify-center px-6 lg:px-16 text-white">
         <div className="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
           <div className="space-y-8">
@@ -21,32 +21,24 @@ function Hero() {
             <div className="space-y-4">
               <h1 className="text-5xl md:text-7xl font-bold leading-tight">
                 Hi, I'm{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 relative">
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-cyan-300 relative">
                   Abu Hurayra
                   <div className="absolute inset-0 bg-blue-400/20 blur-xl rounded-full"></div>
                 </span>
               </h1>
-
-              <h2 className="text-2xl md:text-4xl font-semibold text-gray-300">
-                Crafting Digital{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
-                  Experiences
-                </span>
-              </h2>
             </div>
 
             {/* Description */}
             <p className="text-gray-400 leading-relaxed text-lg max-w-lg animate-smooth-fade-up">
-              I specialize in building modern, responsive web applications with 
-              cutting-edge technologies. Let's bring your digital vision to life.
+              Fronted Website development with over 3+ years of experience in building modern, responsive web applications.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-6">
-              <button className="group relative px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 transition-all duration-300 font-medium flex items-center gap-2 shadow-lg shadow-blue-500/25">
+            <div className="flex flex-col bg-linear-0 sm:flex-row gap-4 pt-6">
+              <button className="group relative px-8 py-4 rounded-xl bg-linear-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 transition-all duration-300 font-medium flex items-center gap-2 shadow-lg shadow-blue-500/25">
                 <span>Get In Touch</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="absolute inset-0 rounded-xl bg-linear-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </button>
               
               <button className="group px-8 py-4 rounded-xl border border-gray-600 hover:border-blue-400 hover:text-blue-400 transition-all duration-300 font-medium flex items-center gap-2 backdrop-blur-sm">
@@ -89,7 +81,7 @@ function Hero() {
             </div>
             
             {/* Background glow */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-3xl blur-3xl scale-110"></div>
+            <div className="absolute inset-0 bg-linear-to-r from-blue-500/10 to-cyan-500/10 rounded-3xl blur-3xl scale-110"></div>
           </div>
         </div>
 

@@ -50,9 +50,6 @@ const LostLoveSection = () => {
       <div className="absolute w-24 h-24 bg-fuchsia-600/20 rounded-full blur-2xl animate-pulse"></div>
 
       <div className="z-10 max-w-xl text-center p-10 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-[0_0_40px_rgba(147,51,234,0.3)] hover:shadow-[0_0_60px_rgba(147,51,234,0.5)] transition-all duration-700">
-        <h1 className="text-5xl md:text-6xl font-light text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-300 to-cyan-200 mb-6">
-          Memories in Motion
-        </h1>
         <p className="text-lg text-gray-300 mb-8 tracking-wide leading-relaxed">
           “Some memories don’t fade — they evolve into light.” <br />
           A tribute to what was, and what still echoes in the code of time.

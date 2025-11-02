@@ -1,8 +1,5 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
 import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const testimonials = [
   {
@@ -43,19 +40,27 @@ const testimonials = [
   },
 ];
 
-function Testimonials() {
-  const [swiperReady, setSwiperReady] = useState(false);
+export default function Testimonials() {
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    setSwiperReady(true);
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % testimonials.length);
+    }, 4000);
+    return () => clearInterval(timer);
   }, []);
 
+  const { name, title, company, image, quote } = testimonials[index];
+
   return (
-    <section id="testimonils" className="py-20 px-4 sm:px-6 relative overflow-hidden">
+    <section
+      id="testimonials"
+      className="py-20 px-4 sm:px-6 relative overflow-hidden"
+    >
       <div className="container mx-auto max-w-6xl relative z-10">
         {/* Header */}
         <div className="text-center flex flex-col gap-5 p-3 mb-10">
-          <h2 className="text-5xl w-full font-bold bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
+          <h2 className="text-5xl w-full font-bold bg-gradient-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
             Client Testimonials
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
@@ -63,59 +68,62 @@ function Testimonials() {
           </p>
         </div>
 
-        {/* Swiper */}
-        {swiperReady && (
-          <Swiper
-            modules={[Pagination]}
-            spaceBetween={30}
-            slidesPerView={1}
-            loop
-            pagination={{
-              el: ".custom-pagination",
-              clickable: true,
-            }}
-            onInit={(swiper) => {
-              swiper.params.pagination.el = ".custom-pagination";
-              swiper.pagination.init();
-              swiper.pagination.update();
-            }}
-            className="overflow-hidden"
-          >
-            {testimonials.map(({ id, name, company, image, quote, title }) => (
-              <SwiperSlide key={id}>
-                <div className="glass  p-4 sm:p-8 md:p-12 rounded-2xl bg-linear-to-br from-[#18183bbe] to-[#241238] border-white/20 sm:rounded-3xl text-center max-w-full sm:max-w-4xl mx-auto transition-all duration-500">
-                  {/* Image */}
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 shadow-[0_0_35px_10px_rgba(59,130,246,0.5)] border bg-linear-to-br from-[#18183bbe] to-[#241238] border-white/20 hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] transform transition duration-500 hover:scale-105 rounded-full flex items-center justify-center text-2xl sm:text-3xl">
-                    {image}
-                  </div>
-
-                  {/* Quote */}
-                  <div className="text-sm text-white sm:text-lg md:text-xl text-foreground/90 leading-relaxed mb-6 sm:mb-8 font-light italic">
-                    {quote}
-                  </div>
-
-                  {/* Info */}
-                  <div>
-                    <h4 className="text-lg bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent font-semibold mb-2 drop-shadow">
-                      {name}
-                    </h4>
-                    <p className="text-xs text-gray-300 sm:text-sm text-accent/80">
-                      {title} at {company}
-                    </p>
-                  </div>
+        {/* Main Testimonial Card */}
+        <div
+          className="relative overflow-hidden p-4 rounded-[24px] border border-[#222] mx-auto"
+          style={{
+            width: "720px",
+            background: "linear-gradient(135deg, #18183bbe, #241238)",
+          }}
+        >
+          <div className="flex flex-col items-center justify-center text-center px-8 py-12">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40, rotateY: -25 }}
+                animate={{ opacity: 1, y: 0, rotateY: 0 }}
+                exit={{ opacity: 0, y: -40, rotateY: 25 }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+                className="flex flex-col items-center justify-center"
+              >
+                <div className="w-20 h-20 mb-6 flex items-center justify-center text-4xl bg-[#060010] border border-white/20 rounded-full shadow-[0_0_25px_10px_rgba(59,130,246,0.3)]">
+                  {image}
                 </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        )}
+                <p className="text-gray-200 text-lg italic mb-6 leading-relaxed max-w-xl">
+                  {quote}
+                </p>
+                <h4 className="text-xl bg-gradient-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent font-semibold">
+                  {name}
+                </h4>
+                <p className="text-sm text-gray-400">
+                  {title} at {company}
+                </p>
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
-        {/* ✅ Pagination only */}
-        <div className="flex justify-center items-center gap-6 mt-8">
-          <div className="custom-pagination flex justify-center  gap-2"></div>
+          {/* Pagination Dots */}
+          <div className="flex w-full justify-center mt-6">
+            <div className="flex gap-3">
+              {testimonials.map((_, i) => (
+                <motion.div
+                  key={i}
+                  className={`h-2 w-2 rounded-full cursor-pointer transition-colors duration-200 ${
+                    index === i
+                      ? "bg-[#333]"
+                      : "bg-[rgba(51,51,51,0.4)]"
+                  }`}
+                  animate={{
+                    scale: index === i ? 1.3 : 1,
+                  }}
+                  onClick={() => setIndex(i)}
+                  transition={{ duration: 0.2 }}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
-
-export default Testimonials;

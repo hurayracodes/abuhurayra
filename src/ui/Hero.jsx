@@ -1,5 +1,5 @@
 import React from "react";
-import { Code, ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import { Code, ArrowRight, Github, Linkedin, Mail, Sparkles } from "lucide-react";
 
 function Hero() {
   const img = "/assets/hero-bg.svg";
@@ -11,7 +11,7 @@ function Hero() {
           <div className="space-y-8">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 backdrop-blur-sm">
-              <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+            <Sparkles className="rounded-full animate-pulse"/>
               <p className="text-sm text-blue-400 font-medium tracking-widest uppercase">
                 Full Stack Developer
               </p>
@@ -19,9 +19,11 @@ function Hero() {
 
             {/* Main Heading */}
             <div className="space-y-4">
-              <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+              <h1 className="text-5xl md:text-7xl font-bold">
                 Hi, I'm{" "}
-                <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-cyan-300 relative">
+                <span className="text-transparent
+                font-black
+                bg-clip-text bg-linear-to-r from-blue-400 to-cyan-300 relative">
                   Abu Hurayra
                   <div className="absolute inset-0 bg-blue-400/20 blur-xl rounded-full"></div>
                 </span>
@@ -33,19 +35,6 @@ function Hero() {
               Fronted Website development with over 3+ years of experience in building modern, responsive web applications.
             </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col bg-linear-0 sm:flex-row gap-4 pt-6">
-              <button className="group relative px-8 py-4 rounded-xl bg-linear-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 transition-all duration-300 font-medium flex items-center gap-2 shadow-lg shadow-blue-500/25">
-                <span>Get In Touch</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                <div className="absolute inset-0 rounded-xl bg-linear-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              </button>
-              
-              <button className="group px-8 py-4 rounded-xl border border-gray-600 hover:border-blue-400 hover:text-blue-400 transition-all duration-300 font-medium flex items-center gap-2 backdrop-blur-sm">
-                <Code className="w-4 h-4" />
-                <span>View Work</span>
-              </button>
-            </div>
 
             {/* Social Links */}
             <div className="flex gap-4 pt-8">
@@ -82,13 +71,6 @@ function Hero() {
             
             {/* Background glow */}
             <div className="absolute inset-0 bg-linear-to-r from-blue-500/10 to-cyan-500/10 rounded-3xl blur-3xl scale-110"></div>
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-          <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-gray-400 rounded-full mt-2 animate-bounce"></div>
           </div>
         </div>
       </section>

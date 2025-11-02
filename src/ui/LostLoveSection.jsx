@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from "react";
+import { StarsCanvas } from "./StarsCanvas";
 
 const LostLoveSection = () => {
   const starsRef = useRef([]);
 
-  // Subtle parallax motion
   useEffect(() => {
     const handleMouseMove = (e) => {
       starsRef.current.forEach((star, i) => {
@@ -20,9 +20,12 @@ const LostLoveSection = () => {
   return (
     <section
       id="cta"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-gradient from-[#0d0c1e] via-[#1a0e2b] to-[#0a0818]"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
     >
-      {/* Floating Stars */}
+      {/* 3D Rotating Starfield */}
+      <StarsCanvas />
+
+      {/* Floating 2D Stars (parallax layer) */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {Array.from({ length: 80 }).map((_, i) => (
           <span
@@ -42,13 +45,12 @@ const LostLoveSection = () => {
         ))}
       </div>
 
-      {/* Pulsing Heart Core */}
+      {/* Glowing Heart & Card */}
       <div className="absolute w-48 h-48 bg-pink-500/10 rounded-full blur-3xl animate-ping"></div>
       <div className="absolute w-24 h-24 bg-fuchsia-600/20 rounded-full blur-2xl animate-pulse"></div>
 
-      {/* Glass Card */}
       <div className="z-10 max-w-xl text-center p-10 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-[0_0_40px_rgba(147,51,234,0.3)] hover:shadow-[0_0_60px_rgba(147,51,234,0.5)] transition-all duration-700">
-        <h1 className="text-5xl md:text-6xl font-light text-transparent bg-clip-text bg-gradient-to from-pink-400 via-purple-300 to-cyan-200 mb-6">
+        <h1 className="text-5xl md:text-6xl font-light text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-300 to-cyan-200 mb-6">
           Memories in Motion
         </h1>
         <p className="text-lg text-gray-300 mb-8 tracking-wide leading-relaxed">
@@ -62,7 +64,11 @@ const LostLoveSection = () => {
               Send a Signal 💌
             </button>
           </a>
-          <a href="https://www.fiverr.com/s/YR1qWWK" target="_blank" rel="noreferrer">
+          <a
+            href="https://www.fiverr.com/s/YR1qWWK"
+            target="_blank"
+            rel="noreferrer"
+          >
             <button className="text-white border border-cyan-500/40 bg-cyan-600/10 hover:bg-cyan-600/30 rounded-lg px-8 py-3 text-lg shadow-lg transition-all duration-300 hover:scale-105">
               Enter the Future 🚀
             </button>

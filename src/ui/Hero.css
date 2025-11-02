@@ -12,7 +12,6 @@
     opacity: 0.8;
   }
 }
-
 .animate-floating-star {
   animation: floating-star ease-in-out infinite;
 }

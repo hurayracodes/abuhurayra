@@ -32,7 +32,7 @@ function Navigation() {
   return (
     <>
       {/* Top Navigation Bar */}
-      <header className="fixed top-0 w-full px-6 py-4 z-50">
+      <header className="fixed top-5 w-full px-6 py-4 z-50">
         <div className="max-w-7xl mx-auto flex justify-end items-center">
           {/* Mobile Menu Toggle */}
           <button className="" onClick={() => setIsOpen(!isOpen)}>
@@ -50,7 +50,7 @@ function Navigation() {
       >
         {/* Close Button */}
         <button
-          className="absolute top-6  right-6 text-white text-3xl"
+          className="absolute top-6  right-8 text-white text-3xl"
           onClick={() => setIsOpen(false)}
         >
           ✕

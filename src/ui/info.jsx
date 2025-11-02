@@ -68,7 +68,7 @@ function Info() {
         <div
           style={{
             background:
-              "radial-gradient(circle at center, rgba(139,92,246,0.25), transparent 70%)",
+              "radial-linear(circle at center, rgba(139,92,246,0.25), transparent 70%)",
           }}
           className="container mx-auto max-w-6xl px-4"
         >
@@ -77,10 +77,10 @@ function Info() {
             <div className="relative flex justify-center lg:justify-start">
               <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 mx-auto">
                 {/* Glow behind image */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 blur-2xl opacity-30 -z-10"></div>
+                <div className="absolute inset-0 rounded-full bg-linear-to-br from-indigo-500 via-purple-500 to-pink-500 blur-2xl opacity-30 -z-10"></div>
 
                 {/* Image */}
-                <div className="relative transform transition duration-500 hover:scale-105 w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900 shadow-xl z-10">
+                <div className="relative transform transition duration-500 hover:scale-105 w-full h-full rounded-full overflow-hidden bg-linear-to-br from-indigo-900 via-purple-900 to-slate-900 shadow-xl z-10">
                   <img
                     className="object-cover w-full h-full"
                     src="assets/2.png"
@@ -97,7 +97,7 @@ function Info() {
 
             {/* Text Section */}
             <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
-              <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
+              <h2 className="text-4xl sm:text-5xl font-bold bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
                 About Me
               </h2>
               <p className="text-base sm:text-lg text-white">
@@ -117,14 +117,14 @@ function Info() {
 
           {/* Skills */}
           <div className="mt-12 sm:mt-16 flex flex-col gap-8 text-center">
-            <h3 className="text-2xl sm:text-3xl font-bold bg-gradient-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
+            <h3 className="text-2xl sm:text-3xl font-bold bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
               Skills & Technologies
             </h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {skills.map((skill, index) => (
                 <div
                   key={skill.name}
-                  className="relative group p-6 rounded-2xl bg-gradient-to-br from-[#290b3a43] to-[#38136233] border border-blue-500/40 hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] transform duration-500 transition-all hover:scale-105 cursor-pointer overflow-hidden"
+                  className="relative group p-6 rounded-2xl bg-linear-to-br from-[#290b3a43] to-[#38136233] border border-blue-500/40 hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] transform duration-500 transition-all hover:scale-105 cursor-pointer overflow-hidden"
                   style={{ animationDelay: `${index * 0.05}s` }}
                 >
                   {/* Glow effect */}
@@ -176,7 +176,7 @@ function Info() {
               { number: "100%", label: "Client Satisfaction" },
             ].map((stats, i) => (
               <div key={i} className="text-center p-4 sm:p-8">
-                <h3 className="text-3xl sm:text-4xl font-bold bg-gradient-to-b from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                <h3 className="text-3xl sm:text-4xl font-bold bg-linear-to-b from-cyan-400 to-purple-400 bg-clip-text text-transparent">
                   {stats.number}
                 </h3>
                 <div className="mb-1 text-white text-base sm:text-lg">

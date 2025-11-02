@@ -19,7 +19,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="relative min-h-screen flex items-center justify-center overflow-hidden text-white px-4 py-12">
-      {/* 🌌 Gradient background */}
+      {/* 🌌 linear background */}
       <div className="absolute inset-0 z-0" />
 
       {/* ✨ Stars layers */}
@@ -32,8 +32,9 @@ const Contact = () => {
       {/* 📩 Contact Container */}
       <div className="relative z-10 w-full h-full max-w-4xl">
         {/* Header Section */}
+        
         <div className="text-center flex flex-col pb-8 gap-3">
-          <h2 className="text-5xl font-bold bg-gradient-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
+          <h2 className="text-5xl font-bold bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
             Let's Create Together
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
@@ -46,12 +47,12 @@ const Contact = () => {
           {/* Left Side - Contact Info */}
           <div className="space-y-6">
             <div className="rounded-2xl p-6">
-              <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <h3 className="text-2xl font-bold mb-4 bg-linear-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Get In Touch
               </h3>
               
               <div className="space-y-4">
-                <div className="flex items-center space-x-3 p-3 rounded-lg bg-gradient-to-br  transition-colors">
+                <div className="flex items-center space-x-3 p-3 rounded-lg bg-linear-to-br  transition-colors">
                   <div className="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center">
                     💬
                   </div>
@@ -85,7 +86,7 @@ const Contact = () => {
           </div>
 
           {/* Right Side - Form */}
-          <div className="border border-white/20 bg-gradient-to-br from-[#21204ba9] to-[#261935a4] overflow-hidden  rounded-2xl p-8">
+          <div className="border border-white/20 bg-linear-to-br from-[#21204ba9] to-[#261935a4] overflow-hidden  rounded-2xl p-8">
           <h3 className="text-white text-2xl mb-6 font-bold">Send a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -139,7 +140,7 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className='text-white shadow-lg shadow-gray-500/50 text-lg bg-gradient-to-br from-[#21204ba9] to-[#261935a4] border border-gray-500  focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg px-8 py-3 text-center me-2 mb-2 dark:border-gray-400 dark:focus:ring-purple-900 transition-transform hover:scale-[1.03] hover:purple-900 duration-300'
+                className='text-white shadow-lg shadow-gray-500/50 text-lg bg-linear-to-br from-[#21204ba9] to-[#261935a4] border border-gray-500  focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg px-8 py-3 text-center me-2 mb-2 dark:border-gray-400 dark:focus:ring-purple-900 transition-transform hover:scale-[1.03] hover:purple-900 duration-300'
               >
                 <span className="flex items-center justify-center">
                   Send Message

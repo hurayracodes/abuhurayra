@@ -84,10 +84,11 @@ const Gallery = () => {
       </div>
 
       {/* Header */}
-      <h2 className="text-3xl sm:text-[40px] z-10 font-bold px-4 py-2 w-max mx-auto text-center">
-        Featured Projects
-      </h2>
-
+      <div className="text-center flex flex-col gap-5 p-3 mb-10">
+          <h2 className="text-5xl w-full font-bold bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
+            Featured Projects
+          </h2>
+      </div>
 <div className="relative">
       {/* Timeline Line */}
       <div className="w-[2px] hidden sm:block bg-[#1788ae] absolute top-0 bottom-0 left-1/2 -translate-x-1/2"></div>

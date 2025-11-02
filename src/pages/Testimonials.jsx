@@ -60,7 +60,7 @@ export default function Testimonials() {
       <div className="container mx-auto max-w-6xl relative z-10">
         {/* Header */}
         <div className="text-center flex flex-col gap-5 p-3 mb-10">
-          <h2 className="text-5xl w-full font-bold bg-gradient-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
+          <h2 className="text-5xl w-full font-bold bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
             Client Testimonials
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
@@ -92,7 +92,7 @@ export default function Testimonials() {
                 <p className="text-gray-200 text-lg italic mb-6 leading-relaxed max-w-xl">
                   {quote}
                 </p>
-                <h4 className="text-xl bg-gradient-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent font-semibold">
+                <h4 className="text-xl bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent font-semibold">
                   {name}
                 </h4>
                 <p className="text-sm text-gray-400">

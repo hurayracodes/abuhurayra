@@ -5,7 +5,6 @@ import Info from "../ui/info";
 import Projects from "./Projects";
 import Testimonils from "./Testimonials";
 import Contact from "./Contact";
-import LostLoveSection from "../ui/LostLoveSection";
 
 function Home() {
   return (
@@ -16,7 +15,6 @@ function Home() {
     <Projects/>
     <Testimonils/>
     <Contact/>
-    <LostLoveSection/>
     </>
   );
 }

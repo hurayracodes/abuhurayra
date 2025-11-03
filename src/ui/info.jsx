@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import Timeline from '../ui/Timeline'
+
 
 const skills = [
   { name: "HTML5 ", level: 95, color: "text-cyan-400", category: "Frontend" },
@@ -103,18 +105,19 @@ function Info() {
               <h2 className="text-4xl sm:text-5xl font-bold bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
                 About Me
               </h2>
-              <p className="text-base sm:text-lg text-white">
+              <p className="text-base sm:text-lg text-gray-400 leading-relaxed">
                 I'm a passionate creative developer who bridges the gap between
                 imagination and reality. With expertise in modern web
                 technologies and 3D design, I create immersive digital
                 experiences that captivate and engage users.
               </p>
-              <p className="text-base sm:text-lg text-white">
+              <p className="text-base sm:text-lg text-gray-400 leading-relaxed">
                 My journey combines technical precision with artistic vision,
                 resulting in projects that are not just functional, but truly
                 memorable. I believe in pushing the boundaries of what's
                 possible on the web.
               </p>
+                  {/* <Timeline/> */}
             </div>
           </div>
 
@@ -128,7 +131,7 @@ function Info() {
             {skills.map((skill, i) => (
               <div
                 key={i}
-                className="p-6 border border-white/20 bg-linear-to-br from-[#21204ba9] to-[#261935a4] rounded-2xl cursor-pointer
+                className="p-6 border border-white/20 bg-linear-to-br from-[#0e0d23a9] to-[#180a25ce] rounded-2xl cursor-pointer
                 transition-all duration-500 hover:scale-105"
                 onMouseEnter={() => startAnimation(i)}
                 onMouseLeave={stopAnimation}

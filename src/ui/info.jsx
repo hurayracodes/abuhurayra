@@ -126,7 +126,7 @@ function Info() {
                   transition={{ duration: 0.4 }}
                   onMouseMove={(e) => handleMouseMove(e, ref)}
                   onMouseLeave={() => handleMouseLeave(ref)}
-                  className="relative w-[230px] bg-linear-to-br from-[#151522] to-[#09090f] border border-gray-800 rounded-2xl p-5 flex flex-col items-start gap-3 shadow-lg hover:border-cyan-400 hover:shadow-cyan-400/30 group overflow-hidden transition-all duration-300"
+                  className="relative w-[230px] bg-linear-to-br from-[#15152272] to-[#09090f63] border border-gray-800 rounded-2xl p-5 flex flex-col items-start gap-3 shadow-lg hover:border-cyan-400 hover:shadow-cyan-400/30 group overflow-hidden transition-all duration-300"
                   style={{
                     transformStyle: "preserve-3d",
                     transform: "rotateY(0deg) rotateX(0deg)",

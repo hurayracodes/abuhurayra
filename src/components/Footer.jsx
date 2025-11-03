@@ -25,7 +25,7 @@ export default function Footer() {
           <div className="space-y-6">
             <div className="flex items-center gap-2">
               <Sparkles className="text-blue-400 w-6 h-6 animate-pulse" />
-              <h3 className="text-3xl font-bold bg-linear-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+              <h3 className="text-3xl font-bold bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
                 Abu Hurayra
               </h3>
             </div>

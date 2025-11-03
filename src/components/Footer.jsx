@@ -15,7 +15,7 @@ export default function Footer() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="relative overflow-hidden py-20 px-6 text-white bg-linear-to-br from-black/80 via-black/60 to-purple-700/40"
+      className="relative overflow-hidden py-20 px-6 text-white bg-linear-to-br from-black/60 via-black/40 to-purple-700/40"
     >
 
 

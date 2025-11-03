@@ -3,10 +3,12 @@ body{
   background: #05060f;
   font-family: 'Orbitron', 'Exo 2', sans-serif
 }
-@keyframes twinkle {
-  0%, 100% { opacity: 0.2; }
-  50% { opacity: 1; }
+/* index.css ya globals.css */
+body {
+  animation: fadeIn 0.8s ease-in-out;
 }
-.animate-twinkle {
-  animation: twinkle 2s infinite ease-in-out;
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

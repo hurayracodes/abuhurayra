@@ -1,75 +1,94 @@
-import { Code, ArrowRight, Github, Linkedin, Mail, Sparkles } from "lucide-react";
+"use client";
 
-const socialLinks = [
-  { name: "LinkedIn", icon: "💼", href: "#" },
-  { name: "GitHub", icon: "💻", href: "https://github.com/hurayracodes" },
-  { name: "Twitter", icon: "🐦", href: "#" },
-  { name: "Dribbble", icon: "🎨", href: "#" },
-];
+import { motion } from "framer-motion";
+import { Code, Github, Linkedin, Mail, Sparkles } from "lucide-react";
 
-function Footer() {
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+};
+
+export default function Footer() {
   return (
-    <footer className="relative py-20 px-6 overflow-hidden">
+    <motion.footer
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className="relative overflow-hidden py-20 px-6 text-white bg-linear-to-br from-black/80 via-black/60 to-purple-700/40"
+    >
+
 
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <div className="space-y-6">
-            <div className="text-3xl font-bold text-blue-400">Abu Hurayra</div>
-            <p className="text-white opacity-80">
+            <div className="flex items-center gap-2">
+              <Sparkles className="text-blue-400 w-6 h-6 animate-pulse" />
+              <h3 className="text-3xl font-bold bg-linear-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                Abu Hurayra
+              </h3>
+            </div>
+            <p className="text-white/80 leading-relaxed">
               Creative developer crafting immersive digital experiences with
               cutting-edge technology and artistic vision.
             </p>
           </div>
 
           {/* Contact */}
-          <div className="space-y-6">
-            <h4 className="text-white font-semibold text-lg mb-4">Get In Touch</h4>
-            <a className="text-white" href="mailto:hello@abuhuraira3912l@gmail.com">
-              <span className="flex items-center">
-                <span className="mr-3 text-xl">✉️</span>
-                abuhuraira3912l@gmail.com
-              </span>
+          <div className="space-y-4">
+            <h4 className="font-semibold text-lg mb-4 text-blue-300">
+              Get In Touch
+            </h4>
+            <a
+              href="mailto:abuhuraira3912l@gmail.com"
+              className="flex items-center gap-3 hover:text-blue-400 transition-all"
+            >
+              <Mail className="w-5 h-5" /> abuhuraira3912l@gmail.com
             </a>
-            <div className="text-white">
-              <span className="flex items-center">
-                <span className="mr-3 text-xl">🌍</span>
-                Remote / Global
-              </span>
+            <div className="flex items-center gap-3 opacity-80">
+              <span>🌍</span> Remote / Global
             </div>
-            <div className="text-white">
-              <span className="flex items-center">
-                <span className="mr-3 text-xl">⚡</span>
-                Available for projects
-              </span>
+            <div className="flex items-center gap-3 text-green-400">
+              <span>⚡</span> Available for projects
             </div>
           </div>
-          {/* Social Links */}
-                      <div className="flex items-start text-white gap-4">
-                        {[
-                          { icon: Code, href: "#", label: "Code" },
-                          { icon: Github, href: "https://github.com/hurayracodes", label: "GitHub" },
-                          { icon: Linkedin, href: "#", label: "LinkedIn" },
-                        ].map(({ icon: Icon, href, label }) => (
-                          <a
-                            key={label}
-                            href={href}
-                            className="p-3 rounded-lg border border-gray-700 hover:border-blue-400 hover:text-blue-400 transition-all duration-300 hover:scale-110 backdrop-blur-sm"
-                            aria-label={label}
-                          >
-                            <Icon className="w-5 h-5" />
-                          </a>
-                        ))}
-                      </div>
+
+          {/* Social Icons */}
+          <div className="flex md:justify-end items-start gap-4">
+            {[
+              { icon: Code, href: "#", label: "Code" },
+              {
+                icon: Github,
+                href: "https://github.com/hurayracodes",
+                label: "GitHub",
+              },
+              { icon: Linkedin, href: "#", label: "LinkedIn" },
+            ].map(({ icon: Icon, href, label }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="p-3 rounded-xl border border-white/10 hover:border-blue-400 hover:text-blue-400 hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] transition-all duration-300 hover:scale-110 backdrop-blur-sm"
+              >
+                <Icon className="w-5 h-5" />
+              </a>
+            ))}
+          </div>
         </div>
 
-        {/* Copyright */}
-        <div className="border-t border-white/10 pt-6 text-center text-white/70 text-sm">
-          © {new Date().getFullYear()} Abu Hurayra. All rights reserved.
-        </div>
+        {/* Divider */}
+        <motion.div
+          variants={fadeUp}
+          className="border-t border-white/10 pt-6 text-center text-white/60 text-sm"
+        >
+          © {new Date().getFullYear()}{" "}
+          <span className="text-blue-400 font-medium">Abu Hurayra</span>. All
+          rights reserved.
+        </motion.div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }
-
-export default Footer;

@@ -1,81 +1,65 @@
-import React from "react";
-import { useState } from "react";
-// import Timeline from '../ui/Timeline'
-  const timeline = [
-    { year: '2020', title: 'Frontend Foundation', tech: 'HTML, CSS, JavaScript' },
-    { year: '2021', title: 'React Mastery', tech: 'React, Redux, Hooks' },
-    { year: '2022', title: 'Full-Stack Evolution', tech: 'Node.js, Express, MongoDB' },
-    { year: '2023', title: 'Modern Web & 3D', tech: 'Next.js, WebGL, Three.js' },
-  ];
+import { motion } from "framer-motion";
+import { useRef } from "react";
+import { FaCode, FaReact, FaServer, FaCube } from "react-icons/fa";
+import Logo from "../ui/Logo";
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 
-
-const skills = [
-  { name: "HTML5 ", level: 95, color: "text-cyan-400", category: "Frontend" },
-  { name: "CSS3 ", level: 95, color: "text-cyan-400", category: "Frontend" },
+const steps = [
   {
-    name: "JavaScript ",
-    level: 90,
-    color: "text-cyan-400",
-    category: "Frontend",
-  },
-  { name: "React ", level: 92, color: "text-cyan-400", category: "Frontend" },
-  {
-    name: "TailwindCSS ",
-    level: 95,
-    color: "text-cyan-400",
-    category: "Liborery",
+    year: "2020",
+    title: "Frontend Foundation",
+    tech: "HTML, CSS, JavaScript",
+    icon: <FaCode />,
   },
   {
-    name: "Bootstrap ",
-    level: 90,
-    color: "text-cyan-400",
-    category: "Liborery",
+    year: "2021",
+    title: "React Mastery",
+    tech: "React, Redux, Hooks",
+    icon: <FaReact />,
   },
   {
-    name: "TypeScript ",
-    level: 60,
-    color: "text-cyan-400",
-    category: "Frontend",
+    year: "2022",
+    title: "Full-Stack Evolution",
+    tech: "Node.js, Express, MongoDB",
+    icon: <FaServer />,
   },
-  { name: "Node.js ", level: 85, color: "text-cyan-400", category: "Backend" },
   {
-    name: "Express.js",
-    level: 35,
-    color: "text-cyan-400",
-    category: "Backend",
-  },
-  { name: "MongoDB", level: 30, color: "text-cyan-400", category: "Database" },
-  {
-    name: "WebGL/Three.js",
-    level: 25,
-    color: "text-cyan-400",
-    category: "3D/VR",
+    year: "2023",
+    title: "Modern Web & 3D",
+    tech: "Next.js, WebGL, Three.js",
+    icon: <FaCube />,
   },
 ];
 
 function Info() {
-    const [activeIndex, setActiveIndex] = useState(null);
-  const [count, setCount] = useState(0);
-
-  const startAnimation = (index) => {
-    setActiveIndex(index);
-    let value = 0;
-    const target = skills[index].level;
-    const interval = setInterval(() => {
-      value++;
-      setCount(value);
-      if (value >= target) clearInterval(interval);
-    }, 15);
+  // 3D hover motion tilt
+  const handleMouseMove = (e, ref) => {
+    const card = ref.current;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const rotateY = (x / rect.width - 0.5) * 25;
+    const rotateX = (y / rect.height - 0.5) * -25;
+    card.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg) scale(1.05)`;
   };
 
-  const stopAnimation = () => {
-    setActiveIndex(null);
-    setCount(0);
+  const handleMouseLeave = (ref) => {
+    const card = ref.current;
+    card.style.transform = "rotateY(0deg) rotateX(0deg) scale(1)";
   };
+
   return (
     <section id="about" className="py-24 px-4 sm:px-6 relative overflow-hidden">
-      {/* Content Container */}
-      <div className="relative z-10">
+      <motion.div
+        variants={fadeInUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="relative z-10"
+      >
         <div
           style={{
             background:
@@ -87,10 +71,7 @@ function Info() {
             {/* Image Section */}
             <div className="relative flex justify-center lg:justify-start">
               <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 mx-auto">
-                {/* Glow behind image */}
                 <div className="absolute inset-0 rounded-full bg-linear-to-br from-indigo-500 via-purple-500 to-pink-500 blur-2xl opacity-30 -z-10"></div>
-
-                {/* Image */}
                 <div className="relative transform transition duration-500 hover:scale-105 w-full h-full rounded-full overflow-hidden bg-linear-to-br from-indigo-900 via-purple-900 to-slate-900 shadow-xl z-10">
                   <img
                     className="object-cover w-full h-full"
@@ -98,8 +79,6 @@ function Info() {
                     alt="Abu Huraira"
                   />
                 </div>
-
-                {/* Floating Orbs */}
                 <div className="absolute -top-4 -right-4 w-6 h-6 sm:w-8 sm:h-8 bg-cyan-400 rounded-full shadow-lg animate-pulse" />
                 <div className="absolute -bottom-4 -left-4 w-5 h-5 sm:w-6 sm:h-6 bg-pink-500 rounded-full shadow-lg animate-bounce" />
                 <div className="absolute top-1/2 -right-6 sm:-right-8 w-3 h-3 sm:w-4 sm:h-4 bg-purple-500 rounded-full shadow-lg animate-pulse" />
@@ -123,55 +102,74 @@ function Info() {
                 memorable. I believe in pushing the boundaries of what's
                 possible on the web.
               </p>
-                  {/* <Timeline/> */}
-                  {/* Professional Steps / Timeline */}
-
+              <h3 className="text-2xl sm:text-3xl font-bold bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
+                Skills & Technologies
+              </h3>
+              <Logo />
             </div>
           </div>
 
-          {/* Skills */}
-          <div className="mt-12 sm:mt-16 flex flex-col gap-8 text-center">
-            <h3 className="text-2xl sm:text-3xl font-bold bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
-              Skills & Technologies
-            </h3>
+          {/* 🌌 Updated Timeline (3D motion tilt) */}
+          <h3 className="text-4xl text-center sm:text-4xl font-bold bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
+            Journey Timeline
+          </h3>
+          <div className="relative mt-20 flex flex-wrap justify-center gap-10 perspective-1000">
+            <div className="absolute top-[42%] left-0 w-full h-[3px] bg-linear-to-r from-transparent via-cyan-400/40 to-transparent blur-[3px]" />
+            {steps.map((step, i) => {
+              const ref = useRef(null);
+              return (
+                <motion.div
+                  key={i}
+                  ref={ref}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4 }}
+                  onMouseMove={(e) => handleMouseMove(e, ref)}
+                  onMouseLeave={() => handleMouseLeave(ref)}
+                  className="relative w-[230px] bg-linear-to-br from-[#151522] to-[#09090f] border border-gray-800 rounded-2xl p-5 flex flex-col items-start gap-3 shadow-lg hover:border-cyan-400 hover:shadow-cyan-400/30 group overflow-hidden transition-all duration-300"
+                  style={{
+                    transformStyle: "preserve-3d",
+                    transform: "rotateY(0deg) rotateX(0deg)",
+                  }}
+                >
+                  {/* Back glow lines */}
+                  <div className="absolute inset-0 z-0">
+                    <div className="absolute top-[25%] left-0 w-full h-1px bg-linear-to-r from-transparent via-cyan-500/40 to-transparent blur-sm" />
+                    <div className="absolute top-[50%] left-0 w-full h-1px bg-linear-to-r from-transparent via-blue-500/40 to-transparent blur-[2px]" />
+                    <div className="absolute bottom-[25%] left-0 w-full h-1px bg-linear-to-r from-transparent via-purple-500/40 to-transparent blur-sm" />
+                  </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
-            {skills.map((skill, i) => (
-              <div
-                key={i}
-                className="p-6 border border-white/20 bg-linear-to-br from-[#0e0d23a9] to-[#180a25ce] rounded-2xl cursor-pointer
-                transition-all duration-500 hover:scale-105"
-                onMouseEnter={() => startAnimation(i)}
-                onMouseLeave={stopAnimation}
-              >
-                <div className="flex justify-between mb-3">
-                  <span className="text-white font-bold">{skill.name}</span>
-                  <span className="text-xs bg-white/10 px-2 py-1 rounded text-white/70">
-                    {skill.category}
-                  </span>
-                </div>
+                  {/* Icon */}
+                  <motion.div
+                    className="text-3xl text-cyan-400 relative z-10"
+                    whileHover={{ rotate: 10, scale: 1.2 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {step.icon}
+                  </motion.div>
 
-                <div className="flex justify-between text-sm text-white/60">
-                  <span>Mastery</span>
-                  <span className={`${skill.color} font-semibold`}>
-                    {activeIndex === i ? count : 0}%
-                  </span>
-                </div>
+                  {/* Text */}
+                  <div className="relative z-10">
+                    <h4 className="text-lg font-semibold text-white">
+                      {step.title}
+                    </h4>
+                    <p className="text-sm text-gray-400">{step.tech}</p>
+                    <span className="text-xs text-gray-500 mt-2 block">
+                      {step.year}
+                    </span>
+                  </div>
 
-                <div className="h-2 bg-white/20 rounded-full mt-2">
-                  <div
-                    className={`h-full rounded-full transition-all duration-700 ${skill.color.replace("text", "bg")}`}
-                    style={{
-                      width: activeIndex === i ? `${skill.level}%` : "0%",
-                    }}
+                  {/* Hover pulse line */}
+                  <motion.div
+                    className="absolute top-1/2 left-0 w-full h-[2px] bg-linear-to-r from-transparent via-cyan-400 to-transparent opacity-0 group-hover:opacity-100 blur-[2px]"
+                    transition={{ duration: 0.4 }}
                   />
-                </div>
-              </div>
-            ))}
-          </div>
+                </motion.div>
+              );
+            })}
           </div>
 
-          {/* Stats */}
+          {/* Stats Section */}
           <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-12 mt-12">
             {[
               { number: "100+", label: "Projects" },
@@ -189,7 +187,7 @@ function Info() {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

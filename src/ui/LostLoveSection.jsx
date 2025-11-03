@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-import { StarsCanvas } from "./StarsCanvas";
 
 const LostLoveSection = () => {
   const starsRef = useRef([]);
@@ -22,8 +21,7 @@ const LostLoveSection = () => {
       id="cta"
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
     >
-      {/* 3D Rotating Starfield */}
-      <StarsCanvas />
+
 
       {/* Floating 2D Stars (parallax layer) */}
       <div className="absolute inset-0 z-0 pointer-events-none">

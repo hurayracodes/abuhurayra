@@ -15,12 +15,12 @@ function Navigation() {
     // { label: "Home", href: "#home" },
     { label: "About", href: "#about" },
     { label: "Projects", href: "#projects" },
-    { label: "Testimonils", href: "#testimonils" },
-    { label: "Contact", href: "#contact" },
+    { label: "Testimonils", href: "#testimonials" },
+    // { label: "Contact", href: "#contact" },
   ];
 
   const newBtn = [{
-   label: "Let’s talk", href: "#cta"
+   label: "Let’s talk", href: "#contact"
 
   }]
   const scrollToSection = (href) => {
@@ -32,7 +32,7 @@ function Navigation() {
   return (
     <>
       {/* Top Navigation Bar */}
-      <header className="fixed top-5 w-full px-6 py-4 z-50">
+      <header className="fixed top-5 overflow-x-hidden w-full px-6 py-4 z-50">
         <div className="max-w-7xl mx-auto flex justify-end items-center">
           {/* Mobile Menu Toggle */}
           <button className="" onClick={() => setIsOpen(!isOpen)}>

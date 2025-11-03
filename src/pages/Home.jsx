@@ -1,4 +1,5 @@
 import React from "react";
+import { StarsCanvas } from "../ui/StarsCanvas";
 import Hero from "../ui/Hero";
 import Info from "../ui/info";
 import Projects from "./Projects";
@@ -9,6 +10,7 @@ import LostLoveSection from "../ui/LostLoveSection";
 function Home() {
   return (
     <>
+    <StarsCanvas/>
     <Hero/>
     <Info/>
     <Projects/>

@@ -1,4 +1,5 @@
 import React from "react";
+import './Hero.css'
 import { Code, ArrowRight, Github, Linkedin, Mail, Sparkles } from "lucide-react";
 
 function Hero() {
@@ -13,7 +14,7 @@ function Hero() {
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 backdrop-blur-sm">
             <Sparkles className="rounded-full animate-pulse"/>
               <p className="text-sm text-blue-400 font-medium tracking-widest uppercase">
-                Full Stack Developer
+                Website Developer
               </p>
             </div>
 
@@ -39,6 +40,7 @@ function Hero() {
             {/* Social Links */}
             <div className="flex gap-4 pt-8">
               {[
+                { icon: Code, href: "#", label: "Code" },
                 { icon: Github, href: "#", label: "GitHub" },
                 { icon: Linkedin, href: "#", label: "LinkedIn" },
                 { icon: Mail, href: "#", label: "Email" }
@@ -74,40 +76,6 @@ function Hero() {
           </div>
         </div>
       </section>
-
-      <style jsx>{`
-        .glow {
-          text-shadow: 0 0 20px rgba(96, 165, 250, 0.8),
-                       0 0 40px rgba(96, 165, 250, 0.4),
-                       0 0 60px rgba(96, 165, 250, 0.2);
-        }
-
-        @keyframes floatBounce {
-          0%, 100% {
-            transform: translateY(-12px);
-          }
-          50% {
-            transform: translateY(12px);
-          }
-        }
-        .animate-float-bounce {
-          animation: floatBounce 6s ease-in-out infinite;
-        }
-
-        @keyframes smoothFadeUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-smooth-fade-up {
-          animation: smoothFadeUp 1.2s ease-out forwards;
-        }
-      `}</style>
     </div>
   );
 }

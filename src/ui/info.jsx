@@ -1,29 +1,29 @@
 import React from "react";
 
 const skills = [
-  { name: "HTML5 🌐", level: 95, color: "text-cyan-400", category: "Frontend" },
-  { name: "CSS3 🎨", level: 95, color: "text-cyan-400", category: "Frontend" },
+  { name: "HTML5 ", level: 95, color: "text-cyan-400", category: "Frontend" },
+  { name: "CSS3 ", level: 95, color: "text-cyan-400", category: "Frontend" },
   {
-    name: "JavaScript ⚡",
+    name: "JavaScript ",
     level: 90,
     color: "text-cyan-400",
     category: "Frontend",
   },
-  { name: "React ⚛️", level: 92, color: "text-cyan-400", category: "Frontend" },
+  { name: "React ", level: 92, color: "text-cyan-400", category: "Frontend" },
   {
-    name: "TailwindCSS ✨",
+    name: "TailwindCSS ",
     level: 95,
     color: "text-cyan-400",
     category: "Liborery",
   },
   {
-    name: "Bootstrap 🚀",
+    name: "Bootstrap ",
     level: 90,
     color: "text-cyan-400",
     category: "Liborery",
   },
   {
-    name: "TypeScript 🌙",
+    name: "TypeScript ",
     level: 60,
     color: "text-cyan-400",
     category: "Frontend",
@@ -109,7 +109,7 @@ function Info() {
               {skills.map((skill, index) => (
                 <div
                   key={skill.name}
-                  className="relative group p-6 rounded-2xl bg-linear-to-br from-[#290b3a43] to-[#38136233] border border-blue-500/40 hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] transform duration-500 transition-all hover:scale-105 cursor-pointer overflow-hidden"
+                  className="relative group p-8 rounded-2xl bg-linear-to-br from-[#290b3a43] to-[#38136233] border border-blue-500/40 hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] transform duration-500 transition-all hover:scale-105 cursor-pointer overflow-hidden"
                   style={{ animationDelay: `${index * 0.05}s` }}
                 >
                   {/* Glow effect */}
@@ -122,7 +122,7 @@ function Info() {
 
                   {/* Skill Header */}
                   <div className="flex items-center justify-between mb-4 relative z-10">
-                    <h3 className={`text-lg font-bold ${skill.color}`}>
+                    <h3 className={`text-lg font-bold text-white`}>
                       {skill.name}
                     </h3>
                     <span className="text-[10px] px-2 py-1 rounded-full bg-white/10 text-white/60">

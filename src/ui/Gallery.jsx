@@ -7,7 +7,7 @@ const galleryItems = [
     category: "Socail Media Profile",
     image: "/assets/project-img-1.png",
     description: "Immersive Design with user interface concept",
-    link: "#",
+    link: "https://hurayracodes.github.io/social-media-app/",
     color: "#1788ae",
   },
   {
@@ -27,7 +27,7 @@ const galleryItems = [
     category: "Dashboard Design",
     image: "/assets/project-img-5.png",
     description: "Modern design dashboard",
-    link: "#",
+    link: "https://hurayracodes.github.io/base-template/",
     color: "#459bd5",
   },
 ];

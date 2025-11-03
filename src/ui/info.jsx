@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 
 const skills = [
   { name: "HTML5 ", level: 95, color: "text-cyan-400", category: "Frontend" },
@@ -45,9 +46,26 @@ const skills = [
 ];
 
 function Info() {
+    const [activeIndex, setActiveIndex] = useState(null);
+  const [count, setCount] = useState(0);
+
+  const startAnimation = (index) => {
+    setActiveIndex(index);
+    let value = 0;
+    const target = skills[index].level;
+    const interval = setInterval(() => {
+      value++;
+      setCount(value);
+      if (value >= target) clearInterval(interval);
+    }, 15);
+  };
+
+  const stopAnimation = () => {
+    setActiveIndex(null);
+    setCount(0);
+  };
   return (
     <section id="about" className="py-24 px-4 sm:px-6 relative overflow-hidden">
-
       {/* Content Container */}
       <div className="relative z-10">
         <div
@@ -105,52 +123,41 @@ function Info() {
             <h3 className="text-2xl sm:text-3xl font-bold bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
               Skills & Technologies
             </h3>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {skills.map((skill, index) => (
-                <div
-                  key={skill.name}
-                  className="relative group p-8 rounded-2xl bg-linear-to-br from-[#290b3a43] to-[#38136233] border border-blue-500/40 hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] transform duration-500 transition-all hover:scale-105 cursor-pointer overflow-hidden"
-                  style={{ animationDelay: `${index * 0.05}s` }}
-                >
-                  {/* Glow effect */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300">
-                    <div
-                      className="absolute inset-0 blur-xl opacity-25"
-                      style={{ backgroundColor: `rgba(255,255,255,0.25)` }}
-                    ></div>
-                  </div>
 
-                  {/* Skill Header */}
-                  <div className="flex items-center justify-between mb-4 relative z-10">
-                    <h3 className={`text-lg font-bold text-white`}>
-                      {skill.name}
-                    </h3>
-                    <span className="text-[10px] px-2 py-1 rounded-full bg-white/10 text-white/60">
-                      {skill.category}
-                    </span>
-                  </div>
-
-                  {/* Level Indicator */}
-                  <div className="space-y-2 relative z-10">
-                    <div className="flex justify-between text-sm text-white/70">
-                      <span>Mastery</span>
-                      <span className={`${skill.color} font-semibold`}>
-                        {skill.level}%
-                      </span>
-                    </div>
-                    <div className="h-2 rounded-full bg-white/20 overflow-hidden">
-                      <div
-                        className={`h-full rounded-full transition-all duration-700 ${skill.color.replace(
-                          "text",
-                          "bg"
-                        )}`}
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
-                    </div>
-                  </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+            {skills.map((skill, i) => (
+              <div
+                key={i}
+                className="p-6 border border-white/20 bg-linear-to-br from-[#21204ba9] to-[#261935a4] rounded-2xl cursor-pointer
+                transition-all duration-500 hover:scale-105"
+                onMouseEnter={() => startAnimation(i)}
+                onMouseLeave={stopAnimation}
+              >
+                <div className="flex justify-between mb-3">
+                  <span className="text-white font-bold">{skill.name}</span>
+                  <span className="text-xs bg-white/10 px-2 py-1 rounded text-white/70">
+                    {skill.category}
+                  </span>
                 </div>
-              ))}
-            </div>
+
+                <div className="flex justify-between text-sm text-white/60">
+                  <span>Mastery</span>
+                  <span className={`${skill.color} font-semibold`}>
+                    {activeIndex === i ? count : 0}%
+                  </span>
+                </div>
+
+                <div className="h-2 bg-white/20 rounded-full mt-2">
+                  <div
+                    className={`h-full rounded-full transition-all duration-700 ${skill.color.replace("text", "bg")}`}
+                    style={{
+                      width: activeIndex === i ? `${skill.level}%` : "0%",
+                    }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
           </div>
 
           {/* Stats */}

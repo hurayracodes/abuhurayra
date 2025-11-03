@@ -1,6 +1,6 @@
 import React from "react";
 import './Hero.css'
-import { Code, ArrowRight, Github, Linkedin, Mail, Sparkles } from "lucide-react";
+import { Code, ArrowRight, Github, Linkedin, Sparkles } from "lucide-react";
 
 function Hero() {
   const img = "/assets/hero-bg.svg";
@@ -40,10 +40,8 @@ function Hero() {
             {/* Social Links */}
             <div className="flex gap-4 pt-8">
               {[
-                { icon: Code, href: "#", label: "Code" },
                 { icon: Github, href: "#", label: "GitHub" },
                 { icon: Linkedin, href: "#", label: "LinkedIn" },
-                { icon: Mail, href: "#", label: "Email" }
               ].map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}

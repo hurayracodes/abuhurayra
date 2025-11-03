@@ -2,7 +2,7 @@ import { Code, ArrowRight, Github, Linkedin, Mail, Sparkles } from "lucide-react
 
 const socialLinks = [
   { name: "LinkedIn", icon: "💼", href: "#" },
-  { name: "GitHub", icon: "💻", href: "#" },
+  { name: "GitHub", icon: "💻", href: "https://github.com/hurayracodes" },
   { name: "Twitter", icon: "🐦", href: "#" },
   { name: "Dribbble", icon: "🎨", href: "#" },
 ];
@@ -48,9 +48,8 @@ function Footer() {
                       <div className="flex items-start text-white gap-4">
                         {[
                           { icon: Code, href: "#", label: "Code" },
-                          { icon: Github, href: "#", label: "GitHub" },
+                          { icon: Github, href: "https://github.com/hurayracodes", label: "GitHub" },
                           { icon: Linkedin, href: "#", label: "LinkedIn" },
-                          { icon: Mail, href: "#", label: "Email" }
                         ].map(({ icon: Icon, href, label }) => (
                           <a
                             key={label}

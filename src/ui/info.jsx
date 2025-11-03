@@ -1,6 +1,12 @@
 import React from "react";
 import { useState } from "react";
-import Timeline from '../ui/Timeline'
+// import Timeline from '../ui/Timeline'
+  const timeline = [
+    { year: '2020', title: 'Frontend Foundation', tech: 'HTML, CSS, JavaScript' },
+    { year: '2021', title: 'React Mastery', tech: 'React, Redux, Hooks' },
+    { year: '2022', title: 'Full-Stack Evolution', tech: 'Node.js, Express, MongoDB' },
+    { year: '2023', title: 'Modern Web & 3D', tech: 'Next.js, WebGL, Three.js' },
+  ];
 
 
 const skills = [
@@ -118,6 +124,8 @@ function Info() {
                 possible on the web.
               </p>
                   {/* <Timeline/> */}
+                  {/* Professional Steps / Timeline */}
+
             </div>
           </div>
 

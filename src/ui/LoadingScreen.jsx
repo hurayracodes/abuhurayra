@@ -91,9 +91,9 @@ const LoadingScreen = ({ onLoadingComplete }) => {
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
             transition={{ type: "spring", stiffness: 200, damping: 15 }}
-            className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 flex items-center justify-center shadow-2xl shadow-cyan-500/20"
+            className="w-50 h-20 mx-auto mb-4 rounded-2xl bg-linear-to-br from-gray-800 to-gray-900 border border-gray-700 flex items-center justify-center shadow-2xl shadow-cyan-500/20"
           >
-            <span className="text-2xl text-cyan-400 font-bold">AH</span>
+            <span className="text-2xl text-cyan-400 font-bold">hurayracodes</span>
           </motion.div>
 
           {/* Typing text */}
@@ -141,13 +141,13 @@ const LoadingScreen = ({ onLoadingComplete }) => {
           <div className="mt-8">
             <div className="w-64 md:w-80 mx-auto bg-gray-800 rounded-full h-3 border border-gray-700">
               <motion.div
-                className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full relative overflow-hidden"
+                className="h-full bg-linear-to-r from-cyan-500 to-blue-500 rounded-full relative overflow-hidden"
                 initial={{ width: 0 }}
                 animate={{ width: `${progress}%` }}
                 transition={{ duration: 0.3 }}
               >
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                  className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent"
                   animate={{ x: [-100, 300] }}
                   transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 }}
                 />

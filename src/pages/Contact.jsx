@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const [form, setForm] = useState({
@@ -17,129 +18,274 @@ const Contact = () => {
     console.log(form);
   };
 
+  // New animation variants
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const slideUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { 
+        duration: 0.5, 
+        ease: "easeOut" 
+      } 
+    }
+  };
+
+  const scaleIn = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: { 
+      opacity: 1, 
+      scale: 1, 
+      transition: { 
+        duration: 0.4, 
+        ease: "backOut" 
+      } 
+    }
+  };
+
+  const slideInLeft = {
+    hidden: { opacity: 0, x: -40 },
+    visible: { 
+      opacity: 1, 
+      x: 0, 
+      transition: { 
+        duration: 0.5, 
+        ease: "easeOut" 
+      } 
+    }
+  };
+
+  const slideInRight = {
+    hidden: { opacity: 0, x: 40 },
+    visible: { 
+      opacity: 1, 
+      x: 0, 
+      transition: { 
+        duration: 0.5, 
+        ease: "easeOut" 
+      } 
+    }
+  };
+
   return (
     <section id="contact" className="relative min-h-screen flex items-center justify-center overflow-hidden text-white px-4 py-12">
 
       {/* 📩 Contact Container */}
       <div className="relative z-10 w-full h-full max-w-4xl">
         {/* Header Section */}
-        
-        <div className="text-center flex flex-col pb-8 gap-3">
-          <h2 className="text-5xl font-bold bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center flex flex-col pb-8 gap-3"
+        >
+          <motion.h2
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, ease: "backOut" }}
+            className="text-5xl font-bold bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent"
+          >
             Let's Create Together
-          </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-xl text-gray-300 max-w-2xl mx-auto"
+          >
             Ready to bring your vision to life? Let's discuss your next project
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Contact Form */}
-        <div className="grid md:grid-cols-2 gap-8 mt-5 items-start">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="grid md:grid-cols-2 gap-8 mt-5 items-start"
+        >
           {/* Left Side - Contact Info */}
-          <div className="space-y-6">
-            <div className="rounded-2xl p-6">
-              <h3 className="text-2xl font-bold mb-4 bg-linear-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+          <motion.div
+            variants={slideInLeft}
+            className="space-y-6"
+          >
+            <motion.div
+              variants={scaleIn}
+              className="rounded-2xl p-6"
+            >
+              <motion.h3 
+                variants={slideUp}
+                className="text-2xl font-bold mb-4 bg-linear-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+              >
                 Get In Touch
-              </h3>
+              </motion.h3>
               
               <div className="space-y-4">
-                <div className="flex items-center space-x-3 p-3 rounded-lg bg-linear-to-br  transition-colors">
-                  <div className="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center">
+                <motion.div
+                  variants={slideUp}
+                  whileHover={{ scale: 1.02, x: 5 }}
+                  className="flex items-center space-x-3 p-3 rounded-lg bg-linear-to-br transition-colors hover:bg-white/5 cursor-pointer"
+                >
+                  <motion.div 
+                    whileHover={{ rotate: 15, scale: 1.1 }}
+                    className="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center"
+                  >
                     💬
-                  </div>
+                  </motion.div>
                   <div>
                     <p className="text-sm text-gray-400">Email</p>
                     <p className="text-white">abuhuraira3912l@gmail.com</p>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="flex items-center space-x-3 p-3 rounded-lg  transition-colors">
-                  <div className="w-10 h-10 bg-purple-500/20 rounded-full flex items-center justify-center">
+                <motion.div
+                  variants={slideUp}
+                  whileHover={{ scale: 1.02, x: 5 }}
+                  className="flex items-center space-x-3 p-3 rounded-lg transition-colors hover:bg-white/5 cursor-pointer"
+                >
+                  <motion.div 
+                    whileHover={{ rotate: -15, scale: 1.1 }}
+                    className="w-10 h-10 bg-purple-500/20 rounded-full flex items-center justify-center"
+                  >
                     🚀
-                  </div>
+                  </motion.div>
                   <div>
                     <p className="text-sm text-gray-400">Phone</p>
                     <p className="text-white">+92 (316) 6732581</p>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="flex items-center space-x-3 p-3 rounded-lg transition-colors">
-                  <div className="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center">
+                <motion.div
+                  variants={slideUp}
+                  whileHover={{ scale: 1.02, x: 5 }}
+                  className="flex items-center space-x-3 p-3 rounded-lg transition-colors hover:bg-white/5 cursor-pointer"
+                >
+                  <motion.div 
+                    whileHover={{ rotate: 15, scale: 1.1 }}
+                    className="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center"
+                  >
                    🔮
-                  </div>
+                  </motion.div>
                   <div>
                     <p className="text-sm text-gray-400">Location</p>
                     <p className="text-white">Sahiwal, CCW, Chak 16/11-L</p>
                   </div>
-                </div>
+                </motion.div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right Side - Form */}
-          <div className="border border-white/20 bg-linear-to-br from-[#21204ba9] to-[#261935a4] overflow-hidden  rounded-2xl p-8">
-          <h3 className="text-white text-2xl mb-6 font-bold">Send a Message</h3>
+          <motion.div
+            variants={slideInRight}
+            className="border border-white/20 bg-linear-to-br from-[#21204ba9] to-[#261935a4] overflow-hidden rounded-2xl p-8"
+          >
+            <motion.h3 
+              variants={slideUp}
+              className="text-white text-2xl mb-6 font-bold"
+            >
+              Send a Message
+            </motion.h3>
+            
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
+                <motion.div
+                  variants={slideUp}
+                  className="space-y-2"
+                >
                   <label className="text-sm font-medium text-gray-300">Your Name</label>
-                  <input
+                  <motion.input
+                    whileFocus={{ scale: 1.02, borderColor: "#3b82f6" }}
                     type="text"
                     name="name"
                     placeholder="John Doe"
                     onChange={handleChange}
                     value={form.name}
-                    className="w-full bg-blue-400/10 rounded-xl px-4 py-3 text-white placeholder-gray-400 outline-none resize-none"
+                    className="w-full bg-blue-400/10 rounded-xl px-4 py-3 text-white placeholder-gray-400 outline-none resize-none border border-transparent transition-all duration-300"
                   />
-                </div>
-                <div className="space-y-2">
+                </motion.div>
+                
+                <motion.div
+                  variants={slideUp}
+                  className="space-y-2"
+                >
                   <label className="text-sm font-medium text-gray-300">Email Address</label>
-                  <input
+                  <motion.input
+                    whileFocus={{ scale: 1.02, borderColor: "#3b82f6" }}
                     type="email"
                     name="email"
                     placeholder="john@example.com"
                     onChange={handleChange}
                     value={form.email}
-                    className="w-full bg-blue-400/10 rounded-xl px-4 py-3 text-white placeholder-gray-400 outline-none resize-none"
+                    className="w-full bg-blue-400/10 rounded-xl px-4 py-3 text-white placeholder-gray-400 outline-none resize-none border border-transparent transition-all duration-300"
                   />
-                </div>
+                </motion.div>
               </div>
 
-              <div className="space-y-2">
+              <motion.div
+                variants={slideUp}
+                className="space-y-2"
+              >
                 <label className="text-sm font-medium text-gray-300">Subject</label>
-                <input
+                <motion.input
+                  whileFocus={{ scale: 1.02, borderColor: "#3b82f6" }}
                   type="text"
                   name="subject"
                   placeholder="Project Collaboration"
                   onChange={handleChange}
                   value={form.subject}
-                  className="w-full bg-blue-400/10 rounded-xl px-4 py-3 text-white placeholder-gray-400 outline-none resize-none"
+                  className="w-full bg-blue-400/10 rounded-xl px-4 py-3 text-white placeholder-gray-400 outline-none resize-none border border-transparent transition-all duration-300"
                 />
-              </div>
+              </motion.div>
 
-              <div className="space-y-2">
+              <motion.div
+                variants={slideUp}
+                className="space-y-2"
+              >
                 <label className="text-sm font-medium text-gray-300">Your Message</label>
-                <textarea
+                <motion.textarea
+                  whileFocus={{ scale: 1.02, borderColor: "#3b82f6" }}
                   name="message"
                   rows="5"
                   placeholder="Tell me about your project and how we can work together..."
                   onChange={handleChange}
                   value={form.message}
-                  className="w-full bg-blue-400/10 rounded-xl px-4 py-3 text-white placeholder-gray-400 outline-none resize-none"
+                  className="w-full bg-blue-400/10 rounded-xl px-4 py-3 text-white placeholder-gray-400 outline-none resize-none border border-transparent transition-all duration-300"
                 />
-              </div>
+              </motion.div>
 
-              <button
+              <motion.button
+                variants={scaleIn}
+                whileHover={{ 
+                  scale: 1.05,
+                  background: "linear-gradient(135deg, #3b82f6, #8b5cf6)",
+                  boxShadow: "0 10px 25px rgba(59, 130, 246, 0.4)"
+                }}
+                whileTap={{ scale: 0.95 }}
                 type="submit"
-                className='text-white shadow-lg shadow-gray-500/50 text-lg bg-linear-to-br from-[#21204ba9] to-[#261935a4] border border-gray-500  focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg px-8 py-3 text-center me-2 mb-2 dark:border-gray-400 dark:focus:ring-purple-900 transition-transform hover:scale-[1.03] hover:purple-900 duration-300'
+                className='text-white text-lg font-medium rounded-lg px-8 py-3 text-center w-full transition-all duration-300 border border-gray-500'
+                style={{
+                  background: "linear-gradient(135deg, #21204b, #261935)"
+                }}
               >
                 <span className="flex items-center justify-center">
                   Send Message
                 </span>
-              </button>
+              </motion.button>
             </form>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

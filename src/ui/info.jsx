@@ -2,9 +2,35 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 import { FaCode, FaReact, FaServer, FaCube } from "react-icons/fa";
 import Logo from "../ui/Logo";
+
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2
+    }
+  }
+};
+
+const slideInLeft = {
+  hidden: { opacity: 0, x: -50 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } }
+};
+
+const slideInRight = {
+  hidden: { opacity: 0, x: 50 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } }
+};
+
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" } }
 };
 
 const steps = [
@@ -54,75 +80,155 @@ function Info() {
   return (
     <section id="about" className="py-24 px-4 sm:px-6 relative overflow-hidden">
       <motion.div
-        variants={fadeInUp}
+        variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
         className="relative z-10"
       >
         <div
-          style={{
-            background:
-              "radial-linear(circle at center, rgba(139,92,246,0.25), transparent 70%)",
-          }}
+          // style={{
+          //   background:
+          //     "radial-linear(circle at center, rgba(139,92,246,0.25), transparent 70%)",
+          // }}
           className="container mx-auto max-w-6xl px-4"
         >
+          {/* Main Content Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Image Section */}
-            <div className="relative flex justify-center">
+            <motion.div
+              variants={slideInLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              className="relative flex justify-center"
+            >
               <div className="relative w-48 h-48 transform transition duration-500 hover:scale-105 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 mx-auto">
-                <div className="absolute inset-0 rounded-full bg-linear-to-br from-indigo-500 via-purple-500 to-pink-500 blur-2xl opacity-30 -z-10"></div>
-                <div className="relative  w-full h-full rounded-full overflow-hidden bg-linear-to-br from-indigo-900 via-purple-900 to-slate-900 shadow-xl z-10">
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="absolute inset-0 rounded-full bg-linear-to-br from-indigo-900 via-purple-800 to-pink-900 blur-2xl opacity-30 -z-10"
+                />
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  className="relative w-full h-full rounded-full overflow-hidden bg-linear-to-br from-indigo-900 via-purple-900 to-slate-900 shadow-xl z-10"
+                >
                   <img
                     className="object-cover w-full h-full"
                     src="assets/2.png"
                     alt="Abu Huraira"
                   />
-                </div>
-                <div className="absolute -top-4 -right-4 w-6 h-6 sm:w-8 sm:h-8 bg-cyan-400 rounded-full shadow-lg animate-pulse" />
-                <div className="absolute -bottom-4 -left-4 w-5 h-5 sm:w-6 sm:h-6 bg-pink-500 rounded-full shadow-lg animate-bounce" />
-                <div className="absolute top-1/2 -right-6 sm:-right-8 w-3 h-3 sm:w-4 sm:h-4 bg-purple-500 rounded-full shadow-lg animate-pulse" />
+                </motion.div>
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 0.5 }}
+                  className="absolute -top-4 -right-4 w-6 h-6 sm:w-8 sm:h-8 bg-cyan-400 rounded-full shadow-lg animate-pulse" 
+                />
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 0.6 }}
+                  className="absolute -bottom-4 -left-4 w-5 h-5 sm:w-6 sm:h-6 bg-pink-500 rounded-full shadow-lg animate-bounce" 
+                />
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 0.7 }}
+                  className="absolute top-1/2 -right-6 sm:-right-8 w-3 h-3 sm:w-4 sm:h-4 bg-purple-500 rounded-full shadow-lg animate-pulse" 
+                />
               </div>
-            </div>
+            </motion.div>
 
             {/* Text Section */}
-            <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
-              <h2 className="text-4xl sm:text-5xl font-bold bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
+            <motion.div
+              variants={slideInRight}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              className="space-y-6 sm:space-y-8 text-center lg:text-left"
+            >
+              <motion.h2
+                variants={fadeInUp}
+                className="text-4xl sm:text-5xl font-bold bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent"
+              >
                 About Me
-              </h2>
-              <p className="text-base sm:text-lg text-gray-400 leading-relaxed">
+              </motion.h2>
+              <motion.p
+                variants={fadeInUp}
+                className="text-base sm:text-lg text-gray-400 leading-relaxed"
+              >
                 I'm a passionate creative developer who bridges the gap between
                 imagination and reality. With expertise in modern web
                 technologies and 3D design, I create immersive digital
                 experiences that captivate and engage users.
-              </p>
-              <p className="text-base sm:text-lg text-gray-400 leading-relaxed">
+              </motion.p>
+              <motion.p
+                variants={fadeInUp}
+                className="text-base sm:text-lg text-gray-400 leading-relaxed"
+              >
                 My journey combines technical precision with artistic vision,
                 resulting in projects that are not just functional, but truly
                 memorable. I believe in pushing the boundaries of what's
                 possible on the web.
-              </p>
-              <h3 className="text-2xl sm:text-3xl font-bold bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
+              </motion.p>
+              <motion.h3
+                variants={fadeInUp}
+                className="text-2xl sm:text-3xl font-bold bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent"
+              >
                 Skills & Technologies
-              </h3>
-              <Logo />
-            </div>
+              </motion.h3>
+              <motion.div
+                variants={scaleIn}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+                <Logo />
+              </motion.div>
+            </motion.div>
           </div>
 
-          <h3 className="text-4xl text-center sm:text-4xl font-bold bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
+          {/* Journey Timeline Header */}
+          <motion.h3
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-4xl text-center sm:text-4xl font-bold bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent mt-20"
+          >
             Journey Timeline
-          </h3>
-          <div className="relative mt-20 flex flex-wrap justify-center gap-10 perspective-1000">
-            <div className="absolute top-[42%] left-0 w-full h-[3px] bg-linear-to-r from-transparent via-cyan-400/40 to-transparent blur-[3px]" />
+          </motion.h3>
+
+          {/* Timeline Section */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="relative mt-20 flex flex-wrap justify-center gap-10 perspective-1000"
+          >
+            <motion.div
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              transition={{ duration: 1, delay: 0.5 }}
+              viewport={{ once: true }}
+              className="absolute top-[42%] left-0 w-full h-[3px] bg-linear-to-r from-transparent via-cyan-400/40 to-transparent blur-[3px]"
+            />
+            
             {steps.map((step, i) => {
               const ref = useRef(null);
               return (
                 <motion.div
                   key={i}
                   ref={ref}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4 }}
+                  initial={{ opacity: 0, y: 50, scale: 0.8 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.6, delay: i * 0.2 }}
+                  viewport={{ once: true, amount: 0.3 }}
                   onMouseMove={(e) => handleMouseMove(e, ref)}
                   onMouseLeave={() => handleMouseLeave(ref)}
                   className="relative w-[230px] bg-linear-to-br from-[#15152272] to-[#09090f63] border border-gray-800 rounded-2xl p-5 flex flex-col items-start gap-3 shadow-lg hover:border-cyan-400 hover:shadow-cyan-400/30 group overflow-hidden transition-all duration-300"
@@ -166,25 +272,38 @@ function Info() {
                 </motion.div>
               );
             })}
-          </div>
+          </motion.div>
 
           {/* Stats Section */}
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-12 mt-12">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-12 mt-12"
+          >
             {[
               { number: "100+", label: "Projects" },
               { number: "3+", label: "Years Experience" },
               { number: "100%", label: "Client Satisfaction" },
             ].map((stats, i) => (
-              <div key={i} className="text-center p-4 sm:p-8">
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.5 + i * 0.1 }}
+                viewport={{ once: true }}
+                className="text-center p-4 sm:p-8"
+              >
                 <h3 className="text-3xl sm:text-4xl font-bold bg-linear-to-b from-cyan-400 to-purple-400 bg-clip-text text-transparent">
                   {stats.number}
                 </h3>
                 <div className="mb-1 text-white text-base sm:text-lg">
                   {stats.label}
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </motion.div>
     </section>

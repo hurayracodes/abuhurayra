@@ -1,5 +1,5 @@
 import "./Hero.css";
-import { Code, ArrowRight, Github, Linkedin, Sparkles } from "lucide-react";
+import { Code, Github, Linkedin, Mail, Sparkles, Facebook } from "lucide-react";
 import { motion } from "framer-motion";
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -50,21 +50,33 @@ function Hero() {
             </p>
 
             {/* Social Links */}
-            <div className="flex gap-4 pt-8">
-              {[
-                { icon: Github, href: "#", label: "GitHub" },
-                { icon: Linkedin, href: "#", label: "LinkedIn" },
-              ].map(({ icon: Icon, href, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  className="p-3 rounded-lg border border-gray-700 hover:border-blue-400 hover:text-blue-400 transition-all duration-300 hover:scale-110 backdrop-blur-sm"
-                  aria-label={label}
-                >
-                  <Icon className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
+             <div className="flex items-start gap-4">
+            {[
+              { icon: Code, href: "https://github.com/hurayracodes/abuhurayra", label: "Code" },
+              {
+                icon: Facebook,
+                href: "https://web.facebook.com/hurayracodes/",
+                label: "GitHub",
+              },
+              {
+                icon: Github,
+                href: "https://github.com/hurayracodes",
+                label: "GitHub",
+              },
+              { icon: Linkedin, href: "https://www.linkedin.com/in/hurayracodes/", label: "LinkedIn" },
+            ].map(({ icon: Icon, href, label }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="p-3 rounded-xl border border-white/10 hover:border-blue-400 hover:text-blue-400 hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] transition-all duration-300 hover:scale-110 backdrop-blur-sm"
+              >
+                <Icon className="w-5 h-5" />
+              </a>
+            ))}
+          </div>
           </div>
 
           {/* Image Section */}

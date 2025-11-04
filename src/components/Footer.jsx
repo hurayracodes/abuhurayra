@@ -23,12 +23,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <div className="space-y-6">
-            <div className="flex items-center gap-2">
-              <Sparkles className="text-blue-400 w-6 h-6 animate-pulse" />
-              <h3 className="text-3xl font-bold bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
-                Abu Hurayra
-              </h3>
+            <motion.div
+            className="flex items-center gap-2"
+            whileHover={{ scale: 1.05 }}
+          >
+            <div className="w-8 h-8 rounded-lg bg-linear-to-br from-purple-500 to-cyan-500 flex items-center justify-center">
+              <Sparkles className="w-4 h-4 text-white" />
             </div>
+            <span className="text-white font-semibold text-lg">Abu Hurayra</span>
+          </motion.div>
             <p className="text-white/80 leading-relaxed">
               Creative developer crafting immersive digital experiences with
               cutting-edge technology and artistic vision.
@@ -58,7 +61,7 @@ export default function Footer() {
             {/* <h3 className="text-white">Follow me social Media</h3> */}
           <div className="flex md:justify-end items-start gap-4">
             {[
-              { icon: Code, href: "#", label: "Code" },
+              { icon: Code, href: "https://github.com/hurayracodes/abuhurayra", label: "Code" },
               {
                 icon: Facebook,
                 href: "https://web.facebook.com/hurayracodes/",

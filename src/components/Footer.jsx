@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code, Github, Linkedin, Mail, Sparkles } from "lucide-react";
+import { Code, Github, Linkedin, Mail, Sparkles, Facebook } from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -55,15 +55,21 @@ export default function Footer() {
           </div>
 
           {/* Social Icons */}
+            {/* <h3 className="text-white">Follow me social Media</h3> */}
           <div className="flex md:justify-end items-start gap-4">
             {[
               { icon: Code, href: "#", label: "Code" },
+              {
+                icon: Facebook,
+                href: "https://web.facebook.com/hurayracodes/",
+                label: "GitHub",
+              },
               {
                 icon: Github,
                 href: "https://github.com/hurayracodes",
                 label: "GitHub",
               },
-              { icon: Linkedin, href: "#", label: "LinkedIn" },
+              { icon: Linkedin, href: "https://www.linkedin.com/in/hurayracodes/", label: "LinkedIn" },
             ].map(({ icon: Icon, href, label }) => (
               <a
                 key={label}

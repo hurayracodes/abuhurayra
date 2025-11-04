@@ -69,10 +69,10 @@ function Info() {
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Image Section */}
-            <div className="relative flex justify-center lg:justify-start">
-              <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 mx-auto">
+            <div className="relative flex justify-center">
+              <div className="relative w-48 h-48 transform transition duration-500 hover:scale-105 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 mx-auto">
                 <div className="absolute inset-0 rounded-full bg-linear-to-br from-indigo-500 via-purple-500 to-pink-500 blur-2xl opacity-30 -z-10"></div>
-                <div className="relative transform transition duration-500 hover:scale-105 w-full h-full rounded-full overflow-hidden bg-linear-to-br from-indigo-900 via-purple-900 to-slate-900 shadow-xl z-10">
+                <div className="relative  w-full h-full rounded-full overflow-hidden bg-linear-to-br from-indigo-900 via-purple-900 to-slate-900 shadow-xl z-10">
                   <img
                     className="object-cover w-full h-full"
                     src="assets/2.png"
@@ -109,7 +109,6 @@ function Info() {
             </div>
           </div>
 
-          {/* 🌌 Updated Timeline (3D motion tilt) */}
           <h3 className="text-4xl text-center sm:text-4xl font-bold bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
             Journey Timeline
           </h3>

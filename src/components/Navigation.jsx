@@ -37,7 +37,7 @@ function Navigation() {
       <motion.header
         className={`fixed top-0 w-full px-6 py-4 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-linear-to-br from-black/60 via-black/40 to-purple-700/40 backdrop-blur-md border-b border-white/10"
+            ? "bg-linear-to-br from-black/60 via-black/40 to-purple-700/40 backdrop-blur-xs border-b border-white/10"
             : "bg-transparent"
         }`}
         initial={{ y: -100 }}
@@ -71,7 +71,7 @@ function Navigation() {
             ))}
             <motion.button
               onClick={() => scrollToSection("#contact")}
-              className="px-6 py-2 rounded-full bg-linear-to-r from-purple-500 to-pink-500 text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+              className="px-6 py-2 rounded-full bg-linear-to-r from-purple-600 to-pink-600 text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -140,7 +140,7 @@ function Navigation() {
                 initial="closed"
                 animate="open"
                 transition={{ delay: menuItems.length * 0.1 }}
-                className="mt-10 px-8 py-3 rounded-full bg-linear-to-r from-purple-500 to-pink-500 text-white font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+                className="mt-10 px-8 py-3 rounded-full bg-linear-to-r from-purple-800 to-pink-900 text-white font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

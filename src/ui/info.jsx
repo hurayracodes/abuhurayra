@@ -237,12 +237,6 @@ function Info() {
                     transform: "rotateY(0deg) rotateX(0deg)",
                   }}
                 >
-                  {/* Back glow lines */}
-                  <div className="absolute inset-0 z-0">
-                    <div className="absolute top-[25%] left-0 w-full h-1px bg-linear-to-r from-transparent via-cyan-500/40 to-transparent blur-sm" />
-                    <div className="absolute top-[50%] left-0 w-full h-1px bg-linear-to-r from-transparent via-blue-500/40 to-transparent blur-[2px]" />
-                    <div className="absolute bottom-[25%] left-0 w-full h-1px bg-linear-to-r from-transparent via-purple-500/40 to-transparent blur-sm" />
-                  </div>
 
                   {/* Icon */}
                   <motion.div

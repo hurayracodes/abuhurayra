@@ -28,7 +28,7 @@ const slideInRight = {
 };
 
 function Hero() {
-  const img = "/assets/hero-bg.svg";
+  const img = "/assets/bg-bg.png";
 
   return (
     <div className="relative overflow-hidden">

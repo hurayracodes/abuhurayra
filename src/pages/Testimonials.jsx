@@ -8,7 +8,7 @@ const testimonials = [
     title: "Creative Director",
     company: "Digital Agency",
     image: "👩‍💼",
-    quote: "abuhurara's work transcends traditional web development. His ability to blend technical expertise with artistic vision resulted in a portfolio that truly stands out in our industry.",
+    quote: "Abuhurayra's work transcends traditional web development. His ability to blend technical expertise with artistic vision resulted in a portfolio that truly stands out in our industry.",
     rating: 5,
     linear: "from-purple-500 to-pink-500"
   },
@@ -18,7 +18,7 @@ const testimonials = [
     title: "Tech Lead",
     company: "Startup Inc",
     image: "👨‍💻",
-    quote: "Working with abuhurara was incredible. He delivered a complex 3D interactive experience that exceeded all expectations. His attention to detail and innovative approach is unmatched.",
+    quote: "Working with Abu Hurayra was incredible. He delivered a complex 3D interactive experience that exceeded all expectations. His attention to detail and innovative approach is unmatched.",
     rating: 5,
     linear: "from-blue-500 to-cyan-500"
   },
@@ -38,7 +38,7 @@ const testimonials = [
     title: "CEO",
     company: "Innovation Labs",
     image: "👨‍💼",
-    quote: "Outstanding developer with an eye for design. Milad created an immersive experience that perfectly captured our brand vision. Highly recommended!",
+    quote: "Outstanding developer with an eye for design. Abu Hurayra created an immersive experience that perfectly captured our brand vision. Highly recommended!",
     rating: 5,
     linear: "from-orange-500 to-red-500"
   },

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, X } from "lucide-react";
+import { X } from "lucide-react";
 
 function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,15 +46,8 @@ function Navigation() {
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           {/* Logo */}
-          <motion.div
-            className="flex items-center gap-2"
-            whileHover={{ scale: 1.05 }}
-          >
-            <div className="w-8 h-8 rounded-lg bg-linear-to-br from-purple-500 to-cyan-500 flex items-center justify-center">
-              <Sparkles className="w-4 h-4 text-white" />
-            </div>
-            <span className="text-white font-semibold text-lg">Abu Hurayra</span>
-          </motion.div>
+          
+            <motion.h2 whileHover={{ scale: 1.05 }} className="font-semibold text-xl bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">Abu Hurayra</motion.h2>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
@@ -71,7 +64,7 @@ function Navigation() {
             ))}
             <motion.button
               onClick={() => scrollToSection("#contact")}
-              className="px-6 py-2 rounded-full bg-linear-to-r from-purple-600 to-pink-600 text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+              className="px-6 py-2 rounded-full border border-gray-800 hover:border-cyan-400 hover:shadow-cyan-400/30 cursor-pointer text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -140,7 +133,7 @@ function Navigation() {
                 initial="closed"
                 animate="open"
                 transition={{ delay: menuItems.length * 0.1 }}
-                className="mt-10 px-8 py-3 rounded-full bg-linear-to-r from-purple-800 to-pink-900 text-white font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+                className="mt-10 px-8 py-3 rounded-full bg-linear-to-l from-purple-800 to-pink-900 text-white font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

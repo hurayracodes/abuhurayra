@@ -24,62 +24,64 @@ const Contact = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const slideUp = {
     hidden: { opacity: 0, y: 40 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { 
-        duration: 0.5, 
-        ease: "easeOut" 
-      } 
-    }
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
   };
 
   const scaleIn = {
     hidden: { opacity: 0, scale: 0.9 },
-    visible: { 
-      opacity: 1, 
-      scale: 1, 
-      transition: { 
-        duration: 0.4, 
-        ease: "backOut" 
-      } 
-    }
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.4,
+        ease: "backOut",
+      },
+    },
   };
 
   const slideInLeft = {
     hidden: { opacity: 0, x: -40 },
-    visible: { 
-      opacity: 1, 
-      x: 0, 
-      transition: { 
-        duration: 0.5, 
-        ease: "easeOut" 
-      } 
-    }
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
   };
 
   const slideInRight = {
     hidden: { opacity: 0, x: 40 },
-    visible: { 
-      opacity: 1, 
-      x: 0, 
-      transition: { 
-        duration: 0.5, 
-        ease: "easeOut" 
-      } 
-    }
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
   };
 
   return (
-    <section id="contact" className="relative min-h-screen flex items-center justify-center overflow-hidden text-white px-4 py-12">
-
+    <section
+      id="contact"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden text-white px-4 py-12"
+    >
       {/* 📩 Contact Container */}
       <div className="relative z-10 w-full h-full max-w-4xl">
         {/* Header Section */}
@@ -116,28 +118,22 @@ const Contact = () => {
           className="grid md:grid-cols-2 gap-8 mt-5 items-start"
         >
           {/* Left Side - Contact Info */}
-          <motion.div
-            variants={slideInLeft}
-            className="space-y-6"
-          >
-            <motion.div
-              variants={scaleIn}
-              className="rounded-2xl p-6"
-            >
-              <motion.h3 
+          <motion.div variants={slideInLeft} className="space-y-6">
+            <motion.div variants={scaleIn} className="rounded-2xl p-6">
+              <motion.h3
                 variants={slideUp}
                 className="text-2xl font-bold mb-4 bg-linear-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
               >
                 Get In Touch
               </motion.h3>
-              
+
               <div className="space-y-4">
                 <motion.div
                   variants={slideUp}
                   whileHover={{ scale: 1.02, x: 5 }}
                   className="flex items-center space-x-3 p-3 rounded-lg bg-linear-to-br transition-colors hover:bg-white/5 cursor-pointer"
                 >
-                  <motion.div 
+                  <motion.div
                     whileHover={{ rotate: 15, scale: 1.1 }}
                     className="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center"
                   >
@@ -154,7 +150,7 @@ const Contact = () => {
                   whileHover={{ scale: 1.02, x: 5 }}
                   className="flex items-center space-x-3 p-3 rounded-lg transition-colors hover:bg-white/5 cursor-pointer"
                 >
-                  <motion.div 
+                  <motion.div
                     whileHover={{ rotate: -15, scale: 1.1 }}
                     className="w-10 h-10 bg-purple-500/20 rounded-full flex items-center justify-center"
                   >
@@ -171,11 +167,11 @@ const Contact = () => {
                   whileHover={{ scale: 1.02, x: 5 }}
                   className="flex items-center space-x-3 p-3 rounded-lg transition-colors hover:bg-white/5 cursor-pointer"
                 >
-                  <motion.div 
+                  <motion.div
                     whileHover={{ rotate: 15, scale: 1.1 }}
                     className="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center"
                   >
-                   🔮
+                    🔮
                   </motion.div>
                   <div>
                     <p className="text-sm text-gray-400">Location</p>
@@ -189,95 +185,85 @@ const Contact = () => {
           {/* Right Side - Form */}
           <motion.div
             variants={slideInRight}
-            className="border border-white/20 bg-linear-to-br from-[#21204ba9] to-[#261935a4] overflow-hidden rounded-2xl p-8"
+            className="border border-white/20 
+            overflow-hidden rounded-2xl p-8"
           >
-            <motion.h3 
+            {/* bg-linear-to-br from-[#21204ba9] to-[#261935a4] */}
+            <motion.h3
               variants={slideUp}
               className="text-white text-2xl mb-6 font-bold"
             >
               Send a Message
             </motion.h3>
-            
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <motion.div
-                  variants={slideUp}
-                  className="space-y-2"
-                >
-                  <label className="text-sm font-medium text-gray-300">Your Name</label>
+                <motion.div variants={slideUp} className="space-y-2">
+                  <label className="text-sm font-medium text-gray-300">
+                    Your Name
+                  </label>
                   <motion.input
-                    whileFocus={{ scale: 1.02, borderColor: "#3b82f6" }}
                     type="text"
                     name="name"
                     placeholder="John Doe"
                     onChange={handleChange}
                     value={form.name}
-                    className="w-full bg-blue-400/10 rounded-xl px-4 py-3 text-white placeholder-gray-400 outline-none resize-none border border-transparent transition-all duration-300"
+                    className="w-full mt-5 hover:border-cyan-400 hover:shadow-lg hover:shadow-purple-500/25  rounded-xl px-4 py-3 text-white placeholder-gray-400 outline-none resize-none border border-gray-800 transition-all duration-300"
                   />
                 </motion.div>
-                
-                <motion.div
-                  variants={slideUp}
-                  className="space-y-2"
-                >
-                  <label className="text-sm font-medium text-gray-300">Email Address</label>
+
+                <motion.div variants={slideUp} className="space-y-2">
+                  <label className="text-sm font-medium text-gray-300">
+                    Email Address
+                  </label>
                   <motion.input
-                    whileFocus={{ scale: 1.02, borderColor: "#3b82f6" }}
                     type="email"
                     name="email"
                     placeholder="john@example.com"
                     onChange={handleChange}
                     value={form.email}
-                    className="w-full bg-blue-400/10 rounded-xl px-4 py-3 text-white placeholder-gray-400 outline-none resize-none border border-transparent transition-all duration-300"
+                    className="w-full mt-5  rounded-xl px-4 py-3 text-white placeholder-gray-400 outline-none resize-none border border-gray-800 hover:border-cyan-400 transition-all duration-500 hover:shadow-lg hover:shadow-purple-500/25"
                   />
                 </motion.div>
               </div>
 
-              <motion.div
-                variants={slideUp}
-                className="space-y-2"
-              >
-                <label className="text-sm font-medium text-gray-300">Subject</label>
+              <motion.div variants={slideUp} className="space-y-2">
+                <label className="text-sm font-medium text-gray-300">
+                  Subject
+                </label>
                 <motion.input
-                  whileFocus={{ scale: 1.02, borderColor: "#3b82f6" }}
                   type="text"
                   name="subject"
                   placeholder="Project Collaboration"
                   onChange={handleChange}
                   value={form.subject}
-                  className="w-full bg-blue-400/10 rounded-xl px-4 py-3 text-white placeholder-gray-400 outline-none resize-none border border-transparent transition-all duration-300"
+                  className="w-full mt-5  rounded-xl px-4 py-3 text-white placeholder-gray-400 outline-none resize-none border border-gray-800 hover:border-cyan-400 transition-all duration-500 hover:shadow-lg hover:shadow-purple-500/25"
                 />
               </motion.div>
 
-              <motion.div
-                variants={slideUp}
-                className="space-y-2"
-              >
-                <label className="text-sm font-medium text-gray-300">Your Message</label>
+              <motion.div variants={slideUp} className="space-y-2">
+                <label className="text-sm font-medium text-gray-300">
+                  Your Message
+                </label>
                 <motion.textarea
-                  whileFocus={{ scale: 1.02, borderColor: "#3b82f6" }}
                   name="message"
                   rows="5"
                   placeholder="Tell me about your project and how we can work together..."
                   onChange={handleChange}
                   value={form.message}
-                  className="w-full bg-blue-400/10 rounded-xl px-4 py-3 text-white placeholder-gray-400 outline-none resize-none border border-transparent transition-all duration-300"
+                  className="mt-5 w-full rounded-xl px-4 py-3 text-white placeholder-gray-400 outline-none resize-none border border-gray-800 hover:border-cyan-400 transition-all duration-500 hover:shadow-lg hover:shadow-purple-500/25"
                 />
               </motion.div>
 
               <motion.button
                 variants={scaleIn}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
-                  background: "linear-gradient(135deg, #3b82f6, #8b5cf6)",
-                  boxShadow: "0 10px 25px rgba(59, 130, 246, 0.4)"
+                  boxShadow: "0 10px 25px rgba(59, 130, 246, 0.4)",
                 }}
                 whileTap={{ scale: 0.95 }}
                 type="submit"
-                className='text-white text-lg font-medium rounded-lg px-8 py-3 text-center w-full transition-all duration-300 border border-gray-500'
-                style={{
-                  background: "linear-gradient(135deg, #21204b, #261935)"
-                }}
+                className="text-white text-lg font-medium rounded-lg px-8 py-3 text-center w-full  border-gray-500 border border-gray-800 hover:border-cyan-400 hover:shadow-cyan-400/30 cursor-pointer text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
               >
                 <span className="flex items-center justify-center">
                   Send Message

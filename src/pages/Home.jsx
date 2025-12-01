@@ -5,45 +5,13 @@ import Info from "../ui/info";
 import Projects from "./Projects";
 import Testimonils from "./Testimonials";
 import Contact from "./Contact";
-import LoadingScreen from "../ui/LoadingScreen";
 
 function Home() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [showContent, setShowContent] = useState(false);
-
-  const handleLoadingComplete = () => {
-    setIsLoading(false);
-    // Smooth transition after loading
-    setTimeout(() => {
-      setShowContent(true);
-    }, 300);
-  };
-
-  // Preload important assets
-  useEffect(() => {
-    const preloadAssets = [
-      "/assets/hero-bg.svg",
-      "/assets/2.png"
-      // Add other important images here
-    ];
-
-    preloadAssets.forEach(src => {
-      const img = new Image();
-      img.src = src;
-    });
-  }, []);
 
   return (
     <>
-      {isLoading && (
-        <LoadingScreen onLoadingComplete={handleLoadingComplete} />
-      )}
-
-      {!isLoading && (
         <div
-          className={`transition-opacity duration-700 ease-in-out ${
-            showContent ? "opacity-100" : "opacity-0"
-          }`}
+          className={'transition-opacity duration-700 ease-in-out'}
         >
           {/* Hero section first */}
           <div className="animate-fadeIn delay-100">
@@ -73,7 +41,6 @@ function Home() {
 
           
         </div>
-      )}
     </>
   );
 }

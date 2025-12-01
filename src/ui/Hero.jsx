@@ -1,5 +1,5 @@
 import "./Hero.css";
-import { Code, Github, Linkedin, Mail, Sparkles, Facebook } from "lucide-react";
+import { Code, Github, Linkedin, Instagram } from "lucide-react";
 import { motion } from "framer-motion";
 
 const fadeInUp = {
@@ -54,11 +54,10 @@ function Hero() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 backdrop-blur-sm"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30"
             >
-              <Sparkles className="rounded-full animate-pulse" />
               <p className="text-sm text-blue-400 font-medium tracking-widest uppercase">
-                Website Developer
+                Mern Stack Developer
               </p>
             </motion.div>
 
@@ -73,9 +72,7 @@ function Hero() {
               <h1 className="text-5xl md:text-7xl font-bold">
                 Hi, I'm{" "}
                 <span
-                  className="text-transparent
-                font-black
-                bg-clip-text bg-linear-to-r from-blue-400 to-cyan-300 relative"
+                  className="bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent relative"
                 >
                   Abu Hurayra
                   <div className="absolute inset-0 bg-blue-400/20 blur-xl rounded-full"></div>
@@ -91,7 +88,7 @@ function Hero() {
               viewport={{ once: true }}
               className="text-gray-400 leading-relaxed text-lg max-w-lg animate-smooth-fade-up"
             >
-              Fronted Website development with over 3+ years of experience in
+              Full Stack Website development with over 2+ years of experience in
               building modern, responsive web applications.
             </motion.p>
 
@@ -106,8 +103,8 @@ function Hero() {
               {[
                 { icon: Code, href: "https://github.com/hurayracodes/abuhurayra", label: "Code" },
                 {
-                  icon: Facebook,
-                  href: "https://web.facebook.com/hurayracodes/",
+                  icon: Instagram,
+                  href: "https://instagram.com/hurayracodes/",
                   label: "GitHub",
                 },
                 {

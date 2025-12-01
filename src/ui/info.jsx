@@ -35,28 +35,22 @@ const scaleIn = {
 
 const steps = [
   {
-    year: "2020",
+    year: "2023",
     title: "Frontend Foundation",
     tech: "HTML, CSS, JavaScript",
     icon: <FaCode />,
   },
   {
-    year: "2021",
+    year: "2024",
     title: "React Mastery",
-    tech: "React, Redux, Hooks",
+    tech: "React, Props, Hooks",
     icon: <FaReact />,
   },
   {
-    year: "2022",
+    year: "2025",
     title: "Full-Stack Evolution",
-    tech: "Node.js, Express, MongoDB",
+    tech: "Node.js, Express, MongoDB, Mongoose",
     icon: <FaServer />,
-  },
-  {
-    year: "2023",
-    title: "Modern Web & 3D",
-    tech: "Next.js, WebGL, Three.js",
-    icon: <FaCube />,
   },
 ];
 
@@ -209,15 +203,8 @@ function Info() {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
-            className="relative mt-20 flex flex-wrap justify-center gap-10 perspective-1000"
+            className="relative mt-20 flex flex-wrap justify-center gap-10"
           >
-            <motion.div
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              transition={{ duration: 1, delay: 0.5 }}
-              viewport={{ once: true }}
-              className="absolute top-[42%] left-0 w-full h-[3px] bg-linear-to-r from-transparent via-cyan-400/40 to-transparent blur-[3px]"
-            />
             
             {steps.map((step, i) => {
               const ref = useRef(null);
@@ -231,11 +218,7 @@ function Info() {
                   viewport={{ once: true, amount: 0.3 }}
                   onMouseMove={(e) => handleMouseMove(e, ref)}
                   onMouseLeave={() => handleMouseLeave(ref)}
-                  className="relative w-[230px] bg-linear-to-br from-[#15152272] to-[#09090f63] border border-gray-800 rounded-2xl p-5 flex flex-col items-start gap-3 shadow-lg hover:border-cyan-400 hover:shadow-cyan-400/30 group overflow-hidden transition-all duration-300"
-                  style={{
-                    transformStyle: "preserve-3d",
-                    transform: "rotateY(0deg) rotateX(0deg)",
-                  }}
+                  className="relative w-[230px] border border-gray-800 rounded-2xl p-5 flex flex-col items-start gap-3 shadow-lg hover:border-cyan-400 hover:shadow-cyan-400/30 group overflow-hidden transition-all duration-300"
                 >
 
                   {/* Icon */}
@@ -257,12 +240,6 @@ function Info() {
                       {step.year}
                     </span>
                   </div>
-
-                  {/* Hover pulse line */}
-                  <motion.div
-                    className="absolute top-1/2 left-0 w-full h-[2px] bg-linear-to-r from-transparent via-cyan-400 to-transparent opacity-0 group-hover:opacity-100 blur-[2px]"
-                    transition={{ duration: 0.4 }}
-                  />
                 </motion.div>
               );
             })}
@@ -289,7 +266,7 @@ function Info() {
                 viewport={{ once: true }}
                 className="text-center p-4 sm:p-8"
               >
-                <h3 className="text-3xl sm:text-4xl font-bold bg-linear-to-b from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                <h3 className="text-3xl sm:text-4xl font-bold bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
                   {stats.number}
                 </h3>
                 <div className="mb-1 text-white text-base sm:text-lg">

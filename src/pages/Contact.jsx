@@ -29,18 +29,6 @@ const Contact = () => {
     },
   };
 
-  const slideUp = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
-  };
-
   const scaleIn = {
     hidden: { opacity: 0, scale: 0.9 },
     visible: {
@@ -120,22 +108,15 @@ const Contact = () => {
           {/* Left Side - Contact Info */}
           <motion.div variants={slideInLeft} className="space-y-6">
             <motion.div variants={scaleIn} className="rounded-2xl p-6">
-              <motion.h3
-                variants={slideUp}
-                className="text-2xl font-bold mb-4 bg-linear-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
-              >
+              <motion.h3 className="text-2xl font-bold mb-4 bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
                 Get In Touch
               </motion.h3>
 
               <div className="space-y-4">
-                <motion.div
-                  variants={slideUp}
-                  whileHover={{ scale: 1.02, x: 5 }}
-                  className="flex items-center space-x-3 p-3 rounded-lg bg-linear-to-br transition-colors hover:bg-white/5 cursor-pointer"
-                >
+                <motion.div className="flex items-center space-x-3 p-3 rounded-lg bg-linear-to-br transition-all border border-gray-800 duration-300 cursor-pointer hover:border-cyan-400 hover:shadow-lg hover:shadow-purple-500/25 ">
                   <motion.div
                     whileHover={{ rotate: 15, scale: 1.1 }}
-                    className="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center"
+                    className="w-10 border-gray-800 border h-10 rounded-full flex items-center justify-center"
                   >
                     💬
                   </motion.div>
@@ -146,13 +127,11 @@ const Contact = () => {
                 </motion.div>
 
                 <motion.div
-                  variants={slideUp}
-                  whileHover={{ scale: 1.02, x: 5 }}
-                  className="flex items-center space-x-3 p-3 rounded-lg transition-colors hover:bg-white/5 cursor-pointer"
+                  className="flex items-center border border-gray-800 space-x-3 p-3 rounded-lg transition-all cursor-pointer hover:border-cyan-400 duration-300 hover:shadow-lg hover:shadow-purple-500/25"
                 >
                   <motion.div
-                    whileHover={{ rotate: -15, scale: 1.1 }}
-                    className="w-10 h-10 bg-purple-500/20 rounded-full flex items-center justify-center"
+                   whileHover={{ rotate: 15, scale: 1.1 }}
+                    className="w-10 h-10 border border-gray-800 rounded-full flex items-center justify-center"
                   >
                     🚀
                   </motion.div>
@@ -163,13 +142,11 @@ const Contact = () => {
                 </motion.div>
 
                 <motion.div
-                  variants={slideUp}
-                  whileHover={{ scale: 1.02, x: 5 }}
-                  className="flex items-center space-x-3 p-3 rounded-lg transition-colors hover:bg-white/5 cursor-pointer"
+                  className="flex items-center border border-gray-800 space-x-3 p-3 rounded-lg transition-all duration-500 cursor-pointer hover:border-cyan-400 hover:shadow-lg hover:shadow-purple-500/25"
                 >
                   <motion.div
-                    whileHover={{ rotate: 15, scale: 1.1 }}
-                    className="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center"
+                   whileHover={{ rotate: 15, scale: 1.1 }}
+                    className="w-10 h-10 border border-gray-800 rounded-full flex items-center justify-center"
                   >
                     🔮
                   </motion.div>
@@ -189,16 +166,13 @@ const Contact = () => {
             overflow-hidden rounded-2xl p-8"
           >
             {/* bg-linear-to-br from-[#21204ba9] to-[#261935a4] */}
-            <motion.h3
-              variants={slideUp}
-              className="text-white text-2xl mb-6 font-bold"
-            >
+            <motion.h3 className="text-white text-2xl mb-6 font-bold">
               Send a Message
             </motion.h3>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <motion.div variants={slideUp} className="space-y-2">
+                <motion.div className="space-y-2">
                   <label className="text-sm font-medium text-gray-300">
                     Your Name
                   </label>
@@ -212,7 +186,7 @@ const Contact = () => {
                   />
                 </motion.div>
 
-                <motion.div variants={slideUp} className="space-y-2">
+                <motion.div className="space-y-2">
                   <label className="text-sm font-medium text-gray-300">
                     Email Address
                   </label>
@@ -227,7 +201,7 @@ const Contact = () => {
                 </motion.div>
               </div>
 
-              <motion.div variants={slideUp} className="space-y-2">
+              <motion.div className="space-y-2">
                 <label className="text-sm font-medium text-gray-300">
                   Subject
                 </label>
@@ -241,7 +215,7 @@ const Contact = () => {
                 />
               </motion.div>
 
-              <motion.div variants={slideUp} className="space-y-2">
+              <motion.div className="space-y-2">
                 <label className="text-sm font-medium text-gray-300">
                   Your Message
                 </label>

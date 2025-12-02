@@ -13,24 +13,28 @@ const staggerContainer = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2
-    }
-  }
+      staggerChildren: 0.2,
+    },
+  },
 };
 
 const slideInLeft = {
   hidden: { opacity: 0, x: -50 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
 const slideInRight = {
   hidden: { opacity: 0, x: 50 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
 const scaleIn = {
   hidden: { opacity: 0, scale: 0.8 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" } }
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
 };
 
 const steps = [
@@ -85,7 +89,7 @@ function Info() {
           //   background:
           //     "radial-linear(circle at center, rgba(139,92,246,0.25), transparent 70%)",
           // }}
-          className="container mx-auto max-w-6xl px-4"
+          className="container mx-auto overflow-hidden max-w-6xl px-4"
         >
           {/* Main Content Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -98,13 +102,13 @@ function Info() {
               className="relative flex justify-center"
             >
               <div className="relative w-48 h-48 transform transition duration-500 hover:scale-105 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 mx-auto">
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
                   className="absolute inset-0 rounded-full bg-linear-to-br from-indigo-900 via-purple-800 to-pink-900 blur-2xl opacity-30 -z-10"
                 />
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
@@ -116,23 +120,23 @@ function Info() {
                     alt="Abu Huraira"
                   />
                 </motion.div>
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: 0.5 }}
-                  className="absolute -top-4 -right-4 w-6 h-6 sm:w-8 sm:h-8 bg-cyan-400 rounded-full shadow-lg animate-pulse" 
+                  className="absolute -top-4 -right-4 w-6 h-6 sm:w-8 sm:h-8 bg-cyan-400 rounded-full shadow-lg animate-pulse"
                 />
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: 0.6 }}
-                  className="absolute -bottom-4 -left-4 w-5 h-5 sm:w-6 sm:h-6 bg-pink-500 rounded-full shadow-lg animate-bounce" 
+                  className="absolute -bottom-4 -left-4 w-5 h-5 sm:w-6 sm:h-6 bg-pink-500 rounded-full shadow-lg animate-bounce"
                 />
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: 0.7 }}
-                  className="absolute top-1/2 -right-6 sm:-right-8 w-3 h-3 sm:w-4 sm:h-4 bg-purple-500 rounded-full shadow-lg animate-pulse" 
+                  className="absolute top-1/2 -right-6 sm:-right-8 w-3 h-3 sm:w-4 sm:h-4 bg-purple-500 rounded-full shadow-lg animate-pulse"
                 />
               </div>
             </motion.div>
@@ -175,6 +179,9 @@ function Info() {
               >
                 Skills & Technologies
               </motion.h3>
+            </motion.div>
+          </div>
+            <div className="w-1/3 m-auto flex items-center justify-center">
               <motion.div
                 variants={scaleIn}
                 initial="hidden"
@@ -183,8 +190,7 @@ function Info() {
               >
                 <Logo />
               </motion.div>
-            </motion.div>
-          </div>
+            </div>
 
           {/* Journey Timeline Header */}
           <motion.h3
@@ -205,7 +211,6 @@ function Info() {
             viewport={{ once: true }}
             className="relative mt-20 flex flex-wrap justify-center gap-10"
           >
-            
             {steps.map((step, i) => {
               const ref = useRef(null);
               return (
@@ -220,7 +225,6 @@ function Info() {
                   onMouseLeave={() => handleMouseLeave(ref)}
                   className="relative w-[230px] border border-gray-800 rounded-2xl p-5 flex flex-col items-start gap-3 shadow-lg hover:border-cyan-400 hover:shadow-cyan-400/30 group overflow-hidden transition-all duration-300"
                 >
-
                   {/* Icon */}
                   <motion.div
                     className="text-3xl text-cyan-400 relative z-10"

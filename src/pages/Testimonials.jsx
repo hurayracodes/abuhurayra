@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const testimonials = [
   {
@@ -10,7 +10,6 @@ const testimonials = [
     image: "👩‍💼",
     quote: "Abuhurayra's work transcends traditional web development. His ability to blend technical expertise with artistic vision resulted in a portfolio that truly stands out in our industry.",
     rating: 5,
-    linear: "from-purple-500 to-pink-500"
   },
   {
     id: 2,
@@ -20,7 +19,6 @@ const testimonials = [
     image: "👨‍💻",
     quote: "Working with Abu Hurayra was incredible. He delivered a complex 3D interactive experience that exceeded all expectations. His attention to detail and innovative approach is unmatched.",
     rating: 5,
-    linear: "from-blue-500 to-cyan-500"
   },
   {
     id: 3,
@@ -30,7 +28,6 @@ const testimonials = [
     image: "👩‍💻",
     quote: "abuhurara brings a unique perspective to every project. His futuristic designs and smooth animations have significantly improved our user engagement metrics.",
     rating: 4,
-    linear: "from-green-500 to-emerald-500"
   },
   {
     id: 4,
@@ -40,7 +37,6 @@ const testimonials = [
     image: "👨‍💼",
     quote: "Outstanding developer with an eye for design. Abu Hurayra created an immersive experience that perfectly captured our brand vision. Highly recommended!",
     rating: 5,
-    linear: "from-orange-500 to-red-500"
   },
 ];
 
@@ -55,13 +51,11 @@ export default function Testimonials() {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % testimonials.length);
-    }, 4000);
-    return () => clearInterval(timer);
+
   }, []);
 
-  const { name, title, company, image, quote, rating, linear } = testimonials[index];
+  const { name, title, company, image, quote, rating } = testimonials[index];
 
   const renderStars = (rating) => {
     return Array.from({ length: 5 }).map((_, i) => (
@@ -77,12 +71,6 @@ export default function Testimonials() {
     ));
   };
 
-  const variants = {
-    enter: { opacity: 0, y: 50, scale: 0.9 },
-    center: { opacity: 1, y: 0, scale: 1 },
-    exit: { opacity: 0, y: -50, scale: 0.9 }
-  };
-
   return (
     <section id="testimonials" className="py-20 px-4 sm:px-6">
       <div className="container mx-auto max-w-4xl">
@@ -96,57 +84,25 @@ export default function Testimonials() {
           <h2 className="text-5xl font-bold bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
             Client Testimonials
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-400 mt-4 max-w-2xl mx-auto">
             What clients say about working with me
           </p>
         </motion.div>
 
         {/* Testimonial Card */}
         <div className="relative">
-          <div className="bg-linear-to-br from-[#15152272] to-[#09090f63] border border-gray-800 rounded-3xl p-8 shadow-2xl">
-            <AnimatePresence mode="wait">
+          <div className="border border-gray-800 rounded-3xl p-8 shadow-2xl">
               <motion.div
                 key={index}
-                variants={variants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.5, ease: "easeInOut" }}
                 className="text-center"
               >
-                {/* Rating Stars */}
-                <div className="flex justify-center gap-1 mb-6">
-                  {renderStars(rating)}
-                </div>
-
-                {/* Quote Icon */}
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: 0.2, type: "spring" }}
-                  className="text-4xl mb-6 text-gray-400"
-                >
-                  "
-                </motion.div>
-
-                {/* Quote */}
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.3 }}
-                  className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8 font-light max-w-2xl mx-auto"
-                >
-                  {quote}
-                </motion.p>
-
                 {/* Client Info */}
                 <div className="flex items-center justify-center gap-4">
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.4, type: "spring" }}
-                    className={`w-14 h-14 rounded-xl bg-linear-to-br ${linear} flex items-center justify-center text-2xl shadow-lg`}
-                  >
+                    className={`w-14 h-14 rounded-full border border-gray-800 flex items-center justify-center text-2xl shadow-lg`}>
                     {image}
                   </motion.div>
                   <div className="text-left">
@@ -168,21 +124,21 @@ export default function Testimonials() {
                     </motion.p>
                   </div>
                 </div>
-              </motion.div>
-            </AnimatePresence>
 
-            {/* Progress Bar */}
-            <div className="mt-8">
-              <div className="h-1 bg-gray-700 rounded-full overflow-hidden">
-                <motion.div
-                  key={index}
-                  initial={{ width: "0%" }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: 4, ease: "linear" }}
-                  className="h-full bg-linear-to-r from-purple-500 to-cyan-500"
-                />
-              </div>
-            </div>
+                {/* Quote */}
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.3 }}
+                  className=" mt-8 text-gray-300 text-lg md:text-xl leading-relaxed mb-8 font-light max-w-2xl mx-auto"
+                >
+                  {quote}
+                </motion.p>
+                 {/* Rating Stars */}
+                <div className="flex justify-center gap-1 mb-6">
+                  {renderStars(rating)}
+                </div>
+              </motion.div>
           </div>
 
           {/* Pagination Dots */}

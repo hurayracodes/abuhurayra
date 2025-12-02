@@ -105,7 +105,7 @@ function Hero() {
                 {
                   icon: Instagram,
                   href: "https://instagram.com/hurayracodes/",
-                  label: "GitHub",
+                  label: "instagram",
                 },
                 {
                   icon: Github,

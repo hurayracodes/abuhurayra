@@ -2,10 +2,10 @@ import LogoLoop from './LogoLoop';
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss } from 'react-icons/si';
 
 const techLogos = [
-  { node: <SiReact />, title: "React", href: "https://react.dev" },
-  { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
-  { node: <SiTypescript />, title: "TypeScript", href: "https://www.typescriptlang.org" },
-  { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
+  { node: <SiReact />, title: "React" },
+  { node: <SiNextdotjs />, title: "Next.js"},
+  { node: <SiTypescript />, title: "TypeScript"},
+  { node: <SiTailwindcss />, title: "Tailwind CSS",},
 ];
 
 // Alternative with image sources
@@ -18,13 +18,13 @@ const imageLogos = [
 
 export default function Logo() {
   return (
-     <div className='text-cyan-300' style={{ height: '250px', position: 'relative', overflow: 'hidden'}}>
+     <div className='text-gray-400' style={{ height: '250px', position: 'relative', overflow: 'hidden'}}>
       <LogoLoop
         logos={techLogos}
-        speed={90}
+        speed={70}
         direction="left"
         logoHeight={60}
-        gap={50}
+        gap={60}
         pauseOnHover
         scaleOnHover
         fadeOut

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code, Github, Linkedin, Mail, Sparkles, Facebook } from "lucide-react";
+import { Code, Github, Linkedin, Mail, Instagram } from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -25,12 +25,8 @@ export default function Footer() {
           <div className="space-y-6">
             <motion.div
             className="flex items-center gap-2"
-            whileHover={{ scale: 1.05 }}
           >
-            <div className="w-8 h-8 rounded-lg bg-linear-to-br from-purple-500 to-cyan-500 flex items-center justify-center">
-              <Sparkles className="w-4 h-4 text-white" />
-            </div>
-            <span className="text-white font-semibold text-lg">Abu Hurayra</span>
+            <span className="font-semibold text-lg bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">Abu Hurayra</span>
           </motion.div>
             <p className="text-white/80 leading-relaxed">
               Creative developer crafting immersive digital experiences with
@@ -40,7 +36,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="space-y-4">
-            <h4 className="font-semibold text-lg mb-4 text-blue-300">
+            <h4 className="font-semibold text-lg mb-4 bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
               Get In Touch
             </h4>
             <a
@@ -63,9 +59,9 @@ export default function Footer() {
             {[
               { icon: Code, href: "https://github.com/hurayracodes/abuhurayra", label: "Code" },
               {
-                icon: Facebook,
-                href: "https://web.facebook.com/hurayracodes/",
-                label: "GitHub",
+                icon: Instagram,
+                href: "https://instagram.com/hurayracodes/",
+                label: "instagram",
               },
               {
                 icon: Github,
@@ -94,7 +90,7 @@ export default function Footer() {
           className="border-t border-white/10 pt-6 text-center text-white/60 text-sm"
         >
           © {new Date().getFullYear()}{" "}
-          <span className="text-blue-400 font-medium">Abu Hurayra</span>. All
+          <span className="bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent font-medium">Abu Hurayra</span>. All
           rights reserved.
         </motion.div>
       </div>

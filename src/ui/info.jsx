@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { FaCode, FaReact, FaServer, FaCube } from "react-icons/fa";
-import Logo from "../ui/Logo";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -99,7 +98,7 @@ function Info() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
-              className="relative flex justify-center"
+              className="relative flex pt-15 justify-center"
             >
               <div className="relative w-48 h-48 transform transition duration-500 hover:scale-105 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 mx-auto">
                 <motion.div
@@ -173,24 +172,8 @@ function Info() {
                 memorable. I believe in pushing the boundaries of what's
                 possible on the web.
               </motion.p>
-              <motion.h3
-                variants={fadeInUp}
-                className="text-2xl sm:text-3xl font-bold bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent"
-              >
-                Skills & Technologies
-              </motion.h3>
             </motion.div>
           </div>
-            <div className="w-1/3 m-auto flex items-center justify-center">
-              <motion.div
-                variants={scaleIn}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-              >
-                <Logo />
-              </motion.div>
-            </div>
 
           {/* Journey Timeline Header */}
           <motion.h3
@@ -258,8 +241,8 @@ function Info() {
             className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-12 mt-12"
           >
             {[
-              { number: "100+", label: "Projects" },
-              { number: "3+", label: "Years Experience" },
+              { number: "10+", label: "Projects" },
+              { number: "2+", label: "Years Experience" },
               { number: "100%", label: "Client Satisfaction" },
             ].map((stats, i) => (
               <motion.div

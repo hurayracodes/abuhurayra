@@ -9,14 +9,7 @@ const Contact = () => {
     message: "",
   });
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(form);
-  };
 
   // New animation variants
   const staggerContainer = {
@@ -170,7 +163,7 @@ const Contact = () => {
               Send a Message
             </motion.h3>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <motion.div className="space-y-2">
                   <label className="text-sm font-medium text-gray-300">
@@ -180,8 +173,6 @@ const Contact = () => {
                     type="text"
                     name="name"
                     placeholder="John Doe"
-                    onChange={handleChange}
-                    value={form.name}
                     className="w-full mt-5 hover:border-cyan-400 hover:shadow-lg hover:shadow-purple-500/25  rounded-xl px-4 py-3 text-white placeholder-gray-400 outline-none resize-none border border-gray-800 transition-all duration-300"
                   />
                 </motion.div>
@@ -194,8 +185,6 @@ const Contact = () => {
                     type="email"
                     name="email"
                     placeholder="john@example.com"
-                    onChange={handleChange}
-                    value={form.email}
                     className="w-full mt-5  rounded-xl px-4 py-3 text-white placeholder-gray-400 outline-none resize-none border border-gray-800 hover:border-cyan-400 transition-all duration-500 hover:shadow-lg hover:shadow-purple-500/25"
                   />
                 </motion.div>
@@ -209,8 +198,6 @@ const Contact = () => {
                   type="text"
                   name="subject"
                   placeholder="Project Collaboration"
-                  onChange={handleChange}
-                  value={form.subject}
                   className="w-full mt-5  rounded-xl px-4 py-3 text-white placeholder-gray-400 outline-none resize-none border border-gray-800 hover:border-cyan-400 transition-all duration-500 hover:shadow-lg hover:shadow-purple-500/25"
                 />
               </motion.div>
@@ -223,8 +210,6 @@ const Contact = () => {
                   name="message"
                   rows="5"
                   placeholder="Tell me about your project and how we can work together..."
-                  onChange={handleChange}
-                  value={form.message}
                   className="mt-5 w-full rounded-xl px-4 py-3 text-white placeholder-gray-400 outline-none resize-none border border-gray-800 hover:border-cyan-400 transition-all duration-500 hover:shadow-lg hover:shadow-purple-500/25"
                 />
               </motion.div>

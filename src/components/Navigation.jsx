@@ -48,7 +48,7 @@ function Navigation() {
           
             <h2 whileHover={{ scale: 1.05 }} className="font-semibold text-xl bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">Abu Hurayra</h2>
 
-          {/* Desktop Menu */}
+          {/* mobile Menu */}
           <div className="hidden md:flex items-center gap-8">
             {menuItems.map((item) => (
               <button
@@ -91,7 +91,7 @@ function Navigation() {
       {/* Full-Screen Mobile Menu */}
         {isOpen && (
           <div
-            className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-linear-to-b from-gray-900 to-black text-white"
+            className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-linear-to-br from-black/60 via-black/40 to-purple-700/40 backdrop-blur-sm text-white"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -99,7 +99,7 @@ function Navigation() {
             {/* Close Button */}
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute top-6 right-6 w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+              className="absolute top-4 right-6 w-12 h-12 rounded-lg bg-white/10 flex border border-white/20 items-center justify-center transition-colors"
               whileHover={{ scale: 1.1 }}
             >
               <X className="w-5 h-5 text-white" />

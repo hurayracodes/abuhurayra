@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 
 function Navigation() {
@@ -34,7 +33,7 @@ function Navigation() {
   return (
     <>
       {/* Navigation Bar */}
-      <motion.header
+      <header
         className={`fixed top-0 w-full px-6 py-4 z-50 transition-all duration-300 ${
           scrolled
             ? "bg-linear-to-br from-black/60 via-black/40 to-purple-700/40 backdrop-blur-xs border-b border-white/10"
@@ -47,12 +46,12 @@ function Navigation() {
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           {/* Logo */}
           
-            <motion.h2 whileHover={{ scale: 1.05 }} className="font-semibold text-xl bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">Abu Hurayra</motion.h2>
+            <h2 whileHover={{ scale: 1.05 }} className="font-semibold text-xl bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">Abu Hurayra</h2>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
             {menuItems.map((item) => (
-              <motion.button
+              <button
                 key={item.label}
                 onClick={() => scrollToSection(item.href)}
                 className="text-gray-300 hover:text-white transition-colors duration-300 relative group"
@@ -60,24 +59,22 @@ function Navigation() {
               >
                 {item.label}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-linear-to-r from-purple-500 to-pink-500 group-hover:w-full transition-all duration-300" />
-              </motion.button>
+              </button>
             ))}
-            <motion.button
+            <button
               onClick={() => scrollToSection("#contact")}
               className="px-6 py-2 rounded-full border border-gray-800 hover:border-cyan-400 hover:shadow-cyan-400/30 cursor-pointer text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
               whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
             >
               Let's talk
-            </motion.button>
+            </button>
           </div>
 
           {/* Mobile Menu Toggle (Two Lines) */}
-          <motion.button
+          <button
             className="md:hidden w-12 h-12 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 flex flex-col items-center justify-center gap-1"
             onClick={() => setIsOpen(!isOpen)}
             whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
           >
             {!isOpen ? (
               <>
@@ -87,33 +84,31 @@ function Navigation() {
             ) : (
               <X className="w-6 h-6 text-white" />
             )}
-          </motion.button>
+          </button>
         </div>
-      </motion.header>
+      </header>
 
       {/* Full-Screen Mobile Menu */}
-      <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <div
             className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-linear-to-b from-gray-900 to-black text-white"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
             {/* Close Button */}
-            <motion.button
+            <button
               onClick={() => setIsOpen(false)}
               className="absolute top-6 right-6 w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
               whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
             >
               <X className="w-5 h-5 text-white" />
-            </motion.button>
+            </button>
 
             {/* Menu Items (Vertical Column) */}
             <div className="flex flex-col items-center justify-center space-y-8 text-center">
               {menuItems.map((item, index) => (
-                <motion.button
+                <button
                   key={item.label}
                   onClick={() => scrollToSection(item.href)}
                   variants={itemVariants}
@@ -123,37 +118,26 @@ function Navigation() {
                   className="text-3xl font-semibold hover:text-transparent hover:bg-linear-to-r hover:from-purple-400 hover:to-pink-400 hover:bg-clip-text transition-all duration-300"
                 >
                   {item.label}
-                </motion.button>
+                </button>
               ))}
 
               {/* CTA Button */}
-              <motion.button
+              <button
                 onClick={() => scrollToSection("#contact")}
                 variants={itemVariants}
                 initial="closed"
                 animate="open"
                 transition={{ delay: menuItems.length * 0.1 }}
-                className="mt-10 px-8 py-3 rounded-full bg-linear-to-l from-purple-800 to-pink-900 text-white font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+                className="mt-10 px-8 py-3 rounded-full border boder-gray-800 text-white font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 Let's talk
-              </motion.button>
+              </button>
             </div>
-
-            {/* Footer */}
-            <motion.div
-              className="absolute bottom-10 text-gray-400 text-sm"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-            >
-              Ready to create something amazing?
-            </motion.div>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
-    </>
+      </>
   );
 }
 

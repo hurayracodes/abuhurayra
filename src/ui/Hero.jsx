@@ -32,7 +32,7 @@ function Hero() {
 
   return (
     <div className="relative overflow-hidden">
-      <section className="min-h-screen flex items-center justify-center px-6 lg:px-16 text-white">
+      <section className="min-h-screen flex items-center mt-15 justify-center px-6 lg:px-16 text-white">
         <motion.div
           variants={staggerContainer}
           initial="hidden"

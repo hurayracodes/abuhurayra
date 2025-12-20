@@ -176,61 +176,67 @@ function Info() {
           </div>
 
           {/* Journey Timeline Header */}
-          <motion.h3
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="text-4xl text-center sm:text-4xl font-bold bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent mt-20"
-          >
-            Journey Timeline
-          </motion.h3>
+<motion.h3
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: 0.2 }}
+  viewport={{ once: true }}
+  className="text-4xl text-center sm:text-4xl font-bold bg-gradient-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent mt-20"
+>
+  Journey Timeline
+</motion.h3>
 
-          {/* Timeline Section */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="relative mt-20 flex flex-wrap justify-center gap-10"
-          >
-            {steps.map((step, i) => {
-              const ref = useRef(null);
-              return (
-                <motion.div
-                  key={i}
-                  ref={ref}
-                  initial={{ opacity: 0, y: 50, scale: 0.8 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{ duration: 0.6, delay: i * 0.2 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  onMouseMove={(e) => handleMouseMove(e, ref)}
-                  onMouseLeave={() => handleMouseLeave(ref)}
-                  className="relative w-[230px] border border-gray-800 rounded-2xl p-5 flex flex-col items-start gap-3 shadow-lg hover:border-cyan-400 hover:shadow-cyan-400/30 group overflow-hidden transition-all duration-300"
-                >
-                  {/* Icon */}
-                  <motion.div
-                    className="text-3xl text-cyan-400 relative z-10"
-                    whileHover={{ rotate: 10, scale: 1.2 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {step.icon}
-                  </motion.div>
+{/* Timeline Section - ENHANCED WITH BACKEND HOVER EFFECTS */}
+<motion.div
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ duration: 0.6, delay: 0.3 }}
+  viewport={{ once: true }}
+  className="relative mt-20 flex flex-wrap justify-center gap-10"
+>
+  {steps.map((step, i) => {
+    const ref = useRef(null);
+    return (
+      <motion.div
+        key={i}
+        ref={ref}
+        initial={{ opacity: 0, y: 50, scale: 0.8 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.6, delay: i * 0.2 }}
+        viewport={{ once: true, amount: 0.3 }}
+        onMouseMove={(e) => handleMouseMove(e, ref)}
+        onMouseLeave={() => handleMouseLeave(ref)}
+        className="group/card relative w-[230px] bg-gray-950/60 backdrop-blur-md border border-gray-800 rounded-2xl p-6 flex flex-col items-start gap-4 shadow-lg hover:border-cyan-400 hover:shadow-cyan-400/30 hover:shadow-2xl overflow-hidden transition-all duration-300 cursor-pointer"
+      >
+        {/* Shimmer effect - SAME AS BACKEND */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 -translate-x-full group-hover/card:translate-x-full transition-transform duration-700 z-0" />
+        
+        {/* Icon - ENHANCED */}
+        <motion.div
+          className="relative z-10 text-3xl text-gray-300 group-hover/card:text-cyan-400 transition-all duration-400 drop-shadow-lg"
+          whileHover={{ rotate: 10, scale: 1.2 }}
+          transition={{ duration: 0.3 }}
+        >
+          {step.icon}
+        </motion.div>
 
-                  {/* Text */}
-                  <div className="relative z-10">
-                    <h4 className="text-lg font-semibold text-white">
-                      {step.title}
-                    </h4>
-                    <p className="text-sm text-gray-400">{step.tech}</p>
-                    <span className="text-xs text-gray-500 mt-2 block">
-                      {step.year}
-                    </span>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </motion.div>
+        {/* Text - ENHANCED */}
+        <div className="relative z-10 space-y-2">
+          <h4 className="text-lg font-semibold text-gray-100 group-hover/card:text-white transition-colors duration-300">
+            {step.title}
+          </h4>
+          <p className="text-sm text-gray-400 group-hover/card:text-gray-200 transition-colors duration-300">
+            {step.tech}
+          </p>
+          <span className="text-xs font-medium text-gray-500 group-hover/card:text-cyan-300 block transition-colors duration-300">
+            {step.year}
+          </span>
+        </div>
+      </motion.div>
+    );
+  })}
+</motion.div>
+
 
           {/* Stats Section */}
           <motion.div

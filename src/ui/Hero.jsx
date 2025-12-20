@@ -1,6 +1,7 @@
 import "./Hero.css";
 import { Code, Github, Linkedin, Instagram } from "lucide-react";
 import { motion } from "framer-motion";
+// import SkillsSection from "./SkillsSection";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -32,6 +33,11 @@ function Hero() {
 
   return (
     <div className="relative overflow-hidden">
+      <canvas
+        className="absolute inset-0 pointer-events-none"
+        style={{ zIndex: 1 }}
+      />
+      {/* <SkillsSection/> */}
       <section className="min-h-screen flex items-center mt-15 justify-center px-6 lg:px-16 text-white">
         <motion.div
           variants={staggerContainer}

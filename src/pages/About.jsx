@@ -1,9 +1,9 @@
-import Info from '../ui/info'
+import InfoSection from '../ui/InfoSection'
 
 function About() {
   return (
     <div>
-      <Info/>
+      <InfoSection/>
     </div>
   )
 }

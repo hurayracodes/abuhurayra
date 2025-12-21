@@ -19,7 +19,6 @@ const galleryItems = [
     link: "https://hurayracodes.github.io/Education-website/",
     color: "#47afa1",
   },
-  
 
   {
     id: 3,
@@ -90,21 +89,24 @@ const Gallery = () => {
                       isEven ? "sm:mr-auto" : "sm:ml-auto"
                     }`}
                   >
-                    <div className="max-w-[400px] w-full flex justify-center items-center bg-white/5 rounded-lg drop-shadow-[0_0_60px_rgba(59,130,246,0.6)] h-[220px]">
+                    <div className="relative max-w-[400px] w-full h-[220px] rounded-lg overflow-hidden drop-shadow-[0_0_60px_rgba(59,130,246,0.6)] group">
+                      {/* Image */}
                       <img
                         src={item.image}
                         alt={item.title}
-                        className="w-full h-full object-cover rounded-lg"
+                        className="w-full h-full object-cover transition-all duration-300 group-hover:blur-[2px] group-hover:scale-105"
                       />
+
+                      {/* Dark overlay */}
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                      {/* View Project button */}
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                        <span className="px-5 py-2 rounded-full bg-black text-white text-sm font-medium flex items-center gap-2 border border-white/30 backdrop-blur-md">
+                          View Project →
+                        </span>
+                      </div>
                     </div>
-                    <span
-                      className="flex group-hover:-top-14 ease-jump duration-200 sm:absolute left-1/2 sm:-translate-x-1/2 top-5 px-3 py-1 text-sm sm:text-base mt-3 rounded w-max items-center gap-1 text-black"
-                      style={{
-                        background: item.color,
-                      }}
-                    >
-                      {item.title}
-                    </span>
                   </div>
                 </a>
 

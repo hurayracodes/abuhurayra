@@ -29,7 +29,8 @@ function Navigation() {
     closed: { opacity: 0, y: 20 },
     open: { opacity: 1, y: 0 },
   };
-
+  const corverBarkect1 = ' }';
+  const corverBarkect2 = '{ ';
   return (
     <>
       {/* Navigation Bar */}
@@ -46,7 +47,7 @@ function Navigation() {
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           {/* Logo */}
           
-            <h2 whileHover={{ scale: 1.05 }} className="font-semibold text-xl bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">Abu Hurayra</h2>
+            <h2 whileHover={{ scale: 1.05 }} className="font-semibold text-xl text-white">{corverBarkect2}<span className="bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">Abu Hurayra</span>{corverBarkect1}</h2>
 
           {/* mobile Menu */}
           <div className="hidden md:flex items-center gap-8">

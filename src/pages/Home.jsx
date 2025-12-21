@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { StarsCanvas } from "../ui/StarsCanvas";
 import Hero from "../ui/Hero";
-import Info from "../ui/info";
+import InfoSection from "../ui/InfoSection";
 import Projects from "./Projects";
 import Testimonils from "./Testimonials";
 import Contact from "./Contact";
@@ -21,7 +21,7 @@ function Home() {
 
           {/* Info section */}
           <div className="animate-fadeIn delay-300">
-            <Info />
+            <InfoSection />
           </div>
 
           {/* Projects section */}

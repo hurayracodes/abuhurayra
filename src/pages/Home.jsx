@@ -5,6 +5,7 @@ import InfoSection from "../ui/InfoSection";
 import Projects from "./Projects";
 import Testimonils from "./Testimonials";
 import Contact from "./Contact";
+import FAQ from "./FAQ";
 
 function Home() {
 
@@ -27,6 +28,10 @@ function Home() {
           {/* Projects section */}
           <div className="animate-fadeIn delay-500">
             <Projects />
+          </div>
+          {/* Contact section */}
+          <div className="animate-fadeIn delay-900">
+            <FAQ />
           </div>
 
           {/* Testimonials section */}

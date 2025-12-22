@@ -110,9 +110,9 @@ const Contact = () => {
           duration: 4000,
           style: {
             background:
-                "linear-gradient(to bottom right, rgba(0,0,0,0.6), rgba(0,0,0,0.4), rgba(126,34,206,0.4))",
-              backdropFilter: "blur(4px)", 
-              WebkitBackdropFilter: "blur(4px)",
+              "linear-gradient(to bottom right, rgba(0,0,0,0.6), rgba(0,0,0,0.4), rgba(126,34,206,0.4))",
+            backdropFilter: "blur(4px)",
+            WebkitBackdropFilter: "blur(4px)",
             border: "1px solid rgba(255,255,255,0.1)",
             color: "#67e8f9",
             borderRadius: "12px",
@@ -195,7 +195,15 @@ const Contact = () => {
                     </div>
                   </motion.div>
                   <motion.div className="flex items-center border border-gray-800 space-x-3 p-3 rounded-lg transition-all cursor-pointer hover:border-cyan-400 duration-300 hover:shadow-lg hover:shadow-purple-500/25">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6873.184534764088!2d72.70735158864092!3d30.532566498725252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3922d5f658d9af63%3A0x55ea01f0590e7f69!2sChak%2039%2F12%20L%2C%20Chichawatni%2C%20Pakistan!5e0!3m2!1sen!2s!4v1766385170253!5m2!1sen!2s" width="100%" height="200" frameBorder="0" style={{ border: 0 }} allowFullScreen="" loading="lazy"></iframe>
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6873.184534764088!2d72.70735158864092!3d30.532566498725252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3922d5f658d9af63%3A0x55ea01f0590e7f69!2sChak%2039%2F12%20L%2C%20Chichawatni%2C%20Pakistan!5e0!3m2!1sen!2s!4v1766385170253!5m2!1sen!2s"
+                      width="100%"
+                      height="200"
+                      frameBorder="0"
+                      style={{ border: 0 }}
+                      allowFullScreen=""
+                      loading="lazy"
+                    ></iframe>
                   </motion.div>
                 </div>
               </motion.div>
@@ -204,9 +212,19 @@ const Contact = () => {
             {/* Right Side - Form */}
             <motion.div
               variants={slideInRight}
-              className="border border-white/20 
-            overflow-hidden rounded-2xl p-8"
+              className="group relative bg-slate-900/50 border border-slate-800
+  rounded-3xl p-8 shadow-2xl overflow-hidden
+  transition-all duration-300
+  hover:border-cyan-400 hover:shadow-cyan-400/30 hover:shadow-2xl"
             >
+
+               {/* shimmer */}
+  <div
+    className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent
+    -skew-x-12 -translate-x-full group-hover:translate-x-full
+    transition-transform duration-700 z-0"
+  />
+              <motion.div className="relative z-10">
               {/* bg-linear-to-br from-[#21204ba9] to-[#261935a4] */}
               <motion.h3 className="text-white text-2xl mb-6 font-bold">
                 Send a Message
@@ -286,6 +304,7 @@ const Contact = () => {
                   </span>
                 </motion.button>
               </form>
+            </motion.div>
             </motion.div>
           </motion.div>
         </div>

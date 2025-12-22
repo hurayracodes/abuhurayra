@@ -2,7 +2,6 @@ import "./Hero.css";
 import { Code, Github, Linkedin, Instagram } from "lucide-react";
 import { motion } from "framer-motion";
 import RotatingDecryptedText from "./DecryptText";
-// import SkillsSection from "./SkillsSection";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -36,14 +35,13 @@ function Hero() {
         className="absolute inset-0 pointer-events-none"
         style={{ zIndex: 1 }}
       />
-      {/* <SkillsSection/> */}
-      <section className="min-h-screen flex items-center justify-center px-6 lg:px-16 text-white">
+      <section className="min-h-screen flex items-center justify-center px-6 lg:px-16 text-white pt-20 pb-12 lg:pt-0 lg:pb-0">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid lg:grid-cols-2 gap-10 items-center max-w-7xl mx-auto"
+          className="grid lg:grid-cols-2 gap-10 items-center max-w-7xl mx-auto w-full"
         >
           {/* Left Content */}
           <motion.div
@@ -51,7 +49,7 @@ function Hero() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className="space-y-8 order-2 lg:order-1"
+            className="space-y-8 order-2 lg:order-1 w-full lg:max-w-lg"
           >
             {/* Badge */}
             <motion.div
@@ -150,15 +148,15 @@ function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Image Section */}
+          {/* Image Section - Original sizes fixed */}
           <motion.div
             variants={slideInLeft}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className="relative flex justify-center order-1 lg:order-2"
+            className="relative flex justify-center order-1 lg:order-2 w-full"
           >
-            <div className="relative w-48 h-48 transform transition duration-500 hover:scale-105 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 mx-auto">
+            <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 mx-auto transform transition duration-500 hover:scale-105">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}

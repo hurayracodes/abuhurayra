@@ -64,7 +64,7 @@ function Navigation() {
             ))}
             <button
               onClick={() => scrollToSection("#contact")}
-              className="px-6 py-2 rounded-full border border-gray-800 hover:border-cyan-400 hover:shadow-cyan-400/30 cursor-pointer text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+              className="px-6 py-2 rounded-full border border-gray-800 hover:border-cyan-400 hover:shadow-cyan-400/30 cursor-pointer text-white font-medium hover:shadow-lg transition-all duration-300"
               whileHover={{ scale: 1.05 }}
             >
               Let's talk

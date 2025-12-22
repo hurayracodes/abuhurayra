@@ -98,7 +98,7 @@ const InfoSection = () => {
       <div className="mx-auto max-w-6xl">
         <div className="mb-10 text-center">
           <h2 className="text-5xl font-bold bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
-            About Me
+            About My Journey
           </h2>
         </div>
         {/* Top Heading Row */}
@@ -113,7 +113,7 @@ const InfoSection = () => {
           {/* LEFT: Work Experience timeline */}
           <div className="relative">
             {/* vertical line full height */}
-            <div className="absolute left-10 top-8 bottom-8 bg-sky-500/40 w-[2px] pointer-events-none" />
+            <div className="absolute left-10 top-8 bottom-8 bg-sky-500/40 w-2px pointer-events-none" />
 
             <div className="space-y-10">
               {workItems.map((item, idx) => {
@@ -126,6 +126,7 @@ const InfoSection = () => {
                         <span className="text-2xl">{item.iconBg}</span>
                       </div>
                     </div>
+                    
 
                     {/* main card - same hover feeling as Journey Timeline */}
                     <div className="flex-1">
@@ -133,7 +134,7 @@ const InfoSection = () => {
                         ref={ref}
                         onMouseMove={handleMouseMove}
                         onMouseLeave={handleMouseLeave}
-                        className="group/card relative bg-slate-900/80 backdrop-blur-md border border-slate-800 rounded-2xl p-6 shadow-lg hover:border-cyan-400 hover:shadow-cyan-400/30 hover:shadow-2xl overflow-hidden transition-all duration-300"
+                        className="group/card relative bg-slate-900/50 border border-slate-800 rounded-2xl p-6 shadow-lg hover:border-cyan-400 hover:shadow-cyan-400/30 hover:shadow-2xl overflow-hidden transition-all duration-300"
                       >
                         {/* shimmer */}
                         <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent -skew-x-12 -translate-x-full group-hover/card:translate-x-full transition-transform duration-700 z-0" />
@@ -176,7 +177,7 @@ const InfoSection = () => {
                     ref={ref}
                     onMouseMove={handleMouseMove}
                     onMouseLeave={handleMouseLeave}
-                    className="group/card relative bg-slate-900/80 backdrop-blur-md border border-slate-800 rounded-2xl p-5 shadow-lg hover:border-cyan-400 hover:shadow-cyan-400/30 hover:shadow-2xl overflow-hidden transition-all duration-300 flex gap-4"
+                    className="group/card relative bg-slate-900/50 border border-slate-800 rounded-2xl p-5 shadow-lg hover:border-cyan-400 hover:shadow-cyan-400/30 hover:shadow-2xl overflow-hidden transition-all duration-300 flex gap-4"
                   >
                     {/* shimmer */}
                     <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent -skew-x-12 -translate-x-full group-hover/card:translate-x-full transition-transform duration-700 z-0" />
@@ -217,7 +218,7 @@ const InfoSection = () => {
                     ref={ref}
                     onMouseMove={handleMouseMove}
                     onMouseLeave={handleMouseLeave}
-                    className="group/card relative bg-slate-900/80 backdrop-blur-md border border-slate-800 rounded-2xl p-5 shadow-lg hover:border-cyan-400 hover:shadow-cyan-400/30 hover:shadow-2xl overflow-hidden transition-all duration-300 flex gap-4"
+                    className="group/card relative bg-slate-900/50 border border-slate-800 rounded-2xl p-5 shadow-lg hover:border-cyan-400 hover:shadow-cyan-400/30 hover:shadow-2xl overflow-hidden transition-all duration-300 flex gap-4"
                   >
                     {/* shimmer */}
                     <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent -skew-x-12 -translate-x-full group-hover/card:translate-x-full transition-transform duration-700 z-0" />

@@ -182,19 +182,6 @@ const Contact = () => {
                     </div>
                   </motion.div>
 
-                  <motion.div className="flex items-center border border-gray-800 space-x-3 p-3 rounded-lg transition-all cursor-pointer hover:border-cyan-400 duration-300 hover:shadow-lg hover:shadow-purple-500/25">
-                    <motion.div
-                      whileHover={{ rotate: 15, scale: 1.1 }}
-                      className="w-10 h-10 border border-gray-800 rounded-full flex items-center justify-center"
-                    >
-                      🚀
-                    </motion.div>
-                    <div>
-                      <p className="text-sm text-gray-400">Phone</p>
-                      <p className="text-white">+92 (316) 6732581</p>
-                    </div>
-                  </motion.div>
-
                   <motion.div className="flex items-center border border-gray-800 space-x-3 p-3 rounded-lg transition-all duration-500 cursor-pointer hover:border-cyan-400 hover:shadow-lg hover:shadow-purple-500/25">
                     <motion.div
                       whileHover={{ rotate: 15, scale: 1.1 }}
@@ -204,8 +191,11 @@ const Contact = () => {
                     </motion.div>
                     <div>
                       <p className="text-sm text-gray-400">Location</p>
-                      <p className="text-white">Sahiwal, CCW, Chak 16/11-L</p>
+                      <p className="text-white">Sahiwal, CCW, Chak 39/12-L</p>
                     </div>
+                  </motion.div>
+                  <motion.div className="flex items-center border border-gray-800 space-x-3 p-3 rounded-lg transition-all cursor-pointer hover:border-cyan-400 duration-300 hover:shadow-lg hover:shadow-purple-500/25">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6873.184534764088!2d72.70735158864092!3d30.532566498725252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3922d5f658d9af63%3A0x55ea01f0590e7f69!2sChak%2039%2F12%20L%2C%20Chichawatni%2C%20Pakistan!5e0!3m2!1sen!2s!4v1766385170253!5m2!1sen!2s" width="100%" height="200" frameBorder="0" style={{ border: 0 }} allowFullScreen="" loading="lazy"></iframe>
                   </motion.div>
                 </div>
               </motion.div>

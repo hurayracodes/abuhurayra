@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import { motion } from "framer-motion";
 import {
   FaUserGraduate,
   FaUniversity,
@@ -34,7 +33,7 @@ const use3DHover = () => {
 const workItems = [
   {
     title: "Frontend Developer & Team Lead",
-    company: "Navindhara Research & IT Organisation",
+    company: "HeapWare & IT Organisation",
     duration: "Aug 2025 – Present",
     description:
       "Led frontend architecture and development using React.js. Built reusable UI components and optimized performance. Mentored junior developers and conducted code reviews.",
@@ -42,50 +41,35 @@ const workItems = [
   },
   {
     title: "Founder & CEO",
-    company: "NXTVEL Technologies",
+    company: "HurayraCodes Technologies",
     duration: "Oct 2024 – Present",
     description:
-      "Built an AI‑powered website builder platform. Delivered custom web & mobile app solutions and managed product growth.",
+      "Built an AI‑powered website builder platform. Delivered custom web solutions to clients, focusing on performance and user experience.",
     iconBg: "🚀",
-  },
-  {
-    title: "Social Media Executive & IT",
-    company: "The Bullevents Management Pvt. Ltd.",
-    duration: "Oct 2023 – Mar 2025",
-    description:
-      "Developed and maintained the official company website. Managed content systems and improved engagement.",
-    iconBg: "📈",
-  },
-  {
-    title: "Frontend Developer",
-    company: "Singbin Software Pvt. Ltd.",
-    duration: "May 2023 – Jun 2024",
-    description:
-      "Worked on frontend development using HTML, CSS, JavaScript in collaborative team environments.",
-    iconBg: "🧩",
   },
 ];
 
 const educationItems = [
   {
-    title: "BS Computer Science",
-    institute: "Virtual University of Pakistan",
-    duration: "2022 – 2026 (In Progress)",
-    detail:
-      "Focused on software engineering, data structures, and web technologies.",
-    icon: <FaUniversity />,
-  },
-  {
-    title: "Intermediate (Pre-Engineering)",
-    institute: "Islamabad College",
-    duration: "2020 – 2022",
-    detail: "Studied mathematics, physics, and foundational computing.",
+    title: "Full Stack Web Development",
+    institute: "deoversity - Best IT Training Institute",
+    duration: "2025 – 2025 (6 months)",
+    detail: "Studied JavaScript, React, Node.js, Express, and MongoDB.",
     icon: <FaUserGraduate />,
   },
   {
-    title: "Matriculation (Science)",
-    institute: "Islamabad School",
-    duration: "2018 – 2020",
+    title: "Intermediate Computer Science",
+    institute: "Govt Degree Collage Ccw Pakistan",
+    duration: "2019 – 2021",
+    detail:
+      "Focused on software engineering and web technologies.",
+    icon: <FaUniversity />,
+  },
+  
+  {
+    title: "Matriculation (Biology Science)",
+    institute: "Govt High School Ccw Pakistan",
+    duration: "2015 – 2019",
     detail: "Completed secondary education with a focus on science subjects.",
     icon: <FaAward />,
   },
@@ -93,15 +77,15 @@ const educationItems = [
 
 const certificationItems = [
   {
-    title: "Modern React & Next.js",
-    provider: "Online Bootcamp",
-    duration: "2024",
-    detail: "Deep dive into React, Next.js, and advanced frontend patterns.",
+    title: "Modern React Development",
+    provider: "Ideoversity - Advanced Web Development",
+    duration: "2025",
+    detail: "Deep dive into React, Express, and advanced Mern stack patterns.",
     icon: <FaCertificate />,
   },
   {
-    title: "MERN Stack Developer",
-    provider: "Online Program",
+    title: "JavaScript",
+    provider: "Online Program ( Shariyan Coding School & Apna College )",
     duration: "2023",
     detail: "Hands‑on projects with Node.js, Express, MongoDB, and React.",
     icon: <FaCertificate />,

@@ -49,13 +49,16 @@ export default function Footer() {
               <span>🌍</span> Remote / Global
             </div>
             <div className="flex items-center gap-3 text-green-400">
-              <span>⚡</span> Available for projects
+              <span>⚡</span> Available for freelance work
             </div>
           </div>
 
           {/* Social Icons */}
-            {/* <h3 className="text-white">Follow me social Media</h3> */}
-          <div className="flex md:justify-end items-start gap-4">
+            <div className="flex flex-col justify-between">
+              <p className="text-gray-400 mb-4">
+              Let’s stay connected — I post dev notes and design experiments.
+            </p>
+              <div className="flex md:justify-start items-start gap-4">
             {[
               { icon: Code, href: "https://github.com/hurayracodes/abuhurayra", label: "Code" },
               {
@@ -82,6 +85,8 @@ export default function Footer() {
               </a>
             ))}
           </div>
+            </div>
+          
         </div>
 
         {/* Divider */}

@@ -24,7 +24,7 @@ export default function DecryptedText({
   maxIterations = 12,
   sequential = true,
   revealDirection = "start",
-  characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*",
+  characters = "QuraibaSuperSecretHurayra!@$%&*",
   className = "",
   parentClassName = "",
   encryptedClassName = "opacity-60",

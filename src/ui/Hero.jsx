@@ -70,15 +70,15 @@ function Hero() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="space-y-4 md:w-full text-center"
+              className="space-y-4 md:w-full"
             >
-              <h1 className="text-5xl md:text-4xl font-bold">
+              <h1 className="text-5xl md:text-5xl font-bold">
                 Hey! I'm{" "}
                 <span className="bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent relative">
                   Hurayra
                 </span>
               </h1>
-              <h1 className="text-4xl md:text-3xl sm:text-3xl sd:text-2x1 font-bold text-white">
+              <h1 className="text-4xl md:text-4xl sm:text-3xl sd:text-2x1 font-bold text-white">
                 A{" "}
                 <span className="text-blue-400">
                   <RotatingDecryptedText />

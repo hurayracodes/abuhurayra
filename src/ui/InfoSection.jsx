@@ -94,7 +94,7 @@ const certificationItems = [
 
 const InfoSection = () => {
   return (
-    <section className="w-full text-slate-100 py-16 px-4 md:px-8 lg:px-16">
+    <section id="about" className="w-full text-slate-100 py-16 px-4 md:px-8 lg:px-16">
       <div className="mx-auto max-w-6xl">
         <div className="mb-10 text-center">
           <h2 className="text-5xl font-bold bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">

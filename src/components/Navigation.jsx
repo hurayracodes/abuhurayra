@@ -22,7 +22,17 @@ function Navigation() {
   const scrollToSection = (href) => {
     setIsOpen(false);
     const element = document.querySelector(href);
-    if (element) element.scrollIntoView({ behavior: "smooth" });
+    if (element) {
+      const headerOffset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+      window.history.replaceState(null, null, href);
+    }
   };
 
   const itemVariants = {

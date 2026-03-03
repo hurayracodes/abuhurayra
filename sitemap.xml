@@ -3,7 +3,7 @@
   <!-- Home Page -->
   <url>
     <loc>https://abuhurayra.vercel.app/</loc>
-    <lastmod>2026-02-27</lastmod>
+    <lastmod>2026-03-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -11,7 +11,7 @@
   <!-- About Section -->
   <url>
     <loc>https://abuhurayra.vercel.app/#about</loc>
-    <lastmod>2026-02-27</lastmod>
+    <lastmod>2026-03-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -19,15 +19,55 @@
   <!-- Projects Section -->
   <url>
     <loc>https://abuhurayra.vercel.app/#projects</loc>
-    <lastmod>2026-02-27</lastmod>
+    <lastmod>2026-03-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <!-- Work Experience Section -->
+  <url>
+    <loc>https://abuhurayra.vercel.app/#work</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Education Section -->
+  <url>
+    <loc>https://abuhurayra.vercel.app/#education</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Certifications Section -->
+  <url>
+    <loc>https://abuhurayra.vercel.app/#certifications</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Technical Insights Section -->
+  <url>
+    <loc>https://abuhurayra.vercel.app/#insights</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Testimonials Section -->
+  <url>
+    <loc>https://abuhurayra.vercel.app/#testimonials</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
   <!-- Contact Section -->
   <url>
     <loc>https://abuhurayra.vercel.app/#contact</loc>
-    <lastmod>2026-02-27</lastmod>
+    <lastmod>2026-03-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

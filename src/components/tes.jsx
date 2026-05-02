@@ -28,6 +28,7 @@ function Navigation() {
   }, []);
 
   const menuItems = [
+    { label: "Home", href: "#home", icon: <Home className="w-4 h-4" /> },
     { label: "About", href: "#about", icon: <User className="w-4 h-4" /> },
     { label: "Projects", href: "#projects", icon: <FolderGit2 className="w-4 h-4" /> },
     { label: "Testimonials", href: "#testimonials", icon: <MessageCircle className="w-4 h-4" /> },
@@ -54,8 +55,7 @@ function Navigation() {
     hidden: { y: -100, opacity: 0 },
     visible: { y: 0, opacity: 1, transition: { duration: 0.5, ease: "easeOut" } }
   };
-   const corverBarkect1 = ' }';
-  const corverBarkect2 = '{ ';
+
   return (
     <>
       <motion.header

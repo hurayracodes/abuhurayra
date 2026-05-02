@@ -4,9 +4,16 @@ import {
   FaUniversity,
   FaAward,
   FaCertificate,
+  FaBriefcase,
+  FaRocket,
+  FaLaptopCode,
+  FaCalendarAlt,
+  FaBuilding,
 } from "react-icons/fa";
+import { MdWork, MdSchool, MdVerified } from "react-icons/md";
+import { motion, useScroll, useTransform } from "framer-motion";
 
-// Journey timeline style ka common hover helper
+// 3D Hover Effect Hook
 const use3DHover = () => {
   const ref = useRef(null);
 
@@ -16,8 +23,8 @@ const use3DHover = () => {
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    const rotateY = (x / rect.width - 0.5) * 18;
-    const rotateX = (y / rect.height - 0.5) * -18;
+    const rotateY = (x / rect.width - 0.5) * 10;
+    const rotateX = (y / rect.height - 0.5) * -10;
     card.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg) scale(1.02)`;
   };
 
@@ -30,6 +37,22 @@ const use3DHover = () => {
   return { ref, handleMouseMove, handleMouseLeave };
 };
 
+// Fade up animation variants
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
 const workItems = [
   {
     title: "Frontend Developer & Team Lead",
@@ -37,7 +60,9 @@ const workItems = [
     duration: "Aug 2025 – Present",
     description:
       "Led frontend architecture and development using React.js. Built reusable UI components and optimized performance. Mentored junior developers and conducted code reviews.",
-    iconBg: "💻",
+    icon: <FaBriefcase />,
+    color: "from-blue-500 to-cyan-400",
+    bgGlow: "rgba(59,130,246,0.15)",
   },
   {
     title: "Founder & CEO",
@@ -45,7 +70,9 @@ const workItems = [
     duration: "Oct 2024 – Present",
     description:
       "Built an AI‑powered website builder platform. Delivered custom web solutions to clients, focusing on performance and user experience.",
-    iconBg: "🚀",
+    icon: <FaRocket />,
+    color: "from-purple-500 to-pink-400",
+    bgGlow: "rgba(168,85,247,0.15)",
   },
 ];
 
@@ -56,22 +83,23 @@ const educationItems = [
     duration: "2025 – 2025 (6 months)",
     detail: "Studied JavaScript, React, Node.js, Express, and MongoDB.",
     icon: <FaUserGraduate />,
+    color: "from-emerald-500 to-teal-400",
   },
   {
     title: "Intermediate Computer Science",
-    institute: "Govt Degree Collage Ccw Pakistan",
+    institute: "Govt Degree College Ccw Pakistan",
     duration: "2019 – 2021",
-    detail:
-      "Focused on software engineering and web technologies.",
+    detail: "Focused on software engineering and web technologies.",
     icon: <FaUniversity />,
+    color: "from-amber-500 to-orange-400",
   },
-  
   {
     title: "Matriculation (Biology Science)",
     institute: "Govt High School Ccw Pakistan",
     duration: "2015 – 2019",
     detail: "Completed secondary education with a focus on science subjects.",
     icon: <FaAward />,
+    color: "from-rose-500 to-red-400",
   },
 ];
 
@@ -80,171 +108,249 @@ const certificationItems = [
     title: "Modern React Development",
     provider: "Ideoversity - Advanced Web Development",
     duration: "2025",
-    detail: "Deep dive into React, Express, and advanced Mern stack patterns.",
+    detail: "Deep dive into React, Express, and advanced MERN stack patterns.",
     icon: <FaCertificate />,
+    color: "from-indigo-500 to-violet-400",
   },
   {
-    title: "JavaScript",
-    provider: "Online Program ( Shariyan Coding School & Apna College )",
+    title: "JavaScript Mastery",
+    provider: "Shariyan Coding School & Apna College",
     duration: "2023",
     detail: "Hands‑on projects with Node.js, Express, MongoDB, and React.",
     icon: <FaCertificate />,
+    color: "from-sky-500 to-blue-400",
   },
 ];
 
+const Card = ({ item, type, index }) => {
+  const { ref, handleMouseMove, handleMouseLeave } = use3DHover();
+
+  return (
+    <motion.div
+      ref={ref}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      variants={fadeUp}
+      custom={index}
+      className="group relative bg-gradient-to-br from-slate-900/80 to-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-5 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden"
+      style={{
+        borderImage: "linear-gradient(to bottom, rgba(56,189,248,0.3), transparent) 1",
+      }}
+    >
+      {/* Animated Gradient Border */}
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      
+      {/* Shimmer Effect */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+
+      <div className="relative z-10 flex gap-4">
+        {/* Icon with animated gradient */}
+        <div
+          className={`shrink-0 h-12 w-12 rounded-xl bg-gradient-to-br ${item.color} p-[2px] shadow-lg`}
+        >
+          <div className="h-full w-full rounded-xl bg-slate-900 flex items-center justify-center text-white text-xl">
+            {item.icon}
+          </div>
+        </div>
+
+        <div className="flex-1">
+          <h4 className="text-lg font-semibold text-white mb-1 group-hover:text-cyan-300 transition-colors">
+            {item.title}
+          </h4>
+          {type !== "certification" && (
+            <p className="text-sm text-slate-300 mb-2 flex items-center gap-2">
+              <FaBuilding className="text-cyan-400 text-xs" />
+              {item.institute || item.company}
+            </p>
+          )}
+          {type === "certification" && (
+            <p className="text-sm text-slate-300 mb-2">{item.provider}</p>
+          )}
+          <p className="text-xs text-cyan-400 mb-2 flex items-center gap-1">
+            <FaCalendarAlt className="text-xs" />
+            {item.duration}
+          </p>
+          <p className="text-sm text-slate-400 leading-relaxed">{item.detail || item.description}</p>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+const TimelineItem = ({ item, index }) => {
+  const { ref, handleMouseMove, handleMouseLeave } = use3DHover();
+
+  return (
+    <motion.div
+      variants={fadeUp}
+      custom={index}
+      className="relative pl-8 pb-10 last:pb-0"
+    >
+      {/* Timeline Line */}
+      {index !== workItems.length - 1 && (
+        <div className="absolute left-3 top-8 bottom-0 w-0.5 bg-gradient-to-b from-cyan-500 to-purple-500" />
+      )}
+      
+      {/* Timeline Dot */}
+      <div className="absolute left-0 top-1 w-6 h-6 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 shadow-lg shadow-cyan-500/30 flex items-center justify-center">
+        <div className="w-2 h-2 rounded-full bg-white" />
+      </div>
+
+      <div
+        ref={ref}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        className="group relative bg-gradient-to-br from-slate-900/80 to-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden"
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+
+        <div className="relative z-10">
+          <div className="flex items-start justify-between mb-3 flex-wrap gap-2">
+            <div className="flex items-center gap-3">
+              <div className={`h-10 w-10 rounded-xl bg-gradient-to-br ${item.color} p-[2px]`}>
+                <div className="h-full w-full rounded-xl bg-slate-900 flex items-center justify-center text-white text-lg">
+                  {item.icon}
+                </div>
+              </div>
+              <div>
+                <h4 className="text-xl font-semibold text-white group-hover:text-cyan-300 transition-colors">
+                  {item.title}
+                </h4>
+                <p className="text-sm text-slate-300">{item.company}</p>
+              </div>
+            </div>
+            <span className="text-xs px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+              {item.duration}
+            </span>
+          </div>
+          <p className="text-slate-400 leading-relaxed mt-3">{item.description}</p>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 const InfoSection = () => {
   return (
-    <section id="about" className="w-full text-slate-100 py-16 px-4 md:px-8 lg:px-16">
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-10 text-center">
-          <h2 className="text-5xl font-bold bg-linear-to-b from-blue-400 to-cyan-200 bg-clip-text text-transparent">
-            About My Journey
+    <section id="about" className="w-full py-20 px-4 md:px-8 lg:px-16 relative overflow-hidden">
+      {/* Background Decoration */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 -left-20 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 -right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/5 rounded-full blur-3xl" />
+      </div>
+
+      <div className="mx-auto max-w-7xl relative z-10">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 mb-4">
+            <MdVerified className="text-cyan-400 text-sm" />
+            <span className="text-xs text-cyan-400 font-medium uppercase tracking-wider">
+              My Journey
+            </span>
+          </div>
+          <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+            Professional Timeline
           </h2>
-        </div>
-        {/* Top Heading Row */}
-        <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between mb-10">
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-sky-400">
-            Work Experience
-          </h2>
-        </div>
-        
+          <p className="text-slate-400 mt-4 max-w-2xl mx-auto">
+            A glimpse into my professional experience, education, and certifications
+          </p>
+        </motion.div>
 
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] items-start">
-          {/* LEFT: Work Experience timeline */}
-          <div className="relative">
-            {/* vertical line full height */}
-            <div className="absolute left-10 top-8 bottom-8 bg-sky-500/40 w-2px pointer-events-none" />
+        <div className="grid lg:grid-cols-2 gap-12">
+          {/* LEFT: Work Experience with Timeline */}
+          <div>
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-3 mb-8"
+            >
+              <div className="h-px flex-1 bg-gradient-to-r from-transparent to-cyan-500" />
+              <h3 className="text-2xl font-bold text-white flex items-center gap-2">
+                <MdWork className="text-cyan-400" />
+                Work Experience
+              </h3>
+              <div className="h-px flex-1 bg-gradient-to-l from-transparent to-cyan-500" />
+            </motion.div>
 
-            <div className="space-y-10">
-              {workItems.map((item, idx) => {
-                const { ref, handleMouseMove, handleMouseLeave } = use3DHover();
-                return (
-                  <div key={idx} className="relative flex gap-6">
-                    {/* icon + outer circle */}
-                    <div className="flex flex-col items-center">
-                      <div className="h-16 w-16 rounded-full border-4px border-sky-500 bg-slate-950 flex items-center justify-center z-10 shadow-[0_0_25px_rgba(56,189,248,0.35)]">
-                        <span className="text-2xl">{item.iconBg}</span>
-                      </div>
-                    </div>
-                    
-
-                    {/* main card - same hover feeling as Journey Timeline */}
-                    <div className="flex-1">
-                      <div
-                        ref={ref}
-                        onMouseMove={handleMouseMove}
-                        onMouseLeave={handleMouseLeave}
-                        className="group/card relative bg-slate-900/50 border border-slate-800 rounded-2xl p-6 shadow-lg hover:border-cyan-400 hover:shadow-cyan-400/30 hover:shadow-2xl overflow-hidden transition-all duration-300"
-                      >
-                        {/* shimmer */}
-                        <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent -skew-x-12 -translate-x-full group-hover/card:translate-x-full transition-transform duration-700 z-0" />
-
-                        <div className="relative z-10">
-                          <p className="text-xs uppercase tracking-wide text-sky-400 mb-2">
-                            {item.duration}
-                          </p>
-                          <h4 className="text-2xl font-semibold text-slate-50 mb-1">
-                            {item.title}
-                          </h4>
-                          <p className="text-sm text-slate-300 mb-3">
-                            {item.company}
-                          </p>
-                          <p className="text-sm text-slate-200 leading-relaxed">
-                            {item.description}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+            <motion.div
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              {workItems.map((item, idx) => (
+                <TimelineItem key={idx} item={item} index={idx} />
+              ))}
+            </motion.div>
           </div>
 
           {/* RIGHT: Education + Certifications */}
-          <div className="space-y-8">
-            {/* Education heading */}
-            <h3 className="text-2xl font-semibold text-sky-400">
-              Education
-            </h3>
+          <div>
+            {/* Education Section */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-3 mb-8"
+            >
+              <div className="h-px flex-1 bg-gradient-to-r from-transparent to-emerald-500" />
+              <h3 className="text-2xl font-bold text-white flex items-center gap-2">
+                <MdSchool className="text-emerald-400" />
+                Education
+              </h3>
+              <div className="h-px flex-1 bg-gradient-to-l from-transparent to-emerald-500" />
+            </motion.div>
 
-            <div className="space-y-4">
-              {educationItems.map((item, idx) => {
-                const { ref, handleMouseMove, handleMouseLeave } = use3DHover();
-                return (
-                  <div
-                    key={idx}
-                    ref={ref}
-                    onMouseMove={handleMouseMove}
-                    onMouseLeave={handleMouseLeave}
-                    className="group/card relative bg-slate-900/50 border border-slate-800 rounded-2xl p-5 shadow-lg hover:border-cyan-400 hover:shadow-cyan-400/30 hover:shadow-2xl overflow-hidden transition-all duration-300 flex gap-4"
-                  >
-                    {/* shimmer */}
-                    <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent -skew-x-12 -translate-x-full group-hover/card:translate-x-full transition-transform duration-700 z-0" />
+            <motion.div
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="space-y-4 mb-12"
+            >
+              {educationItems.map((item, idx) => (
+                <Card key={idx} item={item} type="education" index={idx} />
+              ))}
+            </motion.div>
 
-                    <div className="relative z-10 shrink-0 h-11 w-11 rounded-xl bg-sky-500/15 border border-sky-500/40 flex items-center justify-center text-sky-300 text-xl">
-                      {item.icon}
-                    </div>
+            {/* Certifications Section */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-3 mb-8"
+            >
+              <div className="h-px flex-1 bg-gradient-to-r from-transparent to-purple-500" />
+              <h3 className="text-2xl font-bold text-white flex items-center gap-2">
+                <FaCertificate className="text-purple-400" />
+                Certifications
+              </h3>
+              <div className="h-px flex-1 bg-gradient-to-l from-transparent to-purple-500" />
+            </motion.div>
 
-                    <div className="relative z-10">
-                      <h4 className="text-sm font-semibold text-slate-50">
-                        {item.title}
-                      </h4>
-                      <p className="text-xs text-slate-300">
-                        {item.institute}
-                      </p>
-                      <p className="text-xs text-sky-300 mt-1">
-                        {item.duration}
-                      </p>
-                      <p className="text-xs text-slate-200 mt-2">
-                        {item.detail}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Certifications */}
-            <h3 className="text-2xl font-semibold text-sky-400 mt-6">
-              Certifications
-            </h3>
-            <div className="space-y-4">
-              {certificationItems.map((item, idx) => {
-                const { ref, handleMouseMove, handleMouseLeave } = use3DHover();
-                return (
-                  <div
-                    key={idx}
-                    ref={ref}
-                    onMouseMove={handleMouseMove}
-                    onMouseLeave={handleMouseLeave}
-                    className="group/card relative bg-slate-900/50 border border-slate-800 rounded-2xl p-5 shadow-lg hover:border-cyan-400 hover:shadow-cyan-400/30 hover:shadow-2xl overflow-hidden transition-all duration-300 flex gap-4"
-                  >
-                    {/* shimmer */}
-                    <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent -skew-x-12 -translate-x-full group-hover/card:translate-x-full transition-transform duration-700 z-0" />
-
-                    <div className="relative z-10 shrink-0 h-11 w-11 rounded-xl bg-emerald-500/15 border border-emerald-500/40 flex items-center justify-center text-emerald-300 text-xl">
-                      {item.icon}
-                    </div>
-
-                    <div className="relative z-10">
-                      <h4 className="text-sm font-semibold text-slate-50">
-                        {item.title}
-                      </h4>
-                      <p className="text-xs text-slate-300">
-                        {item.provider}
-                      </p>
-                      <p className="text-xs text-emerald-300 mt-1">
-                        {item.duration}
-                      </p>
-                      <p className="text-xs text-slate-200 mt-2">
-                        {item.detail}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+            <motion.div
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="space-y-4"
+            >
+              {certificationItems.map((item, idx) => (
+                <Card key={idx} item={item} type="certification" index={idx} />
+              ))}
+            </motion.div>
           </div>
         </div>
       </div>

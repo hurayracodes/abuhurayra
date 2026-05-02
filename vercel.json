@@ -1,8 +1,21 @@
 {
   "routes": [
     {
+      "src": "/sitemap.xml",
+      "dest": "/sitemap.xml"
+    },
+    {
+      "src": "/robots.txt",
+      "dest": "/robots.txt"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "headers": [
+    {
       "source": "/sitemap.xml",
-      "dest": "/sitemap.xml",
       "headers": [
         {
           "key": "Content-Type",
@@ -12,7 +25,6 @@
     },
     {
       "source": "/robots.txt",
-      "dest": "/robots.txt",
       "headers": [
         {
           "key": "Content-Type",
@@ -20,12 +32,6 @@
         }
       ]
     },
-    {
-      "source": "/(.*)",
-      "dest": "/index.html"
-    }
-  ],
-  "headers": [
     {
       "source": "/(.*)\\.js",
       "headers": [

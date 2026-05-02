@@ -19,7 +19,7 @@ const styles = {
 };
 
 export default function DecryptedText({
-  text,
+  text = "",
   speed = 20,
   maxIterations = 12,
   sequential = true,
@@ -30,13 +30,22 @@ export default function DecryptedText({
   encryptedClassName = "opacity-60",
   animateOn = "view",
 }) {
-  const [displayText, setDisplayText] = useState(text);
+  // Handle empty string to prevent errors
+  const safeText = text || "";
+  const [displayText, setDisplayText] = useState(safeText);
   const [isScrambling, setIsScrambling] = useState(false);
   const [revealedIndices, setRevealedIndices] = useState(new Set());
   const containerRef = useRef(null);
 
   useEffect(() => {
     let interval;
+
+    // Return early if text is empty
+    if (!safeText || safeText.length === 0) {
+      setDisplayText("");
+      setIsScrambling(false);
+      return;
+    }
 
     const shuffleText = (originalText, revealed) => {
       return originalText
@@ -53,23 +62,23 @@ export default function DecryptedText({
 
     interval = setInterval(() => {
       setRevealedIndices((prev) => {
-        if (prev.size < text.length) {
+        if (prev.size < safeText.length) {
           const next = prev.size;
           const nextSet = new Set(prev);
           nextSet.add(next);
-          setDisplayText(shuffleText(text, nextSet));
+          setDisplayText(shuffleText(safeText, nextSet));
           return nextSet;
         } else {
           clearInterval(interval);
           setIsScrambling(false);
-          setDisplayText(text);
+          setDisplayText(safeText);
           return prev;
         }
       });
     }, speed);
 
     return () => clearInterval(interval);
-  }, [text, speed, characters]);
+  }, [safeText, speed, characters]);
 
   return (
     <motion.span

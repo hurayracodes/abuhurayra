@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StarsCanvas } from "../ui/StarsCanvas";
+// import { StarsCanvas } from "../ui/StarsCanvas";
 import Hero from "../ui/Hero";
 import InfoSection from "../ui/InfoSection";
 import Projects from "./Projects";
@@ -11,12 +11,10 @@ function Home() {
 
   return (
     <>
-        <div
-          className={'transition-opacity duration-700 ease-in-out'}
-        >
+        <div className="min-h-screen bg-zinc-50 font-sans dark:bg-black">
           {/* Hero section first */}
           <div className="animate-fadeIn delay-100">
-            <StarsCanvas />
+            {/* <StarsCanvas /> */}
             <Hero />
           </div>
 

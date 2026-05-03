@@ -1,11 +1,11 @@
-import { StaggerTestimonials } from "../ui/Staggertestimonials";
+import { Testimonial } from "../ui/Cleantestimonial";
 
 const Testimonials = () => {
   return (
     <div className="flex w-full h-screen justify-center items-center">
-      <StaggerTestimonials />
+      <Testimonial />
     </div>
   );
 };
 
-export default Testimonials;
+export default Testimonials ;

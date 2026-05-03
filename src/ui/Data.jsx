@@ -32,7 +32,7 @@ export const expCards = [
       "Delivered 15+ successful projects with 100% client satisfaction.",
     ],
   },
-  
+
   {
     id: 4,
     title: "Mobile App Developer",
@@ -87,6 +87,7 @@ export const projects = [
     description:
       "Full-featured food delivery app built with MERN stack for seamless ordering and delivery experience.",
     duration: "Feb 2025 - Present",
+    images: "/project-img-1.png",
     github: "https://github.com/hurayracodes/IsSolved",
     website: "https://is-solved.hurayracodes.com",
     tech: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"], // ✅ Tags added

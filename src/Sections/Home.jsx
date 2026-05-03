@@ -24,9 +24,6 @@ function Home() {
             <Projects />
             <Knowledge/>
             <SkillsSection/>
-          {/* Contact section */}
-            <FAQ />
-
           {/* Testimonials section */}
             <Testimonials />
 

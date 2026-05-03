@@ -7,6 +7,7 @@ import Contact from "./Contact";
 import FAQ from "./FAQ";
 import About from "./About";
 import Knowledge from "./Knowledge";
+import SkillsSection from "./SkillsSection";
 
 function Home() {
 
@@ -23,6 +24,7 @@ function Home() {
           {/* Projects section */}
             <Projects />
             <Knowledge/>
+            <SkillsSection/>
           {/* Contact section */}
             <FAQ />
 

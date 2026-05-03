@@ -10,7 +10,7 @@ export default function SkillsSection() {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="py-20 px-4"
+      className="py-8 px-4"
     >
 
       <div className="max-w-6xl mx-auto">

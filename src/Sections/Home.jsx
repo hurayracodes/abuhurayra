@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 // import { StarsCanvas } from "../ui/StarsCanvas";
 import Hero from "../ui/Hero";
 import Projects from "./Projects";
-import Testimonils from "./Testimonials";
+import  Testimonials  from "./Testimonials";
 import Contact from "./Contact";
 import FAQ from "./FAQ";
 import About from "./About";
@@ -17,7 +17,6 @@ function Home() {
           {/* Hero section first */}
             {/* <StarsCanvas /> */}
             <Hero />
-
           {/* Info section */}
             <About />
 
@@ -29,7 +28,7 @@ function Home() {
             <FAQ />
 
           {/* Testimonials section */}
-            <Testimonils />
+            <Testimonials />
 
           {/* Contact section */}
             <Contact />

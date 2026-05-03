@@ -85,9 +85,8 @@ export const projects = [
     id: 1,
     title: "Food Delivery App | MERN",
     description:
-      "Problem solving platform with modern tech stack Problem solving platform with modern tech stack Problem solving platform with modern tech stack",
+      "Full-featured food delivery app built with MERN stack for seamless ordering and delivery experience.",
     duration: "Feb 2025 - Present",
-    images: ["/project-img-1.png", "/project-img-2.png", "/project-img-3.png"],
     github: "https://github.com/hurayracodes/IsSolved",
     website: "https://is-solved.hurayracodes.com",
     tech: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"], // ✅ Tags added
@@ -96,9 +95,9 @@ export const projects = [
     id: 2,
     title: "Digital Wallet valuable",
     description:
-      "Send/receive money using phone numbers with TurboRepo backend Problem solving platform with modern tech stack",
+      "Digital wallet app for sending/receiving money via phone numbers using TurboRepo backend.",
     duration: "Dec 2024 - Present",
-    images: ["/project-img-1.png", "/project-img-2.png", "/project-img-3.png"],
+    images: "/project-img-2.png",
     github: "https://github.com/hurayracodes/wallet",
     website: null,
     tech: ["TurboRepo", "Node.js", "Express", "MongoDB", "JWT"], // ✅ Tags added
@@ -107,9 +106,9 @@ export const projects = [
     id: 3,
     title: "3D Solar System with Threejs",
     description:
-      "Interactive 3D planets exploration with Three.js Problem solving platform with modern tech stack Problem solving platform with modern tech stack",
+      "Interactive 3D solar system exploration built with Three.js and WebGL.",
     duration: "Jan 2025 - Mar 2025",
-    images: ["/project-img-1.png", "/project-img-2.png", "/project-img-3.png"],
+    images: "/project-img-3.png",
     github: "https://github.com/hurayracodes/solar-system",
     website: "https://solar.hurayracodes.com",
     tech: ["Three.js", "JavaScript", "HTML5", "CSS3", "WebGL"], // ✅ Tags added

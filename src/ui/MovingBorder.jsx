@@ -8,7 +8,14 @@ import {
   useTransform,
 } from "framer-motion";
 import { useRef } from "react";
-import { cn } from "./utils";
+
+// Remove this line
+// import { cn } from "./utils";
+
+// Replace cn function with this simple helper
+function cn(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
 
 export function Button({
   borderRadius = "1.75rem",

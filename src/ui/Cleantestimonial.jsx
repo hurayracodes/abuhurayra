@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState, useCallback, useRef, useEffect } from "react"
 import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion"
@@ -119,8 +119,12 @@ export function Testimonial() {
         margin: "0 auto",
         padding: "5rem 2rem",
         cursor: "none",
-        backgroundColor: "#0a0a0a",
         minHeight: "400px",
+        // ✅ Tumhara gradient background yahan add kiya
+        background: "rgb(4,7,29)",
+        backgroundImage: "linear-gradient(90deg, rgba(4, 7, 29, 0.95) 0%, rgba(12, 14, 35, 0.95) 100%)",
+        borderRadius: "1.5rem", // Optional: rounded corners
+        border: "1px solid rgba(255,255,255,0.05)", // Optional: subtle border
       }}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}

@@ -1,8 +1,8 @@
 "use client";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { ArrowRight } from "lucide-react";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import TitleHeader from "../ui/TitleHeader";
 
 const Contact = () => {
@@ -14,6 +14,14 @@ const Contact = () => {
     message: "",
   });
 
+  // Debug: Check env variables on mount
+  useEffect(() => {
+    console.log("🔍 Environment Variables Check:");
+    console.log("Service ID:", import.meta.env.VITE_EMAILJS_SERVICE_ID ? "✅ Loaded" : "❌ Missing");
+    console.log("Template ID:", import.meta.env.VITE_EMAILJS_TEMPLATE_ID ? "✅ Loaded" : "❌ Missing");
+    console.log("Public Key:", import.meta.env.VITE_EMAILJS_PUBLIC_KEY ? "✅ Loaded" : "❌ Missing");
+  }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
@@ -23,15 +31,33 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
 
-    try {
-      await emailjs.sendForm(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-        formRef.current,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
-      );
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
+    if (!serviceId || !templateId || !publicKey) {
+      console.error("Missing environment variables");
+      toast.error("Configuration error. Please contact support!", {
+        duration: 4000,
+        position: "top-right",
+        icon: "⚠️",
+      });
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const result = await emailjs.sendForm(
+        serviceId,
+        templateId,
+        formRef.current,
+        publicKey
+      );
+      
+      console.log("EmailJS Response:", result);
+      
       setForm({ name: "", email: "", message: "" });
+      
       // ✅ Success Toast
       toast.success("Message sent successfully! 🎉", {
         duration: 4000,
@@ -40,18 +66,22 @@ const Contact = () => {
         style: {
           background: "#10b981",
           color: "#fff",
+          fontWeight: "bold",
         },
       });
+      
     } catch (error) {
-      console.error("EmailJS Error:", error);
-      // ✅ Error Toast
-      toast.error("Failed to send message. Please try again!", {
+      console.error("EmailJS Full Error:", error);
+      
+      // ❌ Error Toast
+      toast.error(error.text || "Failed to send message. Please try again!", {
         duration: 4000,
         position: "top-right",
         icon: "❌",
         style: {
           background: "#ef4444",
           color: "#fff",
+          fontWeight: "bold",
         },
       });
     } finally {
@@ -61,32 +91,50 @@ const Contact = () => {
 
   return (
     <div className="relative pt-10 overflow-hidden" id="contact">
-      {/* <StarsCanvas /> */}
+      {/* Toaster component for toast notifications */}
+      <Toaster 
+        position="top-right"
+        reverseOrder={false}
+        gutter={8}
+        containerClassName=""
+        containerStyle={{}}
+        toastOptions={{
+          duration: 4000,
+          style: {
+            background: '#363636',
+            color: '#fff',
+          },
+          success: {
+            duration: 4000,
+            iconTheme: {
+              primary: '#10b981',
+              secondary: '#fff',
+            },
+          },
+          error: {
+            duration: 4000,
+            iconTheme: {
+              primary: '#ef4444',
+              secondary: '#fff',
+            },
+          },
+        }}
+      />
+      
       <main className="min-h-screen flex items-center justify-center flex-col pb-12 px-4 sm:px-6 lg:px-16">
         <div className="w-full max-w-2xl mx-auto mt-16">
           <TitleHeader
             title="Work With Me Let's bring your"
             subTitle=" ideas to life"
           />
-          <div
-            // style={{
-            //   background: "rgb(4,7,29)",
-            //   backgroundImage:
-            //     "linear-gradient(90deg, rgba(4, 7, 29, 0.95) 0%, rgba(12, 14, 35, 0.95) 100%)",
-            //   borderRadius: "0.75rem",
-            // }}
-            className="rounded-xl border border-gray-700 p-8 md:p-10"
-          >
+          <div className="rounded-xl border border-gray-700 p-8 md:p-10">
             <form
               ref={formRef}
               onSubmit={handleSubmit}
               className="w-full flex flex-col gap-6"
             >
               <div className="flex flex-col gap-2">
-                <label
-                  htmlFor="name"
-                  className="text-gray-300 font-medium text-sm"
-                >
+                <label htmlFor="name" className="text-gray-300 font-medium text-sm">
                   Your Name
                 </label>
                 <input
@@ -102,10 +150,7 @@ const Contact = () => {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label
-                  htmlFor="email"
-                  className="text-gray-300 font-medium text-sm"
-                >
+                <label htmlFor="email" className="text-gray-300 font-medium text-sm">
                   Your Email
                 </label>
                 <input
@@ -121,10 +166,7 @@ const Contact = () => {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label
-                  htmlFor="message"
-                  className="text-gray-300 font-medium text-sm"
-                >
+                <label htmlFor="message" className="text-gray-300 font-medium text-sm">
                   Your Message
                 </label>
                 <textarea
@@ -142,7 +184,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full mt-2 relative overflow-hidden rounded-lg bg-linear-to-r from-purple-900 to-cyan-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full mt-2 relative overflow-hidden rounded-lg bg-gradient-to-r from-purple-900 to-cyan-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg hover:shadow-cyan-500/25"
               >
                 <div className="relative flex items-center justify-center gap-2 py-3 px-6">
                   <span className="text-white font-medium">

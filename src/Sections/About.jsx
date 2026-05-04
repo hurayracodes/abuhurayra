@@ -26,8 +26,7 @@ function About() {
           <h1 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold text-left">
             LET ME{" "}
             <span className="text-cyan-400 bg-linear-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
-              INTRODUCE
-            MYSELF
+              INTRODUCE MYSELF
             </span>{" "}
           </h1>
         </div>
@@ -50,8 +49,8 @@ function About() {
             </p>
 
             <p className="text-gray-400 text-sm md:text-base tracking-wide">
-              I specialize transforming innovative ideas into reality. My skill
-              spread out from dynamic frontend interfaces using{" "}
+              I specialize in transforming innovative ideas into reality. My
+              skill spread across from dynamic frontend interfaces using{" "}
               <span className=" font-mono underline text-gray-200">
                 React, Next.js, React.Native
               </span>{" "}
@@ -69,13 +68,12 @@ function About() {
               efficient and scalable, but also innovative.
             </p>
             <p className="text-gray-400 text-sm md:text-base tracking-wide">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-              ab reiciendis distinctio. Minus excepturi blanditiis suscipit
-              tempore dolorum! Ab, voluptas consectetur! Vitae.
+              Currently freelancing on Fiverr, I bring the same dedication to
+              every client project — whether it's a landing page, a full-stack
+              app, or anything in between. Let's build something great together.
             </p>
             <p className="text-gray-400 text-sm md:text-base tracking-wide">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia
-              nisi soluta unde.
+              Based in Lahore, Pakistan — always open to remote collaborations, new challenges, and exciting opportunities around the globe.
             </p>
           </section>
 

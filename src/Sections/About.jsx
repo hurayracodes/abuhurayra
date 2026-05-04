@@ -17,13 +17,18 @@ function About() {
         style={{ zIndex: 1 }}
       />
 
-      <main id="about" className="min-h-screen flex items-center justify-center flex-col pb-12 px-4 sm:px-6 lg:px-16 text-slate-300">
+      <main
+        id="about"
+        className="min-h-screen flex items-center justify-center flex-col pb-12 px-4 sm:px-6 lg:px-16 text-slate-300"
+      >
         {/* Heading - Left aligned */}
         <div className="w-full max-w-7xl mx-auto mb-8 md:mb-12">
           <h1 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold text-left">
             LET ME{" "}
+            <span className="text-cyan-400 bg-linear-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
               INTRODUCE
             MYSELF
+            </span>{" "}
           </h1>
         </div>
 
@@ -122,7 +127,7 @@ function About() {
               </p>
             </div>
 
-             {/* Additional Content Section */}
+            {/* Additional Content Section */}
             <div className="w-full mt-8">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-300">
                 <div className="flex items-center space-x-3">

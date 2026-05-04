@@ -8,6 +8,7 @@ import FAQ from "./FAQ";
 import About from "./About";
 import Knowledge from "./Knowledge";
 import SkillsSection from "./SkillsSection";
+import Experience from "./Experience";
 
 function Home() {
 
@@ -19,7 +20,7 @@ function Home() {
             <Hero />
           {/* Info section */}
             <About />
-
+            <Experience />
           {/* Projects section */}
             <Projects />
             <Knowledge/>

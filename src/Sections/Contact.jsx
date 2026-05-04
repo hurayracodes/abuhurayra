@@ -124,7 +124,7 @@ const Contact = () => {
       <main className="min-h-screen flex items-center justify-center flex-col pb-12 px-4 sm:px-6 lg:px-16">
         <div className="w-full max-w-2xl mx-auto mt-16">
           <TitleHeader
-            title="Work With Me Let's bring your"
+            title="Let's bring your"
             subTitle=" ideas to life"
           />
           <div className="rounded-xl border border-gray-700 p-8 md:p-10">

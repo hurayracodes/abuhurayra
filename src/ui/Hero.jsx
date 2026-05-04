@@ -226,80 +226,8 @@ function Hero() {
               </button>
             </a>
           </motion.div>
-
-          {/* ── Scroll Indicator ── */}
-          <motion.div
-            custom={6}
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="flex flex-col items-center gap-2 mt-16"
-          >
-            <span className="font-mono text-[11px] tracking-[0.25em] uppercase text-white/25">
-              scroll
-            </span>
-
-            {/* Mouse shell */}
-            <div
-              className="relative flex justify-center"
-              style={{
-                width: "24px",
-                height: "38px",
-                borderRadius: "12px",
-                border: "1.5px solid rgba(255,255,255,0.15)",
-              }}
-            >
-              {/* Scrolling dot inside mouse */}
-              <div
-                style={{
-                  width: "4px",
-                  height: "8px",
-                  borderRadius: "2px",
-                  background: "rgba(6,182,212,0.7)",
-                  marginTop: "6px",
-                  animation: "scrollPulse 1.6s ease-in-out infinite",
-                }}
-              />
-            </div>
-
-            {/* Chevron arrows */}
-            <div className="flex flex-col items-center gap-0.5">
-              {[0, 1, 2].map((i) => (
-                <svg
-                  key={i}
-                  width="12"
-                  height="7"
-                  viewBox="0 0 12 7"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  style={{
-                    animation: `scrollPulse 1.6s ease-in-out infinite`,
-                    animationDelay: `${i * 0.18}s`,
-                    opacity: 0.3,
-                  }}
-                >
-                  <path
-                    d="M1 1L6 6L11 1"
-                    stroke="rgba(6,182,212,0.8)"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </section>
-
-      {/* scrollPulse keyframe — properly used now */}
-      <style>{`
-        @keyframes scrollPulse {
-          0%, 100% { opacity: 0.3; transform: scaleY(0.8); }
-          50%       { opacity: 1;   transform: scaleY(1);   }
-        }
-      `}</style>
     </div>
   );
 }

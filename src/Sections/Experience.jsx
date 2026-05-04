@@ -1,83 +1,12 @@
 import { useState } from "react";
 import { Button } from "../ui/MovingBorder";
 import TitleHeader from "../ui/TitleHeader";
+import { experiences } from "../ui/Data";
+
 
 // ── Experience data ───────────────────────────────────────────────────────────
 
-const experiences = [
-  {
-    id: 1,
-    title: "Freelancer",
-    company: "Fiverr",
-    type: "Freelance",
-    duration: "2025 – Present",
-    icon: "🌐",
-    tags: ["Web Dev", "Full Stack", "Remote"],
-    description:
-      "Currently offering freelance web development services on Fiverr, building modern websites and web applications for clients globally.",
-    skills: ["React", "Node.js", "Tailwind CSS", "JavaScript"],
-  },
-  {
-    id: 2,
-    title: "Full Stack Web Dev Intern",
-    company: "NavTCC & DevelopersHub Corp",
-    type: "Internship (Offered)",
-    duration: "2025",
-    icon: "💻",
-    tags: ["FSWD", "Internship", "Lahore"],
-    description:
-      "Received internship offer from NavTCC and DevelopersHub Corporation after completing Full Stack Web Development course.",
-    skills: ["Full Stack", "Web Development"],
-  },
-  {
-    id: 3,
-    title: "Full Stack Web Development",
-    company: "IdeaUniversity – DevHub",
-    type: "Course",
-    duration: "2025 · 6 Months",
-    icon: "🎓",
-    tags: ["FSWD", "NavTCC", "Lahore"],
-    description:
-      "Completed a 6-month Full Stack Web Development course at IdeaUniversity Lahore, certified by NavTCC and DevelopersHub Corporation.",
-    skills: ["HTML", "CSS", "JavaScript", "React", "Node.js", "MongoDB"],
-  },
-  {
-    id: 4,
-    title: "Office Management Intern",
-    company: "VTI Chichawatni",
-    type: "Internship",
-    duration: "2025 · 3 Months",
-    icon: "🗂️",
-    tags: ["Office Mgmt", "VTI", "Diploma"],
-    description:
-      "Completed Office Management diploma and 3-month internship at VTI Chichawatni, gaining administrative and organizational skills.",
-    skills: ["Office Management", "Administration", "MS Office"],
-  },
-  {
-    id: 5,
-    title: "Production & Packing Operator",
-    company: "Punjab Cash & Carry, Islamabad",
-    type: "Full-time",
-    duration: "2024 · 6 Months",
-    icon: "🏭",
-    tags: ["Production", "Islamabad", "Operations"],
-    description:
-      "Handled bread cutting & packing, Zinger Burger machine operation, Suwarma packing, Lofa and Shermall production. Operated cutting machinery independently.",
-    skills: ["Machine Operation", "Food Packing", "Quality Control", "Team Work"],
-  },
-  {
-    id: 6,
-    title: "Cream Filling & QC Operator",
-    company: "Golden Pearl, Lahore",
-    type: "Full-time",
-    duration: "2022 · 4 Months",
-    icon: "⚗️",
-    tags: ["Manufacturing", "Lahore", "QC"],
-    description:
-      "Worked in Golden Pearl cosmetics facility, filling cream into packaging and performing weight checks to ensure quality control standards.",
-    skills: ["Cream Filling", "Weight QC", "Packaging", "Manufacturing"],
-  },
-];
+
 
 // ── Card inner content ────────────────────────────────────────────────────────
 

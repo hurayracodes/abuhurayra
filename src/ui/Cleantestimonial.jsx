@@ -2,51 +2,7 @@
 
 import { useState, useCallback, useRef, useEffect } from "react"
 import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion"
-
-const testimonials = [
-  {
-    quote: "The attention to detail is unmatched. Every interaction feels intentional.",
-    author: "Sarah Chen",
-    role: "Design Director",
-    company: "Linear",
-    avatar: "https://i.pravatar.cc/150?img=1",
-  },
-  {
-    quote: "Finally, someone who understands that simplicity is the ultimate sophistication.",
-    author: "Marcus Webb",
-    role: "Creative Lead",
-    company: "Vercel",
-    avatar: "https://i.pravatar.cc/150?img=2",
-  },
-  {
-    quote: "This work redefined our entire approach to digital experiences.",
-    author: "Elena Frost",
-    role: "Head of Product",
-    company: "Stripe",
-    avatar: "https://i.pravatar.cc/150?img=3",
-  },
-  {
-    quote: "We work 5x faster. Best solution in the market, hands down.",
-    author: "Alex Kim",
-    role: "CEO",
-    company: "TechCorp",
-    avatar: "https://i.pravatar.cc/150?img=4",
-  },
-  {
-    quote: "I'm confident my data is safe here. Can't say that about anyone else.",
-    author: "Dan Cole",
-    role: "CTO",
-    company: "SecureNet",
-    avatar: "https://i.pravatar.cc/150?img=5",
-  },
-  {
-    quote: "So simple and intuitive — got the whole team up to speed in 10 minutes.",
-    author: "Marina Cruz",
-    role: "HR Manager",
-    company: "TalentForge",
-    avatar: "https://i.pravatar.cc/150?img=6",
-  },
-]
+import { testimonials } from "./Data"
 
 function usePreloadImages(images) {
   useEffect(() => {

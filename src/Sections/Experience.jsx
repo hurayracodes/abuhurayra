@@ -138,7 +138,7 @@ export default function Experience() {
 
                   {/* ── MOBILE ── */}
                   <div className="flex md:hidden items-start gap-4 w-full">
-                    <div className="flex-shrink-0 mt-2">
+                    <div className="shrink-0 mt-2">
                       <div
                         className={`w-9 h-9 rounded-full flex items-center justify-center text-base border transition-all duration-300 ${
                           isActive
@@ -181,7 +181,7 @@ export default function Experience() {
                     </div>
 
                     {/* CENTER DOT */}
-                    <div className="relative z-10 flex-shrink-0">
+                    <div className="relative z-10 shrink-0">
                       <div
                         className={`w-10 h-10 rounded-full flex items-center justify-center text-lg border transition-all duration-300 ${
                           isActive
@@ -217,26 +217,6 @@ export default function Experience() {
               );
             })}
           </div>
-        </div>
-
-        {/* Stats */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-3">
-          {[
-            { label: "Years Active", value: "3+" },
-            { label: "Roles", value: "6" },
-            { label: "Domains", value: "3" },
-            { label: "Currently", value: "Fiverr" },
-          ].map((s) => (
-            <div
-              key={s.label}
-              className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-center"
-            >
-              <p className="text-2xl font-black text-white mb-1">{s.value}</p>
-              <p className="text-slate-600 text-[10px] font-mono uppercase tracking-wider">
-                {s.label}
-              </p>
-            </div>
-          ))}
         </div>
 
       </div>

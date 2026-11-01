@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+
 // import { StarsCanvas } from "../ui/StarsCanvas";
 import Hero from "../ui/Hero";
 import Projects from "./Projects";
@@ -13,7 +13,7 @@ function Home() {
 
   return (
     <>
-        <div className="min-h-screen bg-black font-sans dark:bg-black">
+        <div className="min-h-screen font-sans transition-colors duration-300">
           <Hero />
           {/* Info section */}
             <About />

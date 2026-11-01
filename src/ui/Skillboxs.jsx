@@ -27,8 +27,9 @@ export default function SkillCards() {
               <div
                 className="flex flex-col items-center justify-center p-4 rounded-xl border border-white/10 transition-all duration-300 hover:border-cyan-500/50 hover:shadow-lg hover:shadow-cyan-500/10"
                 style={{
-                  background: "rgb(4,7,29)",
-                  backgroundImage: "linear-gradient(90deg, rgba(4, 7, 29, 0.95) 0%, rgba(12, 14, 35, 0.95) 100%)",
+                  background: "var(--theme-card-background)",
+                  backgroundImage: "var(--theme-card-gradient)",
+                  border: "1px solid var(--theme-card-border)",
                 }}
               >
                 {/* Icon */}

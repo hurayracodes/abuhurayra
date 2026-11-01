@@ -67,8 +67,9 @@ export const ProjectCard = ({ project, index }) => {
         onMouseLeave={handleMouseLeave}
         className="bg-tertiary p-5 rounded-2xl transition-all duration-100"
         style={{
-          background: "rgb(4,7,29)",
-          backgroundImage: "linear-gradient(90deg, rgba(4, 7, 29, 0.95) 0%, rgba(12, 14, 35, 0.95) 100%)",
+          background: "var(--theme-card-background)",
+          backgroundImage: "var(--theme-card-gradient)",
+          border: "1px solid var(--theme-card-border)",
           transformStyle: "preserve-3d",
           transition: "transform 0.05s linear",
         }}
@@ -88,7 +89,7 @@ export const ProjectCard = ({ project, index }) => {
                 onClick={() => window.open(project.github, "_blank")}
                 className="w-10 h-10 rounded-full flex justify-center items-center cursor-pointer bg-black/60 backdrop-blur-sm hover:bg-black/80 transition-all"
               >
-                <Github className="w-5 h-5 text-white" />
+                <Github className="w-5 h-5 text-white keep-white" />
               </div>
             </div>
           )}

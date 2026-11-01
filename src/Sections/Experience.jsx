@@ -82,13 +82,13 @@ function ExperienceCard({ exp, isActive, onToggle }) {
         borderRadius="1.5rem"
         as="div"
         style={{
-          background: "rgb(4,7,29)",
-          backgroundImage:
-            "linear-gradient(90deg, rgba(4, 7, 29, 0.95) 0%, rgba(12, 14, 35, 0.95) 100%)",
+          background: "var(--theme-card-background)",
+          backgroundImage: "var(--theme-card-gradient)",
+          border: "1px solid var(--theme-card-border)",
           borderRadius: "1.5rem",
         }}
         containerClassName="w-full"
-        className="flex-1 text-black dark:text-white border-neutral-200 dark:border-slate-800 w-full"
+        className="flex-1 text-white border-neutral-200 dark:border-slate-800 w-full"
         onClick={onToggle}
       >
         <CardContent exp={exp} isActive={isActive} />
@@ -135,7 +135,7 @@ export default function Experience() {
                       {exp.icon}
                     </div>
                     <div>
-                      <p className="text-white font-medium text-sm leading-tight">
+                      <p className="text-slate-100 dark:text-white font-medium text-sm leading-tight">
                         {exp.title}
                       </p>
                       <p className="text-slate-500 text-xs mt-0.5">

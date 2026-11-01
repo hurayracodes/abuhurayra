@@ -1,42 +1,59 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ============================================================
+   LIGHT MODE PALETTE: sirf yahan badlein, poori site badlegi
+   Dark mode mein kuch override nahi hota (aap ka original design)
+   ============================================================ */
+html:not(.dark) {
+  /* text-white / bg-white -> gehra */
+  --color-white: #0f172a;
+
+  /* slate: ulta scale (950 = sab se halka background) */
+  --color-slate-50: #020617;  --color-slate-100: #0f172a; --color-slate-200: #1e293b;
+  --color-slate-300: #334155; --color-slate-400: #475569; --color-slate-500: #64748b;
+  --color-slate-600: #94a3b8; --color-slate-700: #cbd5e1; --color-slate-800: #e2e8f0;
+  --color-slate-900: #f1f5f9; --color-slate-950: #f8fafc;
+
+  /* gray: ulta scale */
+  --color-gray-50: #030712;  --color-gray-100: #111827; --color-gray-200: #1f2937;
+  --color-gray-300: #374151; --color-gray-400: #4b5563; --color-gray-500: #6b7280;
+  --color-gray-600: #9ca3af; --color-gray-700: #d1d5db; --color-gray-800: #e5e7eb;
+  --color-gray-900: #f3f4f6; --color-gray-950: #f9fafb;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Accent text (cyan) light background par gehra ho jaye taake parha ja sake */
+html:not(.dark) .text-cyan-200,
+html:not(.dark) .text-cyan-300,
+html:not(.dark) .text-cyan-400 { color: #0e7490; }
+
+/* Hamesha dark rehne wali jagah (menu panel waghera): original rang wapas */
+.force-dark {
+  --color-white: #ffffff;
+  --color-slate-50: #f8fafc;  --color-slate-100: #f1f5f9; --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1; --color-slate-400: #94a3b8; --color-slate-500: #64748b;
+  --color-slate-600: #475569; --color-slate-700: #334155; --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a; --color-slate-950: #020617;
+  --color-gray-50: #f9fafb;  --color-gray-100: #f3f4f6; --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db; --color-gray-400: #9ca3af; --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563; --color-gray-700: #374151; --color-gray-800: #1f2937;
+  --color-gray-900: #111827; --color-gray-950: #030712;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Colored button par white text jo light mode mein bhi white rehna chahiye:
+   <button className="bg-cyan-600 text-white keep-white"> */
+.keep-white { --color-white: #ffffff; }
+
+/* Body: ek hi definition, dono modes mein khud badal jati hai */
+body {
+  @apply bg-slate-950 text-slate-100;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Theme toggle ki gol reveal animation */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
+::view-transition-old(root) { z-index: 1; }
+::view-transition-new(root) { z-index: 2; }

@@ -76,11 +76,10 @@ export function Testimonial() {
         padding: "5rem 2rem",
         cursor: "none",
         minHeight: "400px",
-        // ✅ Tumhara gradient background yahan add kiya
-        background: "rgb(4,7,29)",
-        backgroundImage: "linear-gradient(90deg, rgba(4, 7, 29, 0.95) 0%, rgba(12, 14, 35, 0.95) 100%)",
+        background: "var(--theme-card-background)",
+        backgroundImage: "var(--theme-card-gradient)",
         borderRadius: "1.5rem", // Optional: rounded corners
-        border: "1px solid rgba(255,255,255,0.05)", // Optional: subtle border
+        border: "1px solid var(--theme-card-border)",
       }}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
@@ -148,7 +147,7 @@ export function Testimonial() {
         transition={{ delay: 0.5 }}
       >
         <motion.span
-          style={{ fontSize: "24px", fontWeight: 300, color: "#f0f0f0" }}
+          style={{ fontSize: "24px", fontWeight: 300, color: "var(--theme-card-text)" }}
           key={activeIndex}
           initial={{ y: 10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -156,8 +155,8 @@ export function Testimonial() {
         >
           {String(activeIndex + 1).padStart(2, "0")}
         </motion.span>
-        <span style={{ color: "#555555" }}>/</span>
-        <span style={{ color: "#555555" }}>{String(testimonials.length).padStart(2, "0")}</span>
+        <span style={{ color: "var(--theme-card-muted-text)" }}>/</span>
+        <span style={{ color: "var(--theme-card-muted-text)" }}>{String(testimonials.length).padStart(2, "0")}</span>
       </motion.div>
 
       {/* Stacked avatar previews — top left */}
@@ -179,7 +178,7 @@ export function Testimonial() {
               width: "24px",
               height: "24px",
               borderRadius: "9999px",
-              border: "2px solid #0a0a0a",
+              border: "2px solid var(--theme-card-avatar-border)",
               overflow: "hidden",
               marginLeft: i === 0 ? 0 : "-8px",
               filter: i === activeIndex ? "none" : "grayscale(100%)",
@@ -212,7 +211,7 @@ export function Testimonial() {
               fontWeight: 300,
               lineHeight: 1.65,
               letterSpacing: "-0.01em",
-              color: "#f0f0f0",
+              color: "var(--theme-card-text)",
               margin: 0,
             }}
           >
@@ -289,7 +288,7 @@ export function Testimonial() {
                   display: "block",
                   fontSize: "14px",
                   fontWeight: 500,
-                  color: "#f0f0f0",
+                  color: "var(--theme-card-text)",
                   letterSpacing: "0.02em",
                 }}>
                   {current.author}
@@ -297,7 +296,7 @@ export function Testimonial() {
                 <span style={{
                   display: "block",
                   fontSize: "11px",
-                  color: "#555555",
+                  color: "var(--theme-card-muted-text)",
                   marginTop: "2px",
                   fontFamily: "monospace",
                   textTransform: "uppercase",
@@ -348,7 +347,7 @@ export function Testimonial() {
       >
         <span style={{
           fontSize: "10px",
-          color: "#555555",
+          color: "var(--theme-card-muted-text)",
           textTransform: "uppercase",
           letterSpacing: "0.15em",
           fontFamily: "monospace",

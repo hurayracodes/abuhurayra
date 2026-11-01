@@ -127,14 +127,14 @@ const Contact = () => {
             title="Let's bring your"
             subTitle=" ideas to life"
           />
-          <div className="rounded-xl border border-gray-700 p-8 md:p-10">
+          <div className="rounded-xl border border-slate-300 dark:border-gray-700 p-8 md:p-10">
             <form
               ref={formRef}
               onSubmit={handleSubmit}
               className="w-full flex flex-col gap-6"
             >
               <div className="flex flex-col gap-2">
-                <label htmlFor="name" className="text-gray-300 font-medium text-sm">
+                <label htmlFor="name" className="text-slate-700 dark:text-gray-300 font-medium text-sm">
                   Your Name
                 </label>
                 <input
@@ -145,12 +145,12 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="What's your good name?"
                   required
-                  className="w-full px-4 py-3 bg-gray-900/40 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-gray-500 focus:ring-1 focus:ring-gray-500 transition-colors"
+                  className="w-full px-4 py-3 bg-slate-950 dark:bg-gray-900/40 border border-slate-300 dark:border-gray-700 rounded-lg text-slate-100 dark:text-white placeholder-slate-500 dark:placeholder-gray-500 focus:outline-none focus:border-gray-500 focus:ring-1 focus:ring-gray-500 transition-colors"
                 />
               </div>
 
               <div className="flex flex-col gap-2">
-                <label htmlFor="email" className="text-gray-300 font-medium text-sm">
+                <label htmlFor="email" className="text-slate-700 dark:text-gray-300 font-medium text-sm">
                   Your Email
                 </label>
                 <input
@@ -161,12 +161,12 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="What's your email address?"
                   required
-                  className="w-full px-4 py-3 bg-gray-900/40 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-gray-500 focus:ring-1 focus:ring-gray-500 transition-colors"
+                  className="w-full px-4 py-3 bg-slate-950 dark:bg-gray-900/40 border border-slate-300 dark:border-gray-700 rounded-lg text-slate-100 dark:text-white placeholder-slate-500 dark:placeholder-gray-500 focus:outline-none focus:border-gray-500 focus:ring-1 focus:ring-gray-500 transition-colors"
                 />
               </div>
 
               <div className="flex flex-col gap-2">
-                <label htmlFor="message" className="text-gray-300 font-medium text-sm">
+                <label htmlFor="message" className="text-slate-700 dark:text-gray-300 font-medium text-sm">
                   Your Message
                 </label>
                 <textarea
@@ -177,14 +177,14 @@ const Contact = () => {
                   placeholder="How can I help you?"
                   rows="5"
                   required
-                  className="w-full px-4 py-3 bg-gray-900/40 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-gray-500 focus:ring-1 focus:ring-gray-500 transition-colors resize-none"
+                  className="w-full px-4 py-3 bg-slate-950 dark:bg-gray-900/40 border border-slate-300 dark:border-gray-700 rounded-lg text-slate-100 dark:text-white placeholder-slate-500 dark:placeholder-gray-500 focus:outline-none focus:border-gray-500 focus:ring-1 focus:ring-gray-500 transition-colors resize-none"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full mt-2 relative overflow-hidden rounded-lg bg-gradient-to-r from-purple-900 to-cyan-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg hover:shadow-cyan-500/25"
+                className="keep-white w-full mt-2 relative overflow-hidden rounded-lg bg-gradient-to-r from-purple-900 to-cyan-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg hover:shadow-cyan-500/25"
               >
                 <div className="relative flex items-center justify-center gap-2 py-3 px-6">
                   <span className="text-white font-medium">

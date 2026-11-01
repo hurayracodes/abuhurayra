@@ -35,12 +35,12 @@ const Knowledge = () => {
                 duration={Math.floor(Math.random() * 5000) + 5000}
                 borderRadius="1.5rem"
                 style={{
-                  background: "rgb(4,7,29)",
-                  backgroundImage:
-                    "linear-gradient(90deg, rgba(4, 7, 29, 0.95) 0%, rgba(12, 14, 35, 0.95) 100%)",
+                  background: "var(--theme-card-background)",
+                  backgroundImage: "var(--theme-card-gradient)",
+                  border: "1px solid var(--theme-card-border)",
                   borderRadius: "1.5rem",
                 }}
-                className="flex-1 text-black dark:text-white border-neutral-200 dark:border-slate-800"
+                className="flex-1 text-white border-neutral-200 dark:border-slate-800"
               >
                 <div className="flex w-full items-start p-5 gap-4">
                   <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-xl bg-cyan-500/10 flex items-center justify-center shrink-0">

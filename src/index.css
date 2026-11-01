@@ -1,14 +1,70 @@
 @import "tailwindcss";
-body{
-  background: #05060f;
-  font-family: 'Orbitron', 'Exo 2', sans-serif
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ===== LIGHT MODE ===== */
+:root {
+  --page: #cfd1ce;                    /* soft sage, aankhon ko araam */
+  --heading: #0e1a12;                 /* lagbhag kala-hara, bahut saaf */
+  --strong: #1b2a20;
+  --body: #3b4a40;
+  --muted: #5b695f;
+  --chip: rgba(255, 255, 255, 0.55);  /* cards background se halke ubhrein */
+  --glass: rgba(255, 255, 255, 0.5);
+  --line: rgba(20, 40, 25, 0.14);
+  --line-strong: rgba(20, 40, 25, 0.28);
+
+  --accent: #3a7400;                  /* gehra lime-hara, zinda aur parhne layak */
+  --on-accent: #ffffff;
+  --accent-rgb: 58 116 0;
+  --glow: rgba(163, 230, 53, 0.28);   /* halka lime glow */
+  --grad-a: #2f6000;
+  --grad-b: #15803d;
 }
-/* index.css ya globals.css */
-body {
-  animation: fadeIn 0.8s ease-in-out;
+/* ===== DARK MODE ===== */
+.dark {
+  --page: #020617;
+  --heading: #ffffff;
+  --strong: #d1d5db;
+  --body: #9ca3af;
+  --muted: #94a3b8;
+  --chip: rgba(31, 41, 55, 0.5);
+  --glass: rgba(2, 6, 23, 0.2);
+  --line: rgba(255, 255, 255, 0.1);
+  --line-strong: rgba(255, 255, 255, 0.18);
+
+  --accent: #C5F24E;
+  --on-accent: #0b1120;
+  --accent-rgb: 197 242 78;
+  --glow: rgba(197, 242, 78, 0.12);
+  --grad-a: #C5F24E;
+  --grad-b: #86efac;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* Naam -> Tailwind utilities (bg-page, text-heading, text-body ...) */
+@theme inline {
+  --color-page: var(--page);
+  --color-heading: var(--heading);
+  --color-strong: var(--strong);
+  --color-body: var(--body);
+  --color-muted: var(--muted);
+  --color-chip: var(--chip);
+  --color-glass: var(--glass);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-grad-a: var(--grad-a);
+  --color-grad-b: var(--grad-b);
 }
+
+body {
+  background-color: var(--page);
+  color: var(--body);
+}
+
+/* Theme toggle ki gol animation */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) { z-index: 1; }
+::view-transition-new(root) { z-index: 2; }

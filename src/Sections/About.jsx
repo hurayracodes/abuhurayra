@@ -17,15 +17,12 @@ function About() {
         style={{ zIndex: 1 }}
       />
 
-      <main
-        id="about"
-        className="min-h-screen flex items-center justify-center flex-col pb-12 px-4 sm:px-6 lg:px-16 text-slate-300"
-      >
+      <main className="min-h-screen flex items-center justify-center flex-col pb-12 px-4 sm:px-6 lg:px-16 text-body">
         {/* Heading - Left aligned */}
         <div className="w-full max-w-7xl mx-auto mb-8 md:mb-12">
-          <h1 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold text-left">
+          <h1 className="text-heading text-2xl sm:text-3xl md:text-4xl font-bold text-left">
             LET ME{" "}
-            <span className="text-cyan-400 bg-linear-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-grad-a to-grad-b bg-clip-text text-transparent">
               INTRODUCE MYSELF
             </span>{" "}
           </h1>
@@ -34,45 +31,45 @@ function About() {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start max-w-7xl mx-auto w-full">
           {/* Left side content */}
           <section className="space-y-5 font-normal text-justify order-2 lg:order-1 w-full tracking-tight text-base sm:text-lg">
-            <p className="text-lg font-mono text-gray-300">
+            <p className="text-lg font-mono text-strong">
               👋Welcome to my World, Nice to see you here.
             </p>
 
-            <p className="text-gray-400 text-sm md:text-base tracking-wide">
+            <p className="text-body text-sm md:text-base tracking-wide">
               I fell in love with programming, my journey as a JavaScript
               Developer started with Simple Ideas and now I am building complex
               web applications. I am fluent in classics like Javascript and a
               deep expertise in{" "}
-              <span className="text-gray-300 font-mono underline">
+              <span className="text-strong font-mono underline">
                 full-stack development
               </span>
             </p>
 
-            <p className="text-gray-400 text-sm md:text-base tracking-wide">
+            <p className="text-body text-sm md:text-base tracking-wide">
               I specialize in transforming innovative ideas into reality. My
               skill spread across from dynamic frontend interfaces using{" "}
-              <span className=" font-mono underline text-gray-200">
+              <span className="font-mono underline text-strong">
                 React, Next.js, React.Native
               </span>{" "}
               to robust backend solutions with{" "}
-              <span className="underline font-mono text-gray-300">
+              <span className="underline font-mono text-strong">
                 Node.js, Express & MongoDB{" "}
               </span>
               with over 2+ years of experience in creating modern, responsive
               web solutions.
             </p>
 
-            <p className="text-gray-400 text-sm md:text-base tracking-wide">
+            <p className="text-body text-sm md:text-base tracking-wide">
               I'm committed to learning new things and working with others all
               the time, and I make sure that every project I work on is not only
               efficient and scalable, but also innovative.
             </p>
-            <p className="text-gray-400 text-sm md:text-base tracking-wide">
+            <p className="text-body text-sm md:text-base tracking-wide">
               Currently freelancing on Fiverr, I bring the same dedication to
               every client project — whether it's a landing page, a full-stack
               app, or anything in between. Let's build something great together.
             </p>
-            <p className="text-gray-400 text-sm md:text-base tracking-wide">
+            <p className="text-body text-sm md:text-base tracking-wide">
               Based in Lahore, Pakistan — always open to remote collaborations, new challenges, and exciting opportunities around the globe.
             </p>
           </section>
@@ -81,7 +78,7 @@ function About() {
           <section className="relative flex flex-col items-center justify-center order-1 lg:order-2 w-full">
             <div className="relative flex justify-center items-center">
               {/* Image Container */}
-              <div className="relative transition-all duration-300 cursor-grab w-50 h-50 sm:w-62 sm:h-62 md:w-70 md:h-70 group border-4 border-cyan-400/30 rounded-full">
+              <div className="relative transition-all duration-300 cursor-grab w-50 h-50 sm:w-62 sm:h-62 md:w-70 md:h-70 group border-4 border-accent/30 rounded-full">
                 <img
                   src="/hurayracodes.png"
                   alt="Abu Hurayra"
@@ -95,7 +92,7 @@ function About() {
                   href="https://github.com/hurayracodes"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] transition-all duration-300 backdrop-blur-sm rounded-full bg-slate-950/20 border border-white/10 hover:border-cyan-400 text-slate-400 hover:text-cyan-200"
+                  className="p-2 hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] transition-all duration-300 backdrop-blur-sm rounded-full bg-glass border border-line hover:border-accent text-muted hover:text-accent"
                 >
                   <Github className="w-4 h-4 sm:w-5 sm:h-5" />
                 </a>
@@ -103,7 +100,7 @@ function About() {
                   href="https://www.linkedin.com/in/hurayracodes/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] transition-all duration-300 backdrop-blur-sm rounded-full bg-slate-950/20 border border-white/10 hover:border-cyan-400 text-slate-400 hover:text-cyan-200"
+                  className="p-2 hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] transition-all duration-300 backdrop-blur-sm rounded-full bg-glass border border-line hover:border-accent text-muted hover:text-accent"
                 >
                   <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
                 </a>
@@ -111,7 +108,7 @@ function About() {
                   href="mailto:abuhuraira3912l@gmail.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] transition-all duration-300 backdrop-blur-sm rounded-full bg-slate-950/20 border border-white/10 hover:border-cyan-400 text-slate-400 hover:text-cyan-200"
+                  className="p-2 hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] transition-all duration-300 backdrop-blur-sm rounded-full bg-glass border border-line hover:border-accent text-muted hover:text-accent"
                 >
                   <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
                 </a>
@@ -120,38 +117,38 @@ function About() {
 
             {/* Hover Text */}
             <div className="mt-5 text-center">
-              <p className="text-sm text-slate-400">
+              <p className="text-sm text-muted">
                 Hover on the image to 💡 it up.
               </p>
             </div>
 
             {/* Additional Content Section */}
             <div className="w-full mt-8">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-300">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-strong">
                 <div className="flex items-center space-x-3">
-                  <div className="bg-gray-800/50 p-2 rounded-lg">
-                    <Briefcase className="w-5 h-5 text-blue-400" />
+                  <div className="bg-chip p-2 rounded-lg">
+                    <Briefcase className="w-5 h-5 text-blue-500 dark:text-blue-400" />
                   </div>
                   <span className="text-sm">Heapware Software Tec. lhr</span>
                 </div>
 
                 <div className="flex items-center space-x-3">
-                  <div className="bg-gray-800/50 p-2 rounded-lg">
-                    <GraduationCap className="w-5 h-5 text-purple-400" />
+                  <div className="bg-chip p-2 rounded-lg">
+                    <GraduationCap className="w-5 h-5 text-purple-500 dark:text-purple-400" />
                   </div>
                   <span className="text-sm">Intermediate Computer Science</span>
                 </div>
 
                 <div className="flex items-center space-x-3">
-                  <div className="bg-gray-800/50 p-2 rounded-lg">
-                    <MapPin className="w-5 h-5 text-green-400" />
+                  <div className="bg-chip p-2 rounded-lg">
+                    <MapPin className="w-5 h-5 text-green-600 dark:text-green-400" />
                   </div>
                   <span className="text-sm">Ccw, Punjab Pakistan</span>
                 </div>
 
                 <div className="flex items-center space-x-3">
-                  <div className="bg-gray-800/50 p-2 rounded-lg">
-                    <User className="w-5 h-5 text-yellow-400" />
+                  <div className="bg-chip p-2 rounded-lg">
+                    <User className="w-5 h-5 text-yellow-600 dark:text-yellow-400" />
                   </div>
                   <span className="text-sm">Open to Opportunities</span>
                 </div>

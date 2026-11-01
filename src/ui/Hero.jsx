@@ -33,7 +33,7 @@ function Hero() {
         />
       </div>
 
-      <section className="relative flex items-center justify-center px-6 lg:px-10 text-white pt-28 pb-20 lg:min-h-screen z-20">
+      <section className="relative flex items-center justify-center px-6 lg:px-10 text-heading pt-28 pb-20 lg:min-h-screen z-20">
         <div className="max-w-5xl mx-auto w-full">
           {/* ── Name — h2 (SEO fix) ── */}
           <motion.div
@@ -45,7 +45,7 @@ function Hero() {
             className="text-center"
           >
             <h2
-              className="font-mono font-extrabold tracking-tight text-white/95"
+              className="font-mono font-extrabold tracking-tight text-heading/95"
               style={{
                 fontSize: "clamp(2rem, 8vw, 4rem)",
                 letterSpacing: "-0.03em",
@@ -67,11 +67,11 @@ function Hero() {
             className="flex items-center gap-4 mx-auto my-1"
             style={{ maxWidth: "560px" }}
           >
-            <div className="flex-1 h-px bg-gradient-to-r from-transparent to-cyan-400/40" />
-            <span className="font-mono text-xs tracking-[0.2em] uppercase text-cyan-300/70">
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent to-accent/40" />
+            <span className="font-mono text-xs tracking-[0.2em] uppercase text-accent/80">
               full stack developer
             </span>
-            <div className="flex-1 h-px bg-gradient-to-l from-transparent to-cyan-400/40" />
+            <div className="flex-1 h-px bg-gradient-to-l from-transparent to-accent/40" />
           </motion.div>
 
           {/* ── Main h1 ── */}
@@ -83,7 +83,7 @@ function Hero() {
             viewport={{ once: true }}
             className="text-center mt-8 mb-8"
           >
-            <h1 className="text-3xl font-mono sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white/90 tracking-tight font-extralight">
+            <h1 className="text-3xl font-mono sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-heading/90 tracking-tight font-extralight">
               Build{" "}
               <span className="inline-flex items-center justify-center rotating-text text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mx-2">
                 <RotatingDecryptedText
@@ -98,12 +98,12 @@ function Hero() {
                   speed={40}
                   revealDirection="start"
                   encryptedClassName="opacity-40"
-                  className="text-cyan-400 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extralight tracking-tight"
+                  className="text-accent text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extralight tracking-tight"
                   parentClassName="inline-block"
                 />
               </span>
             </h1>
-            <p className="text-3xl font-mono sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white/90 tracking-tight font-extralight">
+            <p className="text-3xl font-mono sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-heading/90 tracking-tight font-extralight">
               That Delivers Results
             </p>
           </motion.div>
@@ -115,7 +115,7 @@ function Hero() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="text-gray-400 text-center mx-auto leading-relaxed"
+            className="text-body text-center mx-auto leading-relaxed"
             style={{
               fontSize: "clamp(1rem, 2vw, 1.15rem)",
               maxWidth: "600px",
@@ -128,102 +128,34 @@ function Hero() {
             actually love to use.
           </motion.p>
 
-           {/* ── CTA Buttons (Full Width on Mobile) ── */}
+          {/* ── CTA Buttons ── */}
           <motion.div
             custom={5}
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            style={{
-              display: "flex",
-
-              justifyContent: "center",
-
-              gap: "16px",
-
-              flexWrap: "wrap",
-            }}
+            className="flex flex-wrap justify-center gap-4"
           >
-            <a href="/Abuhurara.pdf" target="_blank" rel="noopener noreferrer">
-              <button
-                style={{
-                  padding: "14px 36px",
-
-                  borderRadius: "999px",
-
-                  background:
-                    "linear-gradient(135deg, #6d28d9 0%, #0891b2 100%)",
-
-                  color: "#fff",
-
-                  fontWeight: 600,
-
-                  fontSize: "1rem",
-
-                  border: "none",
-
-                  cursor: "pointer",
-
-                  letterSpacing: "0.03em",
-
-                  boxShadow: "0 0 28px rgba(6,182,212,0.25)",
-
-                  transition: "transform 0.2s, box-shadow 0.2s",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-2px)";
-
-                  e.currentTarget.style.boxShadow =
-                    "0 0 40px rgba(6,182,212,0.4)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0)";
-
-                  e.currentTarget.style.boxShadow =
-                    "0 0 28px rgba(6,182,212,0.25)";
-                }}
-              >
-                View Resume
-              </button>
+            <a
+              href="/Abuhurara.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block cursor-pointer rounded-full bg-linear-to-br from-violet-700 to-cyan-600
+                         px-9 py-3.5 text-base font-semibold tracking-[0.03em] text-white
+                         shadow-[0_0_28px_rgba(6,182,212,0.25)] transition duration-200
+                         hover:-translate-y-0.5 hover:shadow-[0_0_40px_rgba(6,182,212,0.4)]"
+            >
+              View Resume
             </a>
 
-            <a href="#projects">
-              <button
-                style={{
-                  padding: "14px 36px",
-
-                  borderRadius: "999px",
-
-                  background: "transparent",
-
-                  color: "rgba(255,255,255,0.75)",
-
-                  fontWeight: 500,
-
-                  fontSize: "1rem",
-
-                  border: "1px solid rgba(255,255,255,0.18)",
-
-                  cursor: "pointer",
-
-                  letterSpacing: "0.03em",
-
-                  transition: "border-color 0.2s, color 0.2s",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(6,182,212,0.5)";
-
-                  e.currentTarget.style.color = "#fff";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.18)";
-
-                  e.currentTarget.style.color = "rgba(255,255,255,0.75)";
-                }}
-              >
-                See My Work
-              </button>
+            <a
+              href="#projects"
+              className="inline-block cursor-pointer rounded-full border border-line-strong
+                         px-9 py-3.5 text-base font-medium tracking-[0.03em] text-strong
+                         transition duration-200 hover:border-accent/50 hover:text-heading"
+            >
+              See My Work
             </a>
           </motion.div>
         </div>

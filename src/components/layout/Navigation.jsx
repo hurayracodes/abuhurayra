@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Home, BookOpen, Linkedin, Github, Youtube, Sun, Moon } from "lucide-react";
-import { useTheme } from "./Theme.jsx";
+import { useTheme } from "../Theme.jsx";
 
 const DOCK_LINKS = [
   { label: "Home",     href: "#home", icon: Home,     internal: true },

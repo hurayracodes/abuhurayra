@@ -3,14 +3,14 @@
 import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Home, BookOpen, Linkedin, Github, Youtube, Sun, Moon } from "lucide-react";
-import { useTheme } from "../Theme.jsx";
+import { useTheme } from "../../ui/Theme.jsx";
 
 const DOCK_LINKS = [
   { label: "Home",     href: "#home", icon: Home,     internal: true },
   { label: "Blog",     href: "#blog", icon: BookOpen, internal: true },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/YOUR-ID",   icon: Linkedin },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/hurayracodes",   icon: Linkedin },
   { label: "GitHub",   href: "https://github.com/hurayracodes",       icon: Github },
-  { label: "YouTube",  href: "https://www.youtube.com/@YOUR-CHANNEL", icon: Youtube },
+  { label: "YouTube",  href: "https://www.youtube.com/@jslogicbyte", icon: Youtube },
 ];
 
 const smoothScrollTo = (href) => {

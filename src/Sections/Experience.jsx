@@ -1,195 +1,81 @@
-import { useState } from "react";
-import { Button } from "../ui/MovingBorder";
-import TitleHeader from "../ui/TitleHeader";
 import { experiences } from "../ui/Data";
 
-
-// ── Experience data ───────────────────────────────────────────────────────────
-
-
-
-// ── Card inner content ────────────────────────────────────────────────────────
-
-function CardContent({ exp, isActive }) {
-  return (
-    <div className="w-full h-full p-4 text-left">
-      {/* Top row */}
-      <div className="flex items-start justify-between gap-2 mb-2">
-        <div>
-          <span className="inline-block text-[9px] font-mono uppercase tracking-widest px-2 py-0.5 rounded-full mb-1.5 bg-slate-800 text-slate-400 border border-slate-700">
-            {exp.type}
-          </span>
-          <h3 className="text-white font-bold text-sm leading-tight">{exp.title}</h3>
-          <p className="text-slate-500 text-xs mt-0.5">{exp.company}</p>
-        </div>
-        <span className="flex-shrink-0 text-[10px] font-mono text-slate-600 whitespace-nowrap pt-1">
-          {exp.duration}
-        </span>
-      </div>
-
-      {/* Tags */}
-      <div className="flex flex-wrap gap-1 mb-2">
-        {exp.tags.map((tag) => (
-          <span
-            key={tag}
-            className="text-[9px] font-mono text-slate-600 border border-slate-800 rounded px-1.5 py-0.5"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-
-      {/* Expandable section */}
-      <div
-        className={`overflow-hidden transition-all duration-500 ${
-          isActive ? "max-h-56 opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
-        <p className="text-slate-400 text-xs leading-relaxed mb-3 pt-2 border-t border-slate-700/50">
-          {exp.description}
-        </p>
-        <div className="flex flex-wrap gap-1">
-          {exp.skills.map((s) => (
-            <span
-              key={s}
-              className="text-[10px] px-2 py-0.5 rounded font-medium text-slate-300 bg-slate-700/60"
-            >
-              {s}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* Expand hint */}
-      <div className="mt-2 flex items-center gap-1 text-slate-700 text-[10px] font-mono">
-        <span className={`transition-transform duration-300 ${isActive ? "rotate-180" : ""}`}>
-          ▾
-        </span>
-        <span>{isActive ? "collapse" : "details"}</span>
-      </div>
-    </div>
-  );
-}
-
-// ── Reusable card renderer ────────────────────────────────────────────────────
-
-function ExperienceCard({ exp, isActive, onToggle }) {
-  if (isActive) {
-    return (
-      <Button
-        key={exp.id}
-        duration={Math.floor(Math.random() * 5000) + 5000}
-        borderRadius="1.5rem"
-        as="div"
-        style={{
-          background: "var(--theme-card-background)",
-          backgroundImage: "var(--theme-card-gradient)",
-          border: "1px solid var(--theme-card-border)",
-          borderRadius: "1.5rem",
-        }}
-        containerClassName="w-full"
-        className="flex-1 text-white border-neutral-200 dark:border-slate-800 w-full"
-        onClick={onToggle}
-      >
-        <CardContent exp={exp} isActive={isActive} />
-      </Button>
-    );
-  }
-
-  return (
-    <div
-      className="w-full rounded-[1.5rem] border border-slate-800 bg-slate-900/60 hover:border-slate-700 cursor-pointer transition-all duration-300"
-      onClick={onToggle}
-    >
-      <CardContent exp={exp} isActive={isActive} />
-    </div>
-  );
-}
-
-// ── Main Component ────────────────────────────────────────────────────────────
+// Resume file ka path. Agar PDF ko public/docs/resume.pdf main move karo to yahan update karna.
+const RESUME_URL = "/Abuhurara.pdf";
 
 export default function Experience() {
-  const [active, setActive] = useState(null);
-
-  const toggle = (id) => setActive((prev) => (prev === id ? null : id));
-
   return (
-    <section className="relative py-24 px-4">
-      <TitleHeader title="My Journey " subTitle="Work Experience" />
-      <div className="max-w-3xl mx-auto">
+    <section
+      id="experience"
+      className="relative bg-white dark:bg-[#0e0f11] text-neutral-900 dark:text-white py-24 px-6"
+    >
+      <div className="mx-auto max-w-[1300px] grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-x-10 gap-y-8">
+        {/* ── Left: Resume link ─────────────────────────────── */}
+        <div className="lg:pt-3">
+          <a
+            href={RESUME_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-tight hover:opacity-60 transition-opacity"
+          >
+            <span aria-hidden="true">↳</span>
+            Resume
+          </a>
+        </div>
 
-        {/* Experience List */}
-        <ul className="divide-y divide-slate-800">
-          {experiences.map((exp) => {
-            const isOpen = active === exp.id;
-            return (
-              <li key={exp.id}>
-                {/* Row */}
-                <div
-                  className="flex items-start justify-between gap-4 py-5 cursor-pointer groupp"
-                  onClick={() => toggle(exp.id)}
-                >
-                  {/* Left: icon + title */}
-                  <div className="flex items-center gap-4 flex-1">
-                    <div className="w-11 h-11 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-xl flex-shrink-0">
-                      {exp.icon}
-                    </div>
-                    <div>
-                      <p className="text-slate-100 dark:text-white font-medium text-sm leading-tight">
-                        {exp.title}
-                      </p>
-                      <p className="text-slate-500 text-xs mt-0.5">
-                        {exp.company}
-                      </p>
-                    </div>
-                  </div>
+        {/* ── Right: Heading + list ─────────────────────────── */}
+        <div>
+          {/* Heading row */}
+          <div className="flex items-end justify-between gap-4 pb-10 border-b border-neutral-200 dark:border-white/10">
+            <h2 className="text-[clamp(3rem,9vw,6rem)] font-semibold uppercase leading-[0.9] tracking-tighter">
+              Experience
+            </h2>
+            <span className="hidden sm:block text-sm font-semibold uppercase tracking-tight pb-2 whitespace-nowrap">
+              [ My Experience ]
+            </span>
+          </div>
 
-                  {/* Right: date + chevron */}
-                  <div className="flex items-center gap-3 flex-shrink-0">
-                    <span className="text-slate-400 text-sm hidden sm:block">
-                      {exp.duration}
-                    </span>
-                    <span
-                      className={`text-slate-500 text-xs transition-transform duration-300 ${
-                        isOpen ? "rotate-180" : ""
-                      }`}
-                    >
-                      ▾
-                    </span>
-                  </div>
-                </div>
-
-                {/* Mobile date */}
-                <p className="text-slate-600 text-xs pb-1 pl-14 sm:hidden">
+          {/* Rows */}
+          <ul>
+            {experiences.map((exp) => (
+              <li
+                key={exp.id}
+                className="group grid grid-cols-1 md:grid-cols-[20%_43%_37%] gap-y-3 py-10 border-b border-neutral-200 dark:border-white/10"
+              >
+                {/* Date */}
+                <p className="text-sm font-semibold tracking-tight">
                   {exp.duration}
                 </p>
 
-                {/* Expandable Detail */}
-                <div
-                  className={`overflow-hidden transition-all duration-400 ${
-                    isOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
-                  }`}
-                >
-                  <div className="pl-14 pb-5">
-                    <p className="text-slate-400 text-sm leading-relaxed mb-3">
-                      {exp.description}
+                {/* Title + company */}
+                <div className="md:pr-8">
+                  <h3 className="text-2xl font-medium leading-tight tracking-tight">
+                    {exp.title}
+                  </h3>
+                  {exp.link ? (
+                    <a
+                      href={exp.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-2 inline-block text-sm text-neutral-500 dark:text-neutral-400 underline underline-offset-4 hover:text-neutral-900 dark:hover:text-white transition-colors"
+                    >
+                      {exp.company}
+                    </a>
+                  ) : (
+                    <p className="mt-2 text-sm text-neutral-500 dark:text-neutral-400 underline underline-offset-4">
+                      {exp.company}
                     </p>
-                    <div className="flex flex-wrap gap-2">
-                      {exp.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-xs px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-slate-400"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+                  )}
                 </div>
+
+                {/* Description */}
+                <p className="text-base leading-relaxed text-neutral-500 dark:text-neutral-400 group-hover:text-neutral-700 dark:group-hover:text-neutral-300 transition-colors">
+                  {exp.description}
+                </p>
               </li>
-            );
-          })}
-        </ul>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

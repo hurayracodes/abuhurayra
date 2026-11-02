@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import {
   Home,
   BookOpen,
@@ -29,40 +30,47 @@ const DOCK_LINKS = [
   },
 ];
 
-const smoothScrollTo = (href) => {
-  const el = document.getElementById(href.replace("#", ""));
-  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-  else window.scrollTo({ top: 0, behavior: "smooth" });
-};
-
-function DockItem({ item, pathname, navigate }) {
+function DockItem({ item, pathname, navigate, active, reduceMotion }) {
   const Icon = item.icon;
   const external = !item.internal;
   return (
     <a
       href={item.href}
       aria-label={item.label}
+      aria-current={active ? "page" : undefined}
       {...(external
         ? { target: "_blank", rel: "noopener noreferrer" }
         : {
             onClick: (event) => {
               event.preventDefault();
-              // "/blog" jaise path: seedha us page par jao
               if (!item.href.startsWith("#")) {
                 navigate(item.href);
                 return;
               }
-              // "#home" jaise section link
               if (pathname !== "/") {
-                navigate(`/${item.href}`); // "/#home"
+                navigate(`/${item.href}`);
                 return;
               }
-              smoothScrollTo(item.href);
+              navigate(`/${item.href}`);
             },
           })}
-      className="group relative flex h-11 w-11 items-center justify-center rounded-full
-                 text-slate-200 transition-all duration-300 hover:-translate-y-1 hover:bg-white/15 sm:h-12 sm:w-12"
+      className={`group relative flex h-11 w-11 items-center justify-center rounded-full
+                 text-slate-200 transition-all duration-300 hover:-translate-y-1 hover:bg-white/15 sm:h-12 sm:w-12 ${
+                   active ? "bg-white/15 text-white" : ""
+                 }`}
     >
+      {active && (
+        <motion.span
+          layoutId="dock-active"
+          aria-hidden="true"
+          className="absolute inset-0 rounded-full bg-white/10"
+          transition={
+            reduceMotion
+              ? { duration: 0 }
+              : { type: "spring", stiffness: 380, damping: 30 }
+          }
+        />
+      )}
       <Icon className="h-5 w-5" />
       <span
         className="pointer-events-none absolute -top-9 whitespace-nowrap rounded-md bg-white px-2 py-1
@@ -78,15 +86,68 @@ export default function Navigation() {
   const { theme, toggleTheme } = useTheme();
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const reduceMotion = useReducedMotion();
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    if (pathname !== "/") {
+      setActiveSection("");
+      return undefined;
+    }
+
+    const sections = [
+      "home",
+      "about",
+      "experience",
+      "projects",
+      "testimonials",
+      "contact",
+    ];
+    let observer;
+    let frame = 0;
+    let attempts = 0;
+    const observeSections = () => {
+      if (!document.getElementById("home") && attempts < 60) {
+        attempts += 1;
+        frame = window.requestAnimationFrame(observeSections);
+        return;
+      }
+
+      observer = new IntersectionObserver(
+        (entries) => {
+          const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((first, second) => second.intersectionRatio - first.intersectionRatio);
+          if (visible[0]) setActiveSection(visible[0].target.id);
+        },
+        { rootMargin: "-25% 0px -60% 0px", threshold: [0, 0.2, 0.5, 0.8] },
+      );
+
+      sections.forEach((id) => {
+        const section = document.getElementById(id);
+        if (section) observer.observe(section);
+      });
+    };
+
+    frame = window.requestAnimationFrame(observeSections);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      observer?.disconnect();
+    };
+  }, [pathname]);
 
   return (
     <>
       {/* Bottom floating dock */}
       <motion.nav
         aria-label="Quick links"
-        initial={{ y: 80, opacity: 0 }}
+        initial={reduceMotion ? { opacity: 0 } : { y: 80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ type: "spring", damping: 20, stiffness: 160, delay: 0.3 }}
+        transition={
+          reduceMotion
+            ? { duration: 0.2, delay: 0.1 }
+            : { type: "spring", damping: 20, stiffness: 160, delay: 0.3 }
+        }
         className="fixed left-1/2 z-90 -translate-x-1/2"
         style={{ bottom: "calc(env(safe-area-inset-bottom, 0px) + 1.5rem)" }}
       >
@@ -100,6 +161,14 @@ export default function Navigation() {
               item={item}
               pathname={pathname}
               navigate={navigate}
+              reduceMotion={reduceMotion}
+              active={
+                item.href === "/blog"
+                  ? pathname.startsWith("/blog")
+                  : item.href === "#home"
+                    ? activeSection === "home" || (pathname === "/" && !activeSection)
+                    : false
+              }
             />
           ))}
 
@@ -117,10 +186,10 @@ export default function Navigation() {
             <AnimatePresence mode="wait" initial={false}>
               <motion.span
                 key={theme}
-                initial={{ rotate: -90, scale: 0, opacity: 0 }}
+                initial={reduceMotion ? { opacity: 0 } : { rotate: -90, scale: 0, opacity: 0 }}
                 animate={{ rotate: 0, scale: 1, opacity: 1 }}
-                exit={{ rotate: 90, scale: 0, opacity: 0 }}
-                transition={{ duration: 0.25 }}
+                exit={reduceMotion ? { opacity: 0 } : { rotate: 90, scale: 0, opacity: 0 }}
+                transition={{ duration: reduceMotion ? 0.1 : 0.25 }}
               >
                 {theme === "dark" ? (
                   <Sun className="h-5 w-5" />

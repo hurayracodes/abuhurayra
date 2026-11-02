@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import RotatingDecryptedText from "./DecryptText";
+import RotatingDecryptedText from "../ui/DecryptText";
 import { Images } from "lucide-react";
 
 const fadeInUp = {

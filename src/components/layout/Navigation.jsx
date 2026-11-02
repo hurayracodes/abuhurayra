@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Home, BookOpen, Linkedin, Github, Youtube, Sun, Moon } from "lucide-react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from "../../ui/Theme.jsx";
 
 const DOCK_LINKS = [
@@ -19,7 +19,7 @@ const smoothScrollTo = (href) => {
   else window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
-function DockItem({ item }) {
+function DockItem({ item, pathname, navigate }) {
   const Icon = item.icon;
   const external = !item.internal;
   return (
@@ -28,7 +28,16 @@ function DockItem({ item }) {
       aria-label={item.label}
       {...(external
         ? { target: "_blank", rel: "noopener noreferrer" }
-        : { onClick: (e) => { e.preventDefault(); smoothScrollTo(item.href); } })}
+        : {
+            onClick: (event) => {
+              event.preventDefault();
+              if (pathname !== "/") {
+                navigate(`/${item.href}`);
+                return;
+              }
+              smoothScrollTo(item.href);
+            },
+          })}
       className="group relative flex h-11 w-11 items-center justify-center rounded-full
                  text-slate-200 transition-all duration-300 hover:-translate-y-1 hover:bg-white/15 sm:h-12 sm:w-12"
     >
@@ -43,6 +52,8 @@ function DockItem({ item }) {
 
 export default function Navigation() {
   const { theme, toggleTheme } = useTheme();
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -58,7 +69,12 @@ export default function Navigation() {
         <div className="flex items-center gap-1 rounded-full border border-white/10 bg-slate-900/70 px-2 py-1.5
                         shadow-xl shadow-black/20 backdrop-blur-xl sm:gap-2 sm:px-3">
           {DOCK_LINKS.map((item) => (
-            <DockItem key={item.label} item={item} />
+            <DockItem
+              key={item.label}
+              item={item}
+              pathname={pathname}
+              navigate={navigate}
+            />
           ))}
 
           <span className="mx-1 h-6 w-px bg-white/20" aria-hidden="true" />

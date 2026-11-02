@@ -50,7 +50,9 @@
   --color-chip: var(--chip);
   --color-glass: var(--glass);
   --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
   --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
   --color-grad-a: var(--grad-a);
   --color-grad-b: var(--grad-b);
 }

@@ -1,15 +1,14 @@
 
 // import { StarsCanvas } from "../ui/StarsCanvas";
-import Hero from "../ui/Hero";
+import Hero from "../Sections/Hero";
 import Projects from "../Sections/Projects";
 import  Testimonials  from "../Sections/Testimonials";
 import Contact from "../Sections/Contact";
 import About from "../Sections/About";
 import Knowledge from "../Sections/Knowledge";
-import SkillsSection from "../Sections/SkillsSection";
 import Experience from "../Sections/Experience";
 
-function Home() {
+function Home({ children }) {
 
   return (
     <>
@@ -21,14 +20,12 @@ function Home() {
           {/* Projects section */}
             <Projects />
             <Knowledge/>
-            <SkillsSection/>
           {/* Testimonials section */}
             <Testimonials />
 
-          {/* Contact section */}
+            {children}
+            {/* Contact section */}
             <Contact />
-
-          
         </div>
     </>
   );

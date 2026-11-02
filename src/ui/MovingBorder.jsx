@@ -9,10 +9,6 @@ import {
 } from "framer-motion";
 import { useRef } from "react";
 
-// Remove this line
-// import { cn } from "./utils";
-
-// Replace cn function with this simple helper
 function cn(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -43,9 +39,10 @@ export function Button({
         style={{ borderRadius: `calc(${borderRadius} * 0.96)` }}
       >
         <MovingBorder duration={duration} rx="30%" ry="30%">
+          {/* Chalti hui lime roshni (accent token se, dono modes mein) */}
           <div
             className={cn(
-              "h-20 w-20 opacity-[0.5] bg-[radial-gradient(#29b9e0_20%,transparent_60%)]",
+              "h-20 w-20 opacity-[0.5] bg-[radial-gradient(var(--accent)_20%,transparent_60%)]",
               borderClassName
             )}
           />
@@ -54,7 +51,7 @@ export function Button({
 
       <div
         className={cn(
-          "relative bg-slate-900/0 border border-slate-800 backdrop-blur-xl text-white flex items-center justify-center w-full h-full text-sm antialiased",
+          "relative border border-line backdrop-blur-xl text-heading flex items-center justify-center w-full h-full text-sm antialiased",
           className
         )}
         style={{

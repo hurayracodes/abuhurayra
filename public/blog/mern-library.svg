@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title description">
+  <title id="title">Library management system</title>
+  <desc id="description">Books, a protected PDF, and a library dashboard</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0e1a12"/>
+      <stop offset="1" stop-color="#3a7400"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#cfd1ce"/>
+      <stop offset="1" stop-color="#ffffff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" rx="36" fill="url(#background)"/>
+  <circle cx="1000" cy="145" r="180" fill="#c5f24e" opacity=".14"/>
+  <rect x="106" y="146" width="240" height="365" rx="20" fill="#c5f24e"/>
+  <rect x="136" y="178" width="180" height="301" rx="10" fill="#0e1a12" opacity=".88"/>
+  <path d="M167 219h118M167 243h118M167 267h95" stroke="#c5f24e" stroke-width="8" stroke-linecap="round"/>
+  <path d="M182 325h108v122H182z" fill="url(#paper)"/>
+  <path d="M200 351h72M200 370h72M200 389h58" stroke="#3a7400" stroke-width="6" stroke-linecap="round"/>
+  <rect x="398" y="306" width="90" height="205" rx="13" fill="#cfd1ce"/>
+  <rect x="501" y="262" width="104" height="249" rx="13" fill="#c5f24e"/>
+  <rect x="619" y="331" width="84" height="180" rx="13" fill="#ffffff"/>
+  <rect x="736" y="165" width="350" height="291" rx="22" fill="#cfd1ce" opacity=".96"/>
+  <rect x="768" y="198" width="286" height="60" rx="12" fill="#ffffff"/>
+  <circle cx="799" cy="228" r="13" fill="#3a7400"/>
+  <path d="M827 220h187M827 238h132" stroke="#1b2a20" stroke-width="8" stroke-linecap="round" opacity=".6"/>
+  <rect x="768" y="278" width="286" height="146" rx="12" fill="#ffffff"/>
+  <path d="M798 387V353l39-28 37 19 39-48 38 24 50-48" fill="none" stroke="#3a7400" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

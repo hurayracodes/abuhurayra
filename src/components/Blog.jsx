@@ -54,24 +54,14 @@ export default function Blog() {
             </button>
           ))}
         </div>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {posts.map((post, index) => (
-            <motion.div
-              key={post.id}
-              initial={reduceMotion ? false : { opacity: 0, y: 24 }}
-              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={
-                reduceMotion
-                  ? undefined
-                  : { duration: 0.45, delay: Math.min(index * 0.08, 0.32) }
-              }
-              className={index === 0 ? "lg:col-span-2" : ""}
-            >
-              <BlogCard post={post} featured={index === 0} />
-            </motion.div>
-          ))}
-        </div>
+        <motion.div
+          initial={reduceMotion ? false : { opacity: 1, y: 24 }}
+          whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={reduceMotion ? undefined : { duration: 0.45 }}
+        >
+          <BlogCard posts={posts} />
+        </motion.div>
         <div className="mt-10 text-center">
           <Link
             to="/blog"

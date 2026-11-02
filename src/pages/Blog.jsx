@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { LayoutGrid, Layers } from "lucide-react";
-import BlogCard from "../ui/BlogCard";
+import { BlogPostCard } from "../ui/BlogCard";
 import Card from "../ui/BlogCard";
 import { blogPosts } from "../ui/Data";
 import usePageMeta from "../hooks/usePageMeta";
@@ -141,7 +141,7 @@ export default function Blog() {
           ) : (
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               {visiblePosts.map((post) => (
-                <BlogCard key={post.id} post={post} />
+                <BlogPostCard key={post.id} post={post} />
               ))}
             </div>
           )

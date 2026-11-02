@@ -46,6 +46,46 @@ const formatDate = (date) =>
     day: "numeric",
   });
 
+export function BlogPostCard({ post }) {
+  return (
+    <Link
+      to={`/blog/${post.slug}`}
+      className="group block rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-page"
+    >
+      <article className="h-full overflow-hidden rounded-2xl border border-line bg-chip backdrop-blur transition duration-300 group-hover:-translate-y-1 group-hover:border-accent/50 group-hover:shadow-[0_0_40px_rgb(var(--accent-rgb)/0.25)]">
+        <img
+          src={post.cover}
+          alt={post.coverAlt}
+          width="1200"
+          height="675"
+          loading="lazy"
+          decoding="async"
+          className="aspect-[16/9] w-full object-cover"
+        />
+        <div className="p-5 sm:p-6">
+          <span className="inline-block rounded-full bg-accent/15 px-3 py-1 font-mono text-xs uppercase tracking-wide text-accent">
+            {post.category}
+          </span>
+          <h3 className="mt-3 text-xl font-semibold leading-snug text-heading transition-colors group-hover:text-accent sm:text-2xl">
+            {post.title}
+          </h3>
+          <p className="mt-3 line-clamp-3 text-body">{post.excerpt}</p>
+          <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-xs text-muted">
+              <time dateTime={post.date}>{formatDate(post.date)}</time>
+              <span>{post.readTime}</span>
+            </div>
+            <span className="inline-flex items-center gap-1 text-sm font-semibold text-accent">
+              Read article
+              <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
+            </span>
+          </div>
+        </div>
+      </article>
+    </Link>
+  );
+}
+
 const CSS = `
 .pl-stage{position:relative;width:100%;height:26rem;overflow:hidden;user-select:none;-webkit-user-select:none;touch-action:pan-y;cursor:grab;border-radius:1rem}
 .pl-stage[data-drag='1']{cursor:grabbing}

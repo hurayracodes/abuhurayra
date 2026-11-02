@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import Blog from "./components/Blog";
 import Navigation from "./components/layout/Navigation";
 import Footer from "./components/layout/Footer";
 import Home from "./pages/Home";
@@ -45,13 +44,7 @@ export default function App() {
       <Routes>
         <Route
           path="/"
-          element={
-            <div id="home">
-              <Home>
-                <Blog />
-              </Home>
-            </div>
-          }
+          element={<div id="home"><Home /></div>}
         />
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />

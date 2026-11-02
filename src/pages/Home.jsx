@@ -7,8 +7,9 @@ import Contact from "../Sections/Contact";
 import About from "../Sections/About";
 import Knowledge from "../Sections/Knowledge";
 import Experience from "../Sections/Experience";
+import Blog from "../components/Blog";
 
-function Home({ children }) {
+function Home() {
 
   return (
     <>
@@ -22,8 +23,6 @@ function Home({ children }) {
             <Knowledge/>
           {/* Testimonials section */}
             <Testimonials />
-
-            {children}
             {/* Contact section */}
             <Contact />
         </div>

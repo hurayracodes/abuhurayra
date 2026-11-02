@@ -1,16 +1,32 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, BookOpen, Linkedin, Github, Youtube, Sun, Moon } from "lucide-react";
+import {
+  Home,
+  BookOpen,
+  Linkedin,
+  Github,
+  Youtube,
+  Sun,
+  Moon,
+} from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from "../../ui/Theme.jsx";
 
 const DOCK_LINKS = [
-  { label: "Home",     href: "#home", icon: Home,     internal: true },
-  { label: "Blog",     href: "#blog", icon: BookOpen, internal: true },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/hurayracodes",   icon: Linkedin },
-  { label: "GitHub",   href: "https://github.com/hurayracodes",       icon: Github },
-  { label: "YouTube",  href: "https://www.youtube.com/@jslogicbyte", icon: Youtube },
+  { label: "Home", href: "#home", icon: Home, internal: true },
+  { label: "Blog", href: "/blog", icon: BookOpen, internal: true },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/hurayracodes",
+    icon: Linkedin,
+  },
+  { label: "GitHub", href: "https://github.com/hurayracodes", icon: Github },
+  {
+    label: "YouTube",
+    href: "https://www.youtube.com/@jslogicbyte",
+    icon: Youtube,
+  },
 ];
 
 const smoothScrollTo = (href) => {
@@ -31,8 +47,14 @@ function DockItem({ item, pathname, navigate }) {
         : {
             onClick: (event) => {
               event.preventDefault();
+              // "/blog" jaise path: seedha us page par jao
+              if (!item.href.startsWith("#")) {
+                navigate(item.href);
+                return;
+              }
+              // "#home" jaise section link
               if (pathname !== "/") {
-                navigate(`/${item.href}`);
+                navigate(`/${item.href}`); // "/#home"
                 return;
               }
               smoothScrollTo(item.href);
@@ -42,8 +64,10 @@ function DockItem({ item, pathname, navigate }) {
                  text-slate-200 transition-all duration-300 hover:-translate-y-1 hover:bg-white/15 sm:h-12 sm:w-12"
     >
       <Icon className="h-5 w-5" />
-      <span className="pointer-events-none absolute -top-9 whitespace-nowrap rounded-md bg-white px-2 py-1
-                       text-xs text-slate-900 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+      <span
+        className="pointer-events-none absolute -top-9 whitespace-nowrap rounded-md bg-white px-2 py-1
+                       text-xs text-slate-900 opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+      >
         {item.label}
       </span>
     </a>
@@ -66,8 +90,10 @@ export default function Navigation() {
         className="fixed left-1/2 z-90 -translate-x-1/2"
         style={{ bottom: "calc(env(safe-area-inset-bottom, 0px) + 1.5rem)" }}
       >
-        <div className="flex items-center gap-1 rounded-full border border-white/10 bg-slate-900/70 px-2 py-1.5
-                        shadow-xl shadow-black/20 backdrop-blur-xl sm:gap-2 sm:px-3">
+        <div
+          className="flex items-center gap-1 rounded-full border border-white/10 bg-slate-900/70 px-2 py-1.5
+                        shadow-xl shadow-black/20 backdrop-blur-xl sm:gap-2 sm:px-3"
+        >
           {DOCK_LINKS.map((item) => (
             <DockItem
               key={item.label}
@@ -82,7 +108,9 @@ export default function Navigation() {
           {/* Dark / Light button */}
           <button
             onClick={toggleTheme}
-            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            aria-label={
+              theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+            }
             className="relative flex h-11 w-11 items-center justify-center rounded-full cursor-pointer
                        text-slate-200 transition hover:bg-white/15 sm:h-12 sm:w-12"
           >
@@ -94,7 +122,11 @@ export default function Navigation() {
                 exit={{ rotate: 90, scale: 0, opacity: 0 }}
                 transition={{ duration: 0.25 }}
               >
-                {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+                {theme === "dark" ? (
+                  <Sun className="h-5 w-5" />
+                ) : (
+                  <Moon className="h-5 w-5" />
+                )}
               </motion.span>
             </AnimatePresence>
           </button>
